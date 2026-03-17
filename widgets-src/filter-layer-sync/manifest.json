@@ -1,0 +1,13 @@
+{
+  "name": "filter-layer-sync",
+  "label": "Filter Layer Sync",
+  "type": "widget",
+  "version": "1.19.0",
+  "exbVersion": "1.19.0",
+  "properties": {
+    "hasConfig": true,
+    "hasMainClass": true,
+    "hasSettingPage": true,
+    "supportMapWidget": true
+  }
+}

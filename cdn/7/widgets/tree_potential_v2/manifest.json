@@ -1,0 +1,13 @@
+{
+  "name": "tree_potential_v2",
+  "label": "Tree Planting Potential",
+  "type": "widget",
+  "version": "1.19.0",
+  "exbVersion": "1.19.0",
+  "properties": {
+    "hasConfig": true,
+    "hasMainClass": true,
+    "hasSettingPage": true,
+    "supportMapWidget": true
+  }
+}

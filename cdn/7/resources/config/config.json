@@ -1,0 +1,4555 @@
+{
+  "pages": {
+    "page_0": {
+      "id": "page_0",
+      "mode": "FIT_WINDOW",
+      "type": "NORMAL",
+      "layout": {
+        "LARGE": "layout_0",
+        "MEDIUM": "layout_144",
+        "SMALL": "layout_150"
+      },
+      "isDefault": true,
+      "isVisible": true,
+      "label": "Page",
+      "header": true,
+      "bodyBackgroundColor": "var(--ref-palette-neutral-1300)",
+      "bodyTextColor": "var(--ref-palette-neutral-100)",
+      "footer": false
+    }
+  },
+  "layouts": {
+    "layout_0": {
+      "type": "FIXED",
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_2",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.0%",
+            "top": "0.1%",
+            "bottom": "1.9%",
+            "width": "100.0%",
+            "height": "98.0%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "order": [
+        "1"
+      ]
+    },
+    "layout_1": {
+      "content": {
+        "20": {
+          "type": "WIDGET",
+          "widgetId": "widget_4",
+          "bbox": {
+            "left": "0.7%",
+            "right": "0.3%",
+            "top": "88.2%",
+            "bottom": "5.5%",
+            "width": "99.0%",
+            "height": "6.3%"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "CUSTOM",
+              "height": "AUTO",
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        },
+        "23": {
+          "type": "WIDGET",
+          "widgetId": "widget_84",
+          "bbox": {
+            "left": "0.0%",
+            "right": "74.2%",
+            "top": "7.3%",
+            "bottom": "16.8%",
+            "width": "25.8%",
+            "height": "75.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        },
+        "25": {
+          "type": "WIDGET",
+          "widgetId": "widget_88",
+          "bbox": {
+            "left": "74.7%",
+            "right": "-0.0%",
+            "top": "7.3%",
+            "bottom": "16.8%",
+            "width": "25.3%",
+            "height": "75.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            }
+          }
+        },
+        "26": {
+          "type": "WIDGET",
+          "widgetId": "widget_166",
+          "bbox": {
+            "left": "38.8%",
+            "right": "20.6%",
+            "top": "5.6%",
+            "bottom": "15.1%",
+            "width": "40.6%",
+            "height": "79.3%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        }
+      },
+      "type": "FIXED",
+      "label": "Map FixedLayout",
+      "order": [
+        "20",
+        "23",
+        "25",
+        "26"
+      ]
+    },
+    "layout_78": {
+      "content": {
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_82",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.0%",
+            "top": "0.0%",
+            "bottom": "0.0%",
+            "width": "100.0%",
+            "height": "100.0%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "type": "FIXED",
+      "label": "First",
+      "order": [
+        "2"
+      ]
+    },
+    "layout_79": {
+      "content": {},
+      "type": "FIXED",
+      "label": "Second"
+    },
+    "layout_81": {
+      "content": {},
+      "type": "FIXED",
+      "label": "First"
+    },
+    "layout_82": {
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_94",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.0%",
+            "top": "8.6%",
+            "bottom": "0.0%",
+            "width": "100.0%",
+            "height": "91.4%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            }
+          }
+        },
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_96",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.2%",
+            "top": "1.6%",
+            "bottom": "92.8%",
+            "width": "99.8%",
+            "height": "5.6%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "lockParent": true
+          }
+        }
+      },
+      "type": "FIXED",
+      "label": "Second",
+      "order": [
+        "1",
+        "3"
+      ]
+    },
+    "layout_88": {
+      "type": "FIXED",
+      "order": [
+        "4",
+        "5",
+        "6"
+      ],
+      "content": {
+        "4": {
+          "type": "WIDGET",
+          "widgetId": "widget_98",
+          "bbox": {
+            "left": "10.00px",
+            "right": "360.00px",
+            "top": "0%",
+            "bottom": "0%",
+            "width": "100%",
+            "height": "100%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": false,
+              "top": false,
+              "bottom": false,
+              "width": "STRETCH",
+              "height": "STRETCH"
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        },
+        "5": {
+          "type": "WIDGET",
+          "widgetId": "widget_105",
+          "bbox": {
+            "left": "0.0%",
+            "right": "48.3%",
+            "top": "0.0%",
+            "bottom": "-0.4%",
+            "width": "51.7%",
+            "height": "100.4%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_107",
+          "bbox": {
+            "left": "82.8%",
+            "right": "-0.0%",
+            "top": "14.0%",
+            "bottom": "15.9%",
+            "width": "17.2%",
+            "height": "70.1%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      }
+    },
+    "layout_89": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_100",
+          "bbox": {
+            "width": "300.00px",
+            "height": "44px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            },
+            "style": {
+              "alignSelf": "center"
+            }
+          }
+        },
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_99",
+          "bbox": {
+            "width": "50.00px",
+            "height": "30px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "CUSTOM"
+            },
+            "style": {
+              "alignSelf": "center"
+            }
+          }
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_101",
+          "bbox": {
+            "width": "226px",
+            "height": "32px"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "STRETCH",
+              "height": "AUTO"
+            },
+            "style": {
+              "alignSelf": "center"
+            }
+          }
+        }
+      },
+      "type": "FLEX_ROW",
+      "order": [
+        "1",
+        "0",
+        "2"
+      ],
+      "label": "Default"
+    },
+    "layout_94": {
+      "content": {},
+      "type": "FIXED",
+      "setting": {
+        "lockDescendants": true
+      },
+      "order": []
+    },
+    "layout_109": {
+      "type": "FIXED",
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_141",
+          "bbox": {
+            "left": "50%",
+            "right": "5.4%",
+            "top": "50%",
+            "bottom": "9.2%",
+            "width": "89.2%",
+            "height": "90.8%"
+          },
+          "setting": {
+            "vCenter": true,
+            "hCenter": true,
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            }
+          }
+        }
+      },
+      "order": [
+        "1"
+      ],
+      "setting": {
+        "lockDescendants": true
+      }
+    },
+    "layout_119": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_144",
+          "bbox": {
+            "top": "19.6%",
+            "width": "67.8%",
+            "height": "60.2%",
+            "right": "16.1%",
+            "left": "16.1%",
+            "bottom": "20.1%"
+          },
+          "setting": {
+            "vCenter": false,
+            "hCenter": false,
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            }
+          }
+        }
+      },
+      "type": "FIXED",
+      "setting": {
+        "lockDescendants": true
+      },
+      "order": [
+        "0"
+      ]
+    },
+    "layout_120": {
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_145",
+          "bbox": {},
+          "setting": {}
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_146",
+          "bbox": {},
+          "setting": {}
+        },
+        "4": {
+          "type": "WIDGET",
+          "widgetId": "widget_147",
+          "bbox": {},
+          "setting": {}
+        },
+        "5": {
+          "type": "WIDGET",
+          "widgetId": "widget_148",
+          "bbox": {},
+          "setting": {}
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_149",
+          "bbox": {},
+          "setting": {}
+        }
+      },
+      "type": "FIXED",
+      "label": "Controller layout",
+      "order": [
+        "2",
+        "6",
+        "5",
+        "1",
+        "4"
+      ]
+    },
+    "layout_121": {
+      "type": "FIXED",
+      "order": [
+        "5",
+        "6"
+      ],
+      "content": {
+        "5": {
+          "type": "WIDGET",
+          "widgetId": "widget_105",
+          "bbox": {
+            "left": "0.0%",
+            "right": "33.9%",
+            "top": "0.0%",
+            "bottom": "-0.4%",
+            "width": "66.1%",
+            "height": "100.4%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_107",
+          "bbox": {
+            "left": "67.4%",
+            "right": "-0.0%",
+            "top": "14.0%",
+            "bottom": "14.5%",
+            "width": "32.6%",
+            "height": "71.5%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      }
+    },
+    "layout_129": {
+      "type": "FIXED",
+      "order": [
+        "5",
+        "6"
+      ],
+      "content": {
+        "5": {
+          "type": "WIDGET",
+          "widgetId": "widget_105",
+          "bbox": {
+            "left": "0.0%",
+            "right": "48.3%",
+            "top": "0.0%",
+            "bottom": "-0.4%",
+            "width": "51.7%",
+            "height": "100.4%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_107",
+          "bbox": {
+            "left": "56.7%",
+            "right": "0.0%",
+            "top": "14.0%",
+            "bottom": "11.6%",
+            "width": "43.3%",
+            "height": "74.4%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      }
+    },
+    "layout_144": {
+      "type": "FIXED",
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_2",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.0%",
+            "top": "0.1%",
+            "bottom": "1.9%",
+            "width": "100.0%",
+            "height": "98.0%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "order": [
+        "1"
+      ]
+    },
+    "layout_145": {
+      "content": {
+        "20": {
+          "type": "WIDGET",
+          "widgetId": "widget_4",
+          "bbox": {
+            "left": "0.7%",
+            "right": "0.3%",
+            "top": "88.2%",
+            "bottom": "5.5%",
+            "width": "99.0%",
+            "height": "6.3%"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "CUSTOM",
+              "height": "AUTO",
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        },
+        "23": {
+          "type": "WIDGET",
+          "widgetId": "widget_167",
+          "bbox": {
+            "left": "0.0%",
+            "right": "74.2%",
+            "top": "7.3%",
+            "bottom": "11.8%",
+            "width": "25.8%",
+            "height": "80.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        },
+        "25": {
+          "type": "WIDGET",
+          "widgetId": "widget_168",
+          "bbox": {
+            "left": "74.7%",
+            "right": "-0.0%",
+            "top": "7.3%",
+            "bottom": "11.8%",
+            "width": "25.3%",
+            "height": "80.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            }
+          },
+          "isPending": true
+        },
+        "27": {
+          "type": "WIDGET",
+          "widgetId": "widget_171",
+          "bbox": {
+            "left": "38.4%",
+            "right": "38.3%",
+            "top": "87.9%",
+            "bottom": "7.5%",
+            "width": "23.3%",
+            "height": "4.6%"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "AUTO",
+              "height": "AUTO",
+              "left": true,
+              "right": false,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "type": "FIXED",
+      "label": "Map FixedLayout",
+      "order": [
+        "20",
+        "23",
+        "25",
+        "27"
+      ]
+    },
+    "layout_146": {
+      "content": {},
+      "type": "FIXED",
+      "label": "First",
+      "order": []
+    },
+    "layout_147": {
+      "content": {},
+      "type": "FIXED",
+      "label": "Second"
+    },
+    "layout_148": {
+      "content": {},
+      "type": "FIXED",
+      "label": "First"
+    },
+    "layout_149": {
+      "content": {
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_96",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.2%",
+            "top": "43.1%",
+            "bottom": "51.3%",
+            "width": "99.8%",
+            "height": "5.6%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "lockParent": true,
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "type": "FIXED",
+      "label": "Second",
+      "order": [
+        "3"
+      ]
+    },
+    "layout_150": {
+      "type": "FIXED",
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_2",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.0%",
+            "top": "0.1%",
+            "bottom": "1.9%",
+            "width": "100.0%",
+            "height": "98.0%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "order": [
+        "1"
+      ]
+    },
+    "layout_151": {
+      "content": {
+        "20": {
+          "type": "WIDGET",
+          "widgetId": "widget_4",
+          "bbox": {
+            "left": "0.7%",
+            "right": "0.3%",
+            "top": "88.2%",
+            "bottom": "5.5%",
+            "width": "99.0%",
+            "height": "6.3%"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "CUSTOM",
+              "height": "AUTO",
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        },
+        "23": {
+          "type": "WIDGET",
+          "widgetId": "widget_169",
+          "bbox": {
+            "left": "0.0%",
+            "right": "74.2%",
+            "top": "7.3%",
+            "bottom": "11.8%",
+            "width": "25.8%",
+            "height": "80.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        },
+        "25": {
+          "type": "WIDGET",
+          "widgetId": "widget_170",
+          "bbox": {
+            "left": "74.7%",
+            "right": "-0.0%",
+            "top": "7.3%",
+            "bottom": "11.8%",
+            "width": "25.3%",
+            "height": "80.9%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": true
+            }
+          },
+          "isPending": true
+        },
+        "27": {
+          "type": "WIDGET",
+          "widgetId": "widget_173",
+          "bbox": {
+            "left": "2.6%",
+            "bottom": "70.5%",
+            "width": "11.1%",
+            "height": "28.0%",
+            "right": "357px",
+            "top": "10px"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "AUTO",
+              "height": "AUTO",
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "type": "FIXED",
+      "label": "Map FixedLayout",
+      "order": [
+        "20",
+        "23",
+        "25",
+        "27"
+      ]
+    },
+    "layout_152": {
+      "content": {},
+      "type": "FIXED",
+      "label": "First",
+      "order": []
+    },
+    "layout_153": {
+      "content": {},
+      "type": "FIXED",
+      "label": "Second"
+    },
+    "layout_154": {
+      "content": {},
+      "type": "FIXED",
+      "label": "First"
+    },
+    "layout_155": {
+      "content": {
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_96",
+          "bbox": {
+            "left": "0.0%",
+            "right": "0.2%",
+            "top": "36.3%",
+            "bottom": "58.1%",
+            "width": "99.8%",
+            "height": "5.6%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": false,
+              "bottom": true
+            },
+            "lockParent": true,
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": true
+        }
+      },
+      "type": "FIXED",
+      "label": "Second",
+      "order": [
+        "3"
+      ]
+    },
+    "layout_156": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_82",
+          "bbox": {},
+          "setting": {}
+        },
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_166",
+          "bbox": {
+            "width": "190.2173913043478%"
+          },
+          "setting": {
+            "autoProps": {
+              "width": "CUSTOM",
+              "height": "AUTO"
+            }
+          }
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_94",
+          "bbox": {},
+          "setting": {}
+        },
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_172",
+          "bbox": {},
+          "setting": {}
+        }
+      },
+      "type": "FIXED",
+      "label": "Controller layout",
+      "order": [
+        "3",
+        "1",
+        "0",
+        "2"
+      ]
+    },
+    "layout_157": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_166",
+          "bbox": {},
+          "setting": {}
+        },
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_94",
+          "bbox": {},
+          "setting": {}
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_82",
+          "bbox": {},
+          "setting": {}
+        },
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_174",
+          "bbox": {},
+          "setting": {}
+        }
+      },
+      "type": "FIXED",
+      "label": "Controller layout",
+      "order": [
+        "3",
+        "0",
+        "2",
+        "1"
+      ]
+    }
+  },
+  "exbVersion": "1.19.0",
+  "mainSizeMode": "LARGE",
+  "theme": "themes/astro/",
+  "forBuilderAttributes": {
+    "lockLayout": true,
+    "viewPortSize": {
+      "MEDIUM": {
+        "width": 834,
+        "height": 1112
+      },
+      "SMALL": {
+        "width": 414,
+        "height": 736
+      },
+      "LARGE": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  },
+  "template": "blankfullscreen",
+  "widgets": {
+    "widget_2": {
+      "uri": "widgets/arcgis/arcgis-map/",
+      "version": "1.19.0",
+      "label": "Map",
+      "config": {
+        "toolConfig": {
+          "canZoom": false,
+          "canHome": false,
+          "canSearch": false,
+          "canNavigation": false,
+          "canLayers": true,
+          "canBaseMap": true,
+          "canOverviewMap": false,
+          "canExtentNavigate": false,
+          "canSelect": false,
+          "canSelectState": false,
+          "canScaleBar": true,
+          "canMeasure": true,
+          "canFullScreen": true,
+          "canLocate": false,
+          "canCompass": false
+        },
+        "isUseCustomMapState": true,
+        "initialMapDataSourceID": "dataSource_1",
+        "initialMapState": {
+          "viewPoint": {
+            "rotation": 0,
+            "scale": 36111.909643,
+            "targetGeometry": {
+              "spatialReference": {
+                "latestWkid": 3857,
+                "wkid": 102100
+              },
+              "x": 3869253.8610024736,
+              "y": 3772083.1359220576
+            }
+          },
+          "extent": {
+            "spatialReference": {
+              "latestWkid": 3857,
+              "wkid": 102100
+            },
+            "xmin": 3864381.0004493003,
+            "ymin": 3769001.7682193154,
+            "xmax": 3874126.721555647,
+            "ymax": 3775164.5036247997
+          },
+          "rotation": 0,
+          "viewType": "2d"
+        },
+        "scaleRange": null,
+        "customLODs": null,
+        "layoutIndex": 1,
+        "toolOptions": {
+          "ScaleBar": null
+        }
+      },
+      "id": "widget_2",
+      "layouts": {
+        "MapFixedLayout": {
+          "LARGE": "layout_1",
+          "MEDIUM": "layout_145",
+          "SMALL": "layout_151"
+        }
+      },
+      "dataActions": {
+        "showOnMap": {
+          "config": {
+            "isUseCustomSymbol": true,
+            "isOperationalLayer": true,
+            "symbolOption": {
+              "pointSymbol": {
+                "type": "esriSMS",
+                "color": [
+                  255,
+                  255,
+                  0,
+                  150
+                ],
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "size": 12,
+                "style": "esriSMSCircle",
+                "outline": {
+                  "type": "esriSLS",
+                  "color": [
+                    255,
+                    255,
+                    0,
+                    150
+                  ],
+                  "width": 1,
+                  "style": "esriSLSSolid"
+                }
+              },
+              "polylineSymbol": {
+                "type": "esriSLS",
+                "color": [
+                  255,
+                  255,
+                  0,
+                  150
+                ],
+                "width": 0.75,
+                "style": "esriSLSSolid"
+              },
+              "polygonSymbol": {
+                "type": "esriSFS",
+                "color": [
+                  255,
+                  255,
+                  0,
+                  150
+                ],
+                "outline": {
+                  "type": "esriSLS",
+                  "color": [
+                    255,
+                    255,
+                    0,
+                    150
+                  ],
+                  "width": 1,
+                  "style": "esriSLSSolid"
+                },
+                "style": "esriSFSSolid"
+              }
+            }
+          }
+        }
+      },
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1",
+          "mainDataSourceId": "dataSource_1"
+        }
+      ]
+    },
+    "widget_4": {
+      "uri": "widgets/common/filter/",
+      "version": "1.19.0",
+      "label": "Selected streets",
+      "config": {
+        "logicalOperator": "AND",
+        "filterItems": [
+          {
+            "type": "SINGLE",
+            "name": "Summer Shade Index",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "summer_SI"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 17\"><g clip-path=\"url(#clip0_34_599)\"><path fill=\"#000\" d=\"m12.153 6.054-.707-.707 2.2-2.2.708.707zm-9.507 8.092.707.707 2.2-2.2-.706-.707zm8.8-1.493 2.2 2.2.707-.706-2.2-2.2zM5.554 5.347l-2.2-2.2-.707.706 2.2 2.2zM9 1.5H8v3h1zm-1 15h1v-3H8zm8-7v-1h-3v1zm-15 0h3v-1H1zM5 9a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0m1 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0\"></path></g><defs><clipPath id=\"clip0_34_599\"><path fill=\"#fff\" d=\"M0 .5h16v16H0z\"></path></clipPath></defs></svg>",
+              "properties": {
+                "filename": "DaylightOutlined",
+                "originalName": "outlined/gis/daylight.svg",
+                "path": [
+                  "gis",
+                  "DaylightOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "summer_SI",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 0.4,
+                        "label": "0.4"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "is less than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "summer_SI < 0.4",
+              "displaySQL": "(summer_SI < 0.4)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High neighbourhood transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_2k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M4.653 13.854a.485.485 0 0 1 0-.708L10.24 8 4.653 2.854a.485.485 0 0 1 0-.708.54.54 0 0 1 .738 0l5.956 5.5a.485.485 0 0 1 0 .708l-5.956 5.5a.54.54 0 0 1-.738 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "Swipe right arrow",
+                "originalName": "outlined/directional/right.svg",
+                "path": [
+                  "generalAndArrows",
+                  "arrowRight"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_2k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_2k IN (5,6,7)",
+              "displaySQL": "(class_2k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High city transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_5k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M2.153 13.146a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L7.74 8zm5 0a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L12.74 8z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "RightDoubleOutlined",
+                "originalName": "outlined/directional/right-double.svg",
+                "path": [
+                  "directional",
+                  "RightDoubleOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_5k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_5k IN (5,6,7)",
+              "displaySQL": "(class_5k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Local centers",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_ai1k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+              "properties": {
+                "filename": "1773226520402.png",
+                "originalName": "walking-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_ai1k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_ai1k IN (6,7)",
+              "displaySQL": "(class_ai1k is any of (6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Building density",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "FSI500_mea"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 20 20\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M10.226.054a.5.5 0 0 0-.451 0L.25 4.942a.446.446 0 0 0 .025.813L9.8 9.958a.5.5 0 0 0 .4 0l9.524-4.203a.446.446 0 0 0 .025-.813zM10 9.044 1.542 5.313 10 .97l8.458 4.34z\" clip-rule=\"evenodd\"></path><path fill=\"#000\" d=\"M.676 10.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 15l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 14.029z\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M.676 15.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 20l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 19.029zM10 19.03l.2.085h-.4z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "WidgetLayerlistOutlined",
+                "originalName": "outlined/brand/widget-layerlist.svg",
+                "path": [
+                  "brand",
+                  "WidgetLayerlistOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "FSI500_mea",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 1.5,
+                        "label": "1.5"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Floor Space Index within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "FSI500_mea > 1.5",
+              "displaySQL": "(FSI500_mea > 1.5)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Access to shops and restaurants",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ARw500lm_1"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M13 6.133c0 .598-.28 1.46-.825 2.51-.53 1.02-1.247 2.102-1.981 3.102A46 46 0 0 1 8 14.492a48 48 0 0 1-2.194-2.747c-.734-1-1.451-2.081-1.98-3.102C3.28 7.593 3 6.731 3 6.133 3 3.277 5.26 1 8 1s5 2.277 5 5.133m1 0c0 2.685-3.768 7.311-5.332 9.115C8.258 15.722 8 16 8 16s-.258-.279-.668-.751C5.768 13.444 2 8.817 2 6.133 2 2.746 4.686 0 8 0s6 2.746 6 6.133M10 5.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "PinOutlined",
+                "originalName": "outlined/application/pin.svg",
+                "path": [
+                  "application",
+                  "PinOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ARw500lm_1",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 60,
+                        "label": "60"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Number of shops and restaurants within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ARw500lm_1 > 60",
+              "displaySQL": "(ARw500lm_1 > 60)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "School or preschool proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADws_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+              "properties": {
+                "filename": "1773226296880.png",
+                "originalName": "education-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADws_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest school or preschool is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADws_mean < 300",
+              "displaySQL": "(ADws_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Tram/metro/railway station proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwm_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+              "properties": {
+                "filename": "1773226629316.png",
+                "originalName": "transport_15452706.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwm_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest tram, metro or railway station (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwm_mean < 300",
+              "displaySQL": "(ADwm_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Bus stop proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwbu_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+              "properties": {
+                "filename": "1773226375728.png",
+                "originalName": "bus_5103406.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwbu_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest bus stop is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwbu_mean < 300",
+              "displaySQL": "(ADwbu_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Street width",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "width"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"m15.18 3.89-2.85 2.85-.71-.7 1.61-1.65H9v-1h4.32l-1.7-1.69.71-.7zM0 14.39v-6h16v6zm14-3h1v-2H1v4h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1zm-7-8H2.68l1.7-1.65-.71-.7L.82 3.89l2.85 2.85.71-.7-1.61-1.65H7z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "MeasureOutlined",
+                "originalName": "outlined/gis/measure.svg",
+                "path": [
+                  "gis",
+                  "MeasureOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "width",
+                  "operator": "NUMBER_OPERATOR_IS_BETWEEN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "DOUBLE_NUMBER_SELECTOR",
+                    "value": [
+                      {
+                        "value": 20,
+                        "label": "20"
+                      },
+                      {
+                        "value": 30,
+                        "label": "30"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": null,
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "width BETWEEN 20 AND 30",
+              "displaySQL": "(width is between 20 and 30)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          }
+        ],
+        "arrangeType": "INLINE",
+        "triggerType": "TOGGLE",
+        "omitInternalStyle": false,
+        "resetAll": true,
+        "turnOffAll": true,
+        "wrap": false
+      },
+      "id": "widget_4",
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1",
+          "fields": [
+            "ADwbu_mean",
+            "ADwm_mean",
+            "ADws_mean",
+            "ARw500lm_1",
+            "FSI500_mea",
+            "class_2k",
+            "class_5k",
+            "class_ai1k",
+            "summer_SI",
+            "width"
+          ]
+        }
+      ],
+      "icon": {
+        "svg": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.5 0.995117C18.5 0.445529 18.0699 0 17.5393 0H2.46074C2.24009 0 2.02617 0.0786713 1.85492 0.222793C1.44313 0.569359 1.38054 1.19609 1.71512 1.62263L6.49869 7.72098C6.62129 7.87727 6.69522 8.0684 6.71072 8.26913L7.54599 19.084C7.55313 19.1763 7.57269 19.2672 7.6041 19.354C7.7904 19.8686 8.34417 20.1293 8.84097 19.9364L10.9534 19.1158C11.2842 18.9873 11.5202 18.6811 11.568 18.3185L12.8925 8.25694C12.918 8.06386 12.9976 7.88276 13.1214 7.73611L18.2623 1.65041C18.4155 1.469 18.5 1.23616 18.5 0.995117ZM2.5 1H17.499L12.3575 7.09079L12.2411 7.24287C12.0599 7.50488 11.943 7.80792 11.9011 8.12642L10.5765 18.188L8.541 18.98L7.70775 8.19213L7.68756 8.02326C7.63318 7.68825 7.49542 7.3714 7.28551 7.10379L2.50194 1.00545L2.5 1Z\" fill=\"black\"/>\r\n</svg>\r\n",
+        "properties": {
+          "filename": "Filter",
+          "originalName": "default/filter.svg",
+          "color": "var(--ref-palette-neutral-1300)"
+        }
+      },
+      "style": {
+        "background": {
+          "color": "",
+          "fillType": "center",
+          "image": {
+            "url": ""
+          }
+        },
+        "border": {
+          "type": "dashed",
+          "color": "var(--sys-color-primary-light)",
+          "width": "0px"
+        }
+      },
+      "offPanel": true
+    },
+    "widget_82": {
+      "uri": "widgets/tree_potential_v2/",
+      "version": "1.19.0",
+      "icon": {
+        "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773418969462.png",
+        "properties": {
+          "filename": "1773418969462.png",
+          "originalName": "icon.png",
+          "path": "${appResourceUrl}/images/icon_picker_in_setting/1773418969462.png",
+          "inlineSvg": false,
+          "isUploaded": true,
+          "color": ""
+        }
+      },
+      "label": "Tree Planting Targets Calculator",
+      "config": {
+        "exampleConfigProperty": "test",
+        "lengthField": "length",
+        "widthField": "width",
+        "wtypeField": "W_type",
+        "existingTreesField": "Large_sum",
+        "underdevelopedTreesField": "Small_sum"
+      },
+      "id": "widget_82",
+      "useMapWidgetIds": [
+        "widget_2"
+      ],
+      "style": {
+        "background": {
+          "color": "#313030",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#ffffff"
+      },
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1"
+        }
+      ]
+    },
+    "widget_84": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 5",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "FIRST",
+        "overlay": false,
+        "size": "284px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "LEFT",
+          "offsetX": 15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_84",
+      "layouts": {
+        "FIRST": {
+          "LARGE": "layout_78"
+        },
+        "SECOND": {
+          "LARGE": "layout_79"
+        }
+      },
+      "style": {
+        "background": {
+          "color": "rgba(147,190,230,0)",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#001d32"
+      }
+    },
+    "widget_88": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 6",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "SECOND",
+        "overlay": false,
+        "size": "300px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "RIGHT",
+          "offsetX": -15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_88",
+      "layouts": {
+        "FIRST": {
+          "LARGE": "layout_81"
+        },
+        "SECOND": {
+          "LARGE": "layout_82"
+        }
+      }
+    },
+    "widget_94": {
+      "uri": "widgets/arcgis/map-layers/",
+      "version": "1.19.0",
+      "label": "Map Layers",
+      "config": {
+        "useMapWidget": true,
+        "useTickBoxes": true,
+        "opacity": false,
+        "popup": false,
+        "label": false,
+        "enableLegend": true
+      },
+      "id": "widget_94",
+      "useMapWidgetIds": [
+        "widget_2"
+      ],
+      "enableDataAction": false
+    },
+    "widget_96": {
+      "uri": "widgets/common/button/",
+      "version": "1.19.0",
+      "label": "Info",
+      "config": {
+        "functionConfig": {
+          "text": "Info",
+          "textExpression": null,
+          "linkParam": {
+            "linkType": "DIALOG",
+            "value": "dialog_2"
+          }
+        },
+        "styleConfig": {
+          "themeStyle": {
+            "quickStyleType": "link"
+          },
+          "useCustom": true,
+          "customStyle": {
+            "hover": {
+              "enableDynamicStyle": false
+            },
+            "regular": {
+              "enableDynamicStyle": false,
+              "background": {
+                "color": "var(--ref-palette-neutral-1100)",
+                "fillType": "fill"
+              }
+            }
+          }
+        }
+      },
+      "id": "widget_96",
+      "useDataSources": []
+    },
+    "widget_98": {
+      "uri": "widgets/layout/flowrow/",
+      "version": "1.19.0",
+      "label": "Flow Row",
+      "config": {
+        "space": 10,
+        "style": {
+          "padding": {
+            "space": [
+              10
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_98",
+      "layouts": {
+        "DEFAULT": {
+          "LARGE": "layout_89"
+        }
+      }
+    },
+    "widget_99": {
+      "uri": "widgets/common/image/",
+      "version": "1.19.0",
+      "label": "Image 2",
+      "config": {
+        "functionConfig": {
+          "altText": "",
+          "toolTip": "",
+          "linkParam": {},
+          "scale": "Fit",
+          "imageParam": {}
+        },
+        "styleConfig": {}
+      },
+      "id": "widget_99"
+    },
+    "widget_100": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "Text 6",
+      "config": {
+        "text": "<p><br></p>",
+        "placeholder": "<h5>Title</h5>",
+        "style": {
+          "verticalAlign": "center",
+          "wrap": true
+        }
+      },
+      "id": "widget_100"
+    },
+    "widget_101": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "Text 7",
+      "config": {
+        "text": "<p style=\"line-height: 1.5;\"><br></p>",
+        "placeholder": "<p style=\"line-height: 1.5;\"><span style=\"font-size: 16px;\">Subtitle</span></p>",
+        "style": {
+          "verticalAlign": "center",
+          "wrap": true
+        }
+      },
+      "id": "widget_101"
+    },
+    "widget_105": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "Text 8",
+      "config": {
+        "text": "<p><span style=\"color: rgb(255, 255, 255); font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; font-size: 20px; letter-spacing: normal; background-color: rgb(11, 11, 11); display: inline;\">Tel Aviv Tree Planting Targets Calculator</span></p><p><span style=\"font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; letter-spacing: normal; background-color: rgb(11, 11, 11); font-size: 13px; color: rgb(255, 255, 255);\">Analysis and mapping by Evgeniya Bobkova (evgeniyab@technion.ac.il)  and Or Aleksandrowicz (oraleks@technion.ac.il); </span></p><p><span style=\"font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; letter-spacing: normal; background-color: rgb(11, 11, 11); font-size: 13px; color: rgb(255, 255, 255);\">Raw datasets: the Survey of Israel, Tel Aviv municipality, Open Street Maps.</span></p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_105"
+    },
+    "widget_107": {
+      "uri": "widgets/common/image/",
+      "version": "1.19.0",
+      "label": "Image 3",
+      "config": {
+        "functionConfig": {
+          "altText": "",
+          "toolTip": "",
+          "linkParam": {},
+          "scale": "Fit",
+          "imageParam": {
+            "url": "${appResourceUrl}/images/widget_47/1773225223715.png",
+            "originalUrl": "${appResourceUrl}/images/widget_47/1773225223715.png",
+            "fileName": "1773225223715.png",
+            "originalName": "BDAR logo_All_White_14.1.2024_hires.png",
+            "imgSourceType": "BY_UPLOAD",
+            "fileFormat": "image/png",
+            "originalId": "1773225223715",
+            "originalWidth": 1324,
+            "originalHeight": 258
+          },
+          "imageDisplayQualityMode": "ORIGINAL",
+          "imgSourceType": "",
+          "srcExpression": null,
+          "imageFillMode": "FIT"
+        },
+        "styleConfig": {}
+      },
+      "id": "widget_107"
+    },
+    "widget_141": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "Text 10",
+      "config": {
+        "text": "<p>This platform allows you to select strategic locations for new street tree planting.&nbsp;</p><p><br></p><p>First, using the filter icons at the bottom, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria.</p><p><br></p><p>Then, using the left-hand sidebar, you are asked to define a calculation method to generate the total number of trees that need to be planted along these streets.</p><p><br></p><p>Inspect the following layers to decide which segments need planting:</p><p><br></p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020).</p><p><br></p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method.</p><p><br></p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network.</p><p><br></p><p><strong>Transit streets:</strong> captured via betweenness</p><p>centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area.</p><p><br></p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life. </p><p><br></p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods:</strong></p><p><br></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025).</p><p><br></p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees).</p><p><br></p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa.</p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_141",
+      "style": {
+        "background": {
+          "color": "#313030",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#ffffff"
+      }
+    },
+    "widget_144": {
+      "uri": "widgets/common/controller/",
+      "version": "1.19.0",
+      "offPanel": true,
+      "icon": {
+        "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773419107781.png",
+        "properties": {
+          "filename": "1773419107781.png",
+          "originalName": "icon.png",
+          "path": "${appResourceUrl}/images/icon_picker_in_setting/1773419107781.png",
+          "inlineSvg": false,
+          "isUploaded": true,
+          "color": ""
+        }
+      },
+      "label": "Widget Controller 2",
+      "config": {
+        "behavior": {
+          "onlyOpenOne": false,
+          "openStarts": [
+            null
+          ],
+          "displayType": "SIDEBYSIDE",
+          "vertical": false,
+          "size": {
+            "widget_62": {
+              "width": 305.1041259765625,
+              "height": 760.5718549589591
+            },
+            "widget_64": {
+              "width": 350,
+              "height": 738
+            },
+            "widget_71": {
+              "width": 350,
+              "height": 467
+            },
+            "widget_79": {
+              "width": 819,
+              "height": 121
+            },
+            "widget_70": {
+              "width": 311,
+              "height": 318
+            },
+            "widget_63": {
+              "width": 312,
+              "height": 422
+            },
+            "widget_4": {
+              "width": 1264,
+              "height": 123
+            },
+            "widget_6": {
+              "width": 277,
+              "height": 737
+            },
+            "widget_85": {
+              "width": 1209,
+              "height": 120
+            }
+          },
+          "arrangement": "floating",
+          "overflownStyle": "ARROWS"
+        },
+        "appearance": {
+          "space": 0,
+          "advanced": true,
+          "card": {
+            "showLabel": false,
+            "labelGrowth": 10,
+            "avatar": {
+              "type": "primary",
+              "size": "default",
+              "shape": "circle",
+              "buttonSize": null,
+              "iconSize": null
+            },
+            "variant": {
+              "default": {},
+              "active": {},
+              "hover": {}
+            },
+            "showIndicator": false,
+            "showTooltip": true
+          }
+        }
+      },
+      "id": "widget_144",
+      "layouts": {
+        "controller": {
+          "MEDIUM": "layout_120"
+        }
+      },
+      "style": {
+        "background": {
+          "color": "var(--ref-palette-neutral-1200)",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "var(--ref-palette-neutral-100)"
+      }
+    },
+    "widget_145": {
+      "uri": "widgets/arcgis/map-layers/",
+      "version": "1.19.0",
+      "label": "Layers ",
+      "config": {
+        "useMapWidget": true,
+        "useTickBoxes": true,
+        "opacity": false,
+        "popup": false,
+        "information": false,
+        "enableLegend": true,
+        "showAllLegend": false,
+        "customizeLayerOptions": {}
+      },
+      "id": "widget_145",
+      "useMapWidgetIds": [
+        "widget_2"
+      ],
+      "enableDataAction": false,
+      "dataActions": {
+        "setFilter": {
+          "enabled": true
+        },
+        "dataStatistics": {
+          "enabled": false
+        }
+      }
+    },
+    "widget_146": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "icon": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" d=\"M8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6.5 7.5A.5.5 0 0 1 7 7h1.5v4.5h1a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1h1V8H7a.5.5 0 0 1-.5-.5\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16m0-1A7 7 0 1 0 8 1a7 7 0 0 0 0 14\" clip-rule=\"evenodd\"></path></svg>",
+        "properties": {
+          "filename": "Info",
+          "originalName": "outlined/suggested/info.svg",
+          "path": [
+            "generalAndArrows",
+            "info"
+          ],
+          "inlineSvg": true,
+          "isUploaded": false,
+          "color": ""
+        }
+      },
+      "label": "Info ",
+      "config": {
+        "text": "<p>﻿This platform allows you to select strategic locations for new street tree planting.&nbsp; </p><p>First, using the filter icons at the bottom, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria. </p><p>Then, using the left-hand sidebar, you are asked to define a calculation method to generate the total number of trees that need to be planted along these streets. </p><p>Inspect the following layers to decide which segments need planting: </p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020). </p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method. </p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network. </p><p><strong>Transit streets:</strong> captured via betweenness centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. </p><p>Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019). </p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area. </p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life. </p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods:</strong></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025). </p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees). </p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa. </p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_146"
+    },
+    "widget_147": {
+      "uri": "widgets/arcgis/legend/",
+      "version": "1.19.0",
+      "label": "Legend",
+      "config": {},
+      "id": "widget_147",
+      "useMapWidgetIds": [
+        "widget_2"
+      ]
+    },
+    "widget_148": {
+      "uri": "widgets/tree_potential_v2/",
+      "version": "1.19.0",
+      "label": "Tree Planting Targets Calculator ",
+      "config": {
+        "exampleConfigProperty": "test",
+        "lengthField": "length",
+        "widthField": "width",
+        "wtypeField": "W_type",
+        "existingTreesField": "Large_sum",
+        "underdevelopedTreesField": "Small_sum"
+      },
+      "id": "widget_148",
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1"
+        }
+      ],
+      "style": {
+        "background": {
+          "color": "#313030",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#ffffff"
+      },
+      "useMapWidgetIds": [
+        "widget_2"
+      ],
+      "icon": {
+        "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773419107781.png",
+        "properties": {
+          "filename": "1773419107781.png",
+          "originalName": "icon.png",
+          "path": "${appResourceUrl}/images/icon_picker_in_setting/1773419107781.png",
+          "inlineSvg": false,
+          "isUploaded": true,
+          "color": ""
+        }
+      }
+    },
+    "widget_149": {
+      "uri": "widgets/common/filter/",
+      "version": "1.19.0",
+      "label": "Selected streets ",
+      "config": {
+        "logicalOperator": "AND",
+        "filterItems": [
+          {
+            "type": "SINGLE",
+            "name": "Summer Shade Index",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "summer_SI"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 17\"><g clip-path=\"url(#clip0_34_599)\"><path fill=\"#000\" d=\"m12.153 6.054-.707-.707 2.2-2.2.708.707zm-9.507 8.092.707.707 2.2-2.2-.706-.707zm8.8-1.493 2.2 2.2.707-.706-2.2-2.2zM5.554 5.347l-2.2-2.2-.707.706 2.2 2.2zM9 1.5H8v3h1zm-1 15h1v-3H8zm8-7v-1h-3v1zm-15 0h3v-1H1zM5 9a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0m1 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0\"></path></g><defs><clipPath id=\"clip0_34_599\"><path fill=\"#fff\" d=\"M0 .5h16v16H0z\"></path></clipPath></defs></svg>",
+              "properties": {
+                "filename": "DaylightOutlined",
+                "originalName": "outlined/gis/daylight.svg",
+                "path": [
+                  "gis",
+                  "DaylightOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "summer_SI",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 0.4,
+                        "label": "0.4"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "is less than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "summer_SI < 0.4",
+              "displaySQL": "(summer_SI < 0.4)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High neighbourhood transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_2k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M4.653 13.854a.485.485 0 0 1 0-.708L10.24 8 4.653 2.854a.485.485 0 0 1 0-.708.54.54 0 0 1 .738 0l5.956 5.5a.485.485 0 0 1 0 .708l-5.956 5.5a.54.54 0 0 1-.738 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "Swipe right arrow",
+                "originalName": "outlined/directional/right.svg",
+                "path": [
+                  "generalAndArrows",
+                  "arrowRight"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_2k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_2k IN (5,6,7)",
+              "displaySQL": "(class_2k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High city transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_5k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M2.153 13.146a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L7.74 8zm5 0a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L12.74 8z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "RightDoubleOutlined",
+                "originalName": "outlined/directional/right-double.svg",
+                "path": [
+                  "directional",
+                  "RightDoubleOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_5k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_5k IN (5,6,7)",
+              "displaySQL": "(class_5k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Local centers",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_ai1k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+              "properties": {
+                "filename": "1773226520402.png",
+                "originalName": "walking-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_ai1k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_ai1k IN (6,7)",
+              "displaySQL": "(class_ai1k is any of (6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Building density",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "FSI500_mea"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 20 20\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M10.226.054a.5.5 0 0 0-.451 0L.25 4.942a.446.446 0 0 0 .025.813L9.8 9.958a.5.5 0 0 0 .4 0l9.524-4.203a.446.446 0 0 0 .025-.813zM10 9.044 1.542 5.313 10 .97l8.458 4.34z\" clip-rule=\"evenodd\"></path><path fill=\"#000\" d=\"M.676 10.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 15l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 14.029z\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M.676 15.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 20l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 19.029zM10 19.03l.2.085h-.4z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "WidgetLayerlistOutlined",
+                "originalName": "outlined/brand/widget-layerlist.svg",
+                "path": [
+                  "brand",
+                  "WidgetLayerlistOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "FSI500_mea",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 1.5,
+                        "label": "1.5"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Floor Space Index within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "FSI500_mea > 1.5",
+              "displaySQL": "(FSI500_mea > 1.5)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Access to shops and restaurants",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ARw500lm_1"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M13 6.133c0 .598-.28 1.46-.825 2.51-.53 1.02-1.247 2.102-1.981 3.102A46 46 0 0 1 8 14.492a48 48 0 0 1-2.194-2.747c-.734-1-1.451-2.081-1.98-3.102C3.28 7.593 3 6.731 3 6.133 3 3.277 5.26 1 8 1s5 2.277 5 5.133m1 0c0 2.685-3.768 7.311-5.332 9.115C8.258 15.722 8 16 8 16s-.258-.279-.668-.751C5.768 13.444 2 8.817 2 6.133 2 2.746 4.686 0 8 0s6 2.746 6 6.133M10 5.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "PinOutlined",
+                "originalName": "outlined/application/pin.svg",
+                "path": [
+                  "application",
+                  "PinOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ARw500lm_1",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 60,
+                        "label": "60"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Number of shops and restaurants within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ARw500lm_1 > 60",
+              "displaySQL": "(ARw500lm_1 > 60)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "School or preschool proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADws_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+              "properties": {
+                "filename": "1773226296880.png",
+                "originalName": "education-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADws_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest school or preschool is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADws_mean < 300",
+              "displaySQL": "(ADws_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Tram/metro/railway station proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwm_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+              "properties": {
+                "filename": "1773226629316.png",
+                "originalName": "transport_15452706.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwm_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest tram, metro or railway station (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwm_mean < 300",
+              "displaySQL": "(ADwm_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Bus stop proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwbu_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+              "properties": {
+                "filename": "1773226375728.png",
+                "originalName": "bus_5103406.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwbu_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest bus stop is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwbu_mean < 300",
+              "displaySQL": "(ADwbu_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Street width",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "width"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"m15.18 3.89-2.85 2.85-.71-.7 1.61-1.65H9v-1h4.32l-1.7-1.69.71-.7zM0 14.39v-6h16v6zm14-3h1v-2H1v4h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1zm-7-8H2.68l1.7-1.65-.71-.7L.82 3.89l2.85 2.85.71-.7-1.61-1.65H7z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "MeasureOutlined",
+                "originalName": "outlined/gis/measure.svg",
+                "path": [
+                  "gis",
+                  "MeasureOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "width",
+                  "operator": "NUMBER_OPERATOR_IS_BETWEEN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "DOUBLE_NUMBER_SELECTOR",
+                    "value": [
+                      {
+                        "value": 20,
+                        "label": "20"
+                      },
+                      {
+                        "value": 30,
+                        "label": "30"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": null,
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "width BETWEEN 20 AND 30",
+              "displaySQL": "(width is between 20 and 30)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          }
+        ],
+        "arrangeType": "INLINE",
+        "triggerType": "TOGGLE",
+        "omitInternalStyle": false,
+        "resetAll": true,
+        "turnOffAll": true,
+        "wrap": false
+      },
+      "id": "widget_149",
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1",
+          "fields": [
+            "ADwbu_mean",
+            "ADwm_mean",
+            "ADws_mean",
+            "ARw500lm_1",
+            "FSI500_mea",
+            "class_2k",
+            "class_5k",
+            "class_ai1k",
+            "summer_SI",
+            "width"
+          ]
+        }
+      ],
+      "icon": {
+        "svg": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.5 0.995117C18.5 0.445529 18.0699 0 17.5393 0H2.46074C2.24009 0 2.02617 0.0786713 1.85492 0.222793C1.44313 0.569359 1.38054 1.19609 1.71512 1.62263L6.49869 7.72098C6.62129 7.87727 6.69522 8.0684 6.71072 8.26913L7.54599 19.084C7.55313 19.1763 7.57269 19.2672 7.6041 19.354C7.7904 19.8686 8.34417 20.1293 8.84097 19.9364L10.9534 19.1158C11.2842 18.9873 11.5202 18.6811 11.568 18.3185L12.8925 8.25694C12.918 8.06386 12.9976 7.88276 13.1214 7.73611L18.2623 1.65041C18.4155 1.469 18.5 1.23616 18.5 0.995117ZM2.5 1H17.499L12.3575 7.09079L12.2411 7.24287C12.0599 7.50488 11.943 7.80792 11.9011 8.12642L10.5765 18.188L8.541 18.98L7.70775 8.19213L7.68756 8.02326C7.63318 7.68825 7.49542 7.3714 7.28551 7.10379L2.50194 1.00545L2.5 1Z\" fill=\"black\"/>\r\n</svg>\r\n",
+        "properties": {
+          "filename": "Filter",
+          "originalName": "default/filter.svg",
+          "color": "var(--ref-palette-neutral-1300)"
+        }
+      },
+      "style": {
+        "background": {
+          "color": "",
+          "fillType": "center",
+          "image": {
+            "url": ""
+          }
+        },
+        "border": {
+          "type": "dashed",
+          "color": "var(--sys-color-primary-light)",
+          "width": "0px"
+        }
+      }
+    },
+    "widget_166": {
+      "uri": "widgets/common/filter/",
+      "version": "1.19.0",
+      "label": "Selected streets",
+      "config": {
+        "logicalOperator": "AND",
+        "filterItems": [
+          {
+            "type": "SINGLE",
+            "name": "Summer Shade Index",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "summer_SI"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 17\"><g clip-path=\"url(#clip0_34_599)\"><path fill=\"#000\" d=\"m12.153 6.054-.707-.707 2.2-2.2.708.707zm-9.507 8.092.707.707 2.2-2.2-.706-.707zm8.8-1.493 2.2 2.2.707-.706-2.2-2.2zM5.554 5.347l-2.2-2.2-.707.706 2.2 2.2zM9 1.5H8v3h1zm-1 15h1v-3H8zm8-7v-1h-3v1zm-15 0h3v-1H1zM5 9a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0m1 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0\"></path></g><defs><clipPath id=\"clip0_34_599\"><path fill=\"#fff\" d=\"M0 .5h16v16H0z\"></path></clipPath></defs></svg>",
+              "properties": {
+                "filename": "DaylightOutlined",
+                "originalName": "outlined/gis/daylight.svg",
+                "path": [
+                  "gis",
+                  "DaylightOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "summer_SI",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 0.4,
+                        "label": "0.4"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "is less than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "summer_SI < 0.4",
+              "displaySQL": "(summer_SI < 0.4)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High neighbourhood transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_2k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M4.653 13.854a.485.485 0 0 1 0-.708L10.24 8 4.653 2.854a.485.485 0 0 1 0-.708.54.54 0 0 1 .738 0l5.956 5.5a.485.485 0 0 1 0 .708l-5.956 5.5a.54.54 0 0 1-.738 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "Swipe right arrow",
+                "originalName": "outlined/directional/right.svg",
+                "path": [
+                  "generalAndArrows",
+                  "arrowRight"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_2k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_2k IN (5,6,7)",
+              "displaySQL": "(class_2k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "High city transit",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_5k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M2.153 13.146a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L7.74 8zm5 0a.485.485 0 0 0 0 .708.54.54 0 0 0 .738 0l5.956-5.5a.485.485 0 0 0 0-.708l-5.956-5.5a.54.54 0 0 0-.738 0 .485.485 0 0 0 0 .708L12.74 8z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "RightDoubleOutlined",
+                "originalName": "outlined/directional/right-double.svg",
+                "path": [
+                  "directional",
+                  "RightDoubleOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_5k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 5,
+                        "label": "5"
+                      },
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_5k IN (5,6,7)",
+              "displaySQL": "(class_5k is any of (5,6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Local centers",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "class_ai1k"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+              "properties": {
+                "filename": "1773226520402.png",
+                "originalName": "walking-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226520402.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "class_ai1k",
+                  "operator": "NUMBER_OPERATOR_IS_ANY_OF",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "MULTIPLE",
+                    "inputEditor": "MULTIPLE_SELECT",
+                    "value": [
+                      {
+                        "value": 6,
+                        "label": "6"
+                      },
+                      {
+                        "value": 7,
+                        "label": "7"
+                      }
+                    ]
+                  },
+                  "displayType": "NONE",
+                  "askForValueOptions": null,
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "class_ai1k IN (6,7)",
+              "displaySQL": "(class_ai1k is any of (6,7))"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Building density",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "FSI500_mea"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 20 20\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M10.226.054a.5.5 0 0 0-.451 0L.25 4.942a.446.446 0 0 0 .025.813L9.8 9.958a.5.5 0 0 0 .4 0l9.524-4.203a.446.446 0 0 0 .025-.813zM10 9.044 1.542 5.313 10 .97l8.458 4.34z\" clip-rule=\"evenodd\"></path><path fill=\"#000\" d=\"M.676 10.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 15l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 14.029z\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M.676 15.04a.493.493 0 0 0-.632.216c-.11.22-.006.482.232.585L10 20l9.724-4.16c.238-.102.342-.363.232-.584a.493.493 0 0 0-.632-.215L10 19.029zM10 19.03l.2.085h-.4z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "WidgetLayerlistOutlined",
+                "originalName": "outlined/brand/widget-layerlist.svg",
+                "path": [
+                  "brand",
+                  "WidgetLayerlistOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "FSI500_mea",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 1.5,
+                        "label": "1.5"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Floor Space Index within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "FSI500_mea > 1.5",
+              "displaySQL": "(FSI500_mea > 1.5)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Access to shops and restaurants",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ARw500lm_1"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M13 6.133c0 .598-.28 1.46-.825 2.51-.53 1.02-1.247 2.102-1.981 3.102A46 46 0 0 1 8 14.492a48 48 0 0 1-2.194-2.747c-.734-1-1.451-2.081-1.98-3.102C3.28 7.593 3 6.731 3 6.133 3 3.277 5.26 1 8 1s5 2.277 5 5.133m1 0c0 2.685-3.768 7.311-5.332 9.115C8.258 15.722 8 16 8 16s-.258-.279-.668-.751C5.768 13.444 2 8.817 2 6.133 2 2.746 4.686 0 8 0s6 2.746 6 6.133M10 5.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "PinOutlined",
+                "originalName": "outlined/application/pin.svg",
+                "path": [
+                  "application",
+                  "PinOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ARw500lm_1",
+                  "operator": "NUMBER_OPERATOR_IS_GREATER_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 60,
+                        "label": "60"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Number of shops and restaurants within 500m walking distance is greater than",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ARw500lm_1 > 60",
+              "displaySQL": "(ARw500lm_1 > 60)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "School or preschool proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADws_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+              "properties": {
+                "filename": "1773226296880.png",
+                "originalName": "education-24.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226296880.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADws_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest school or preschool is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADws_mean < 300",
+              "displaySQL": "(ADws_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Tram/metro/railway station proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwm_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+              "properties": {
+                "filename": "1773226629316.png",
+                "originalName": "transport_15452706.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226629316.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwm_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest tram, metro or railway station (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwm_mean < 300",
+              "displaySQL": "(ADwm_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Bus stop proximity",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "ADwbu_mean"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+              "properties": {
+                "filename": "1773226375728.png",
+                "originalName": "bus_5103406.png",
+                "path": "${appResourceUrl}/images/icon_picker_in_setting/1773226375728.png",
+                "inlineSvg": false,
+                "isUploaded": true,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "ADwbu_mean",
+                  "operator": "NUMBER_OPERATOR_IS_LESS_THAN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "TEXT_BOX",
+                    "value": [
+                      {
+                        "value": 300,
+                        "label": "300"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": "Walking distance to the closest bus stop is less than (m)",
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "ADwbu_mean < 300",
+              "displaySQL": "(ADwbu_mean < 300)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          },
+          {
+            "type": "SINGLE",
+            "name": "Street width",
+            "useDataSources": [
+              {
+                "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+                "rootDataSourceId": "dataSource_1",
+                "fields": [
+                  "width"
+                ]
+              }
+            ],
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" fill-rule=\"evenodd\" d=\"m15.18 3.89-2.85 2.85-.71-.7 1.61-1.65H9v-1h4.32l-1.7-1.69.71-.7zM0 14.39v-6h16v6zm14-3h1v-2H1v4h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1v-2h1v2h1v-3h1v3h1zm-7-8H2.68l1.7-1.65-.71-.7L.82 3.89l2.85 2.85.71-.7-1.61-1.65H7z\" clip-rule=\"evenodd\"></path></svg>",
+              "properties": {
+                "filename": "MeasureOutlined",
+                "originalName": "outlined/gis/measure.svg",
+                "path": [
+                  "gis",
+                  "MeasureOutlined"
+                ],
+                "inlineSvg": true,
+                "isUploaded": false,
+                "color": "var(--ref-palette-neutral-1100)",
+                "size": 14
+              }
+            },
+            "sqlExprObj": {
+              "logicalOperator": "AND",
+              "parts": [
+                {
+                  "type": "SINGLE",
+                  "jimuFieldName": "width",
+                  "operator": "NUMBER_OPERATOR_IS_BETWEEN",
+                  "valueOptions": {
+                    "isValid": true,
+                    "sourceType": "USER_INPUT",
+                    "inputEditor": "DOUBLE_NUMBER_SELECTOR",
+                    "value": [
+                      {
+                        "value": 20,
+                        "label": "20"
+                      },
+                      {
+                        "value": 30,
+                        "label": "30"
+                      }
+                    ]
+                  },
+                  "displayType": "USE_ASK_FOR_VALUE",
+                  "askForValueOptions": {
+                    "label": null,
+                    "display": "BLOCK",
+                    "hint": "",
+                    "cascade": null
+                  },
+                  "displayLabel": null,
+                  "caseSensitive": false
+                }
+              ],
+              "sql": "width BETWEEN 20 AND 30",
+              "displaySQL": "(width is between 20 and 30)"
+            },
+            "autoApplyWhenWidgetOpen": false,
+            "collapseFilterExprs": false
+          }
+        ],
+        "arrangeType": "BLOCK",
+        "triggerType": "TOGGLE",
+        "omitInternalStyle": false,
+        "resetAll": true,
+        "turnOffAll": true,
+        "wrap": false
+      },
+      "id": "widget_166",
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1",
+          "fields": [
+            "ADwbu_mean",
+            "ADwm_mean",
+            "ADws_mean",
+            "ARw500lm_1",
+            "FSI500_mea",
+            "class_2k",
+            "class_5k",
+            "class_ai1k",
+            "summer_SI",
+            "width"
+          ]
+        }
+      ],
+      "icon": {
+        "svg": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.5 0.995117C18.5 0.445529 18.0699 0 17.5393 0H2.46074C2.24009 0 2.02617 0.0786713 1.85492 0.222793C1.44313 0.569359 1.38054 1.19609 1.71512 1.62263L6.49869 7.72098C6.62129 7.87727 6.69522 8.0684 6.71072 8.26913L7.54599 19.084C7.55313 19.1763 7.57269 19.2672 7.6041 19.354C7.7904 19.8686 8.34417 20.1293 8.84097 19.9364L10.9534 19.1158C11.2842 18.9873 11.5202 18.6811 11.568 18.3185L12.8925 8.25694C12.918 8.06386 12.9976 7.88276 13.1214 7.73611L18.2623 1.65041C18.4155 1.469 18.5 1.23616 18.5 0.995117ZM2.5 1H17.499L12.3575 7.09079L12.2411 7.24287C12.0599 7.50488 11.943 7.80792 11.9011 8.12642L10.5765 18.188L8.541 18.98L7.70775 8.19213L7.68756 8.02326C7.63318 7.68825 7.49542 7.3714 7.28551 7.10379L2.50194 1.00545L2.5 1Z\" fill=\"black\"/>\r\n</svg>\r\n",
+        "properties": {
+          "filename": "Filter",
+          "originalName": "default/filter.svg",
+          "color": "var(--ref-palette-neutral-1300)"
+        }
+      },
+      "style": {
+        "background": {
+          "color": "",
+          "fillType": "center",
+          "image": {
+            "url": ""
+          }
+        },
+        "border": {
+          "type": "dashed",
+          "color": "var(--sys-color-primary-light)",
+          "width": "0px"
+        }
+      },
+      "offPanel": false
+    },
+    "widget_167": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 5",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "FIRST",
+        "overlay": false,
+        "size": "300px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "LEFT",
+          "offsetX": 15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_167",
+      "style": {
+        "background": {
+          "color": "rgba(147,190,230,0)",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#001d32"
+      },
+      "layouts": {
+        "FIRST": {
+          "MEDIUM": "layout_146"
+        },
+        "SECOND": {
+          "MEDIUM": "layout_147"
+        }
+      }
+    },
+    "widget_168": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 6",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "SECOND",
+        "overlay": false,
+        "size": "300px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "RIGHT",
+          "offsetX": -15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_168",
+      "layouts": {
+        "FIRST": {
+          "MEDIUM": "layout_148"
+        },
+        "SECOND": {
+          "MEDIUM": "layout_149"
+        }
+      }
+    },
+    "widget_169": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 5",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "FIRST",
+        "overlay": false,
+        "size": "300px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "LEFT",
+          "offsetX": 15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "0 92px 92px 0"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_169",
+      "style": {
+        "background": {
+          "color": "rgba(147,190,230,0)",
+          "fillType": "fill",
+          "image": {
+            "url": ""
+          }
+        },
+        "textColor": "#001d32"
+      },
+      "layouts": {
+        "FIRST": {
+          "SMALL": "layout_152"
+        },
+        "SECOND": {
+          "SMALL": "layout_153"
+        }
+      }
+    },
+    "widget_170": {
+      "uri": "widgets/layout/sidebar/",
+      "version": "1.19.0",
+      "label": "Sidebar 6",
+      "config": {
+        "direction": "HORIZONTAL",
+        "collapseSide": "SECOND",
+        "overlay": false,
+        "size": "300px",
+        "divider": {
+          "visible": false,
+          "lineStyle": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-primary)",
+            "width": "1px"
+          }
+        },
+        "resizable": true,
+        "toggleBtn": {
+          "visible": true,
+          "iconSource": 0,
+          "icon": "RIGHT",
+          "offsetX": -15,
+          "offsetY": 0,
+          "position": "CENTER",
+          "iconSize": 14,
+          "width": 15,
+          "height": 60,
+          "border": {
+            "type": "solid",
+            "color": "var(--sys-color-divider-secondary)",
+            "width": "1px"
+          },
+          "color": {
+            "normal": {
+              "icon": {
+                "useTheme": false,
+                "color": "var(--sys-color-action-text)"
+              },
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action)"
+              }
+            },
+            "hover": {
+              "bg": {
+                "useTheme": true,
+                "color": "var(--sys-color-action-pressed)"
+              }
+            }
+          },
+          "expandStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          },
+          "collapseStyle": {
+            "style": {
+              "borderRadius": "92px 0 0 92px"
+            }
+          }
+        },
+        "defaultState": 1
+      },
+      "id": "widget_170",
+      "layouts": {
+        "FIRST": {
+          "SMALL": "layout_154"
+        },
+        "SECOND": {
+          "SMALL": "layout_155"
+        }
+      }
+    },
+    "widget_171": {
+      "uri": "widgets/common/controller/",
+      "version": "1.19.0",
+      "offPanel": true,
+      "label": "Widget Controller 3",
+      "config": {
+        "behavior": {
+          "onlyOpenOne": false,
+          "openStarts": [],
+          "displayType": "STACK",
+          "vertical": false,
+          "size": {
+            "widget_172": {
+              "width": 448.15625,
+              "height": 776.2395629882812
+            }
+          },
+          "alignment": "center",
+          "arrangement": "floating"
+        },
+        "appearance": {
+          "space": 0,
+          "advanced": false,
+          "card": {
+            "showLabel": false,
+            "labelGrowth": 10,
+            "avatar": {
+              "type": "primary",
+              "size": "default",
+              "shape": "circle"
+            },
+            "showIndicator": false
+          }
+        }
+      },
+      "id": "widget_171",
+      "layouts": {
+        "controller": {
+          "MEDIUM": "layout_156"
+        }
+      }
+    },
+    "widget_172": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "icon": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" d=\"M8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6.5 7.5A.5.5 0 0 1 7 7h1.5v4.5h1a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1h1V8H7a.5.5 0 0 1-.5-.5\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16m0-1A7 7 0 1 0 8 1a7 7 0 0 0 0 14\" clip-rule=\"evenodd\"></path></svg>",
+        "properties": {
+          "filename": "Info",
+          "originalName": "outlined/suggested/info.svg",
+          "path": [
+            "generalAndArrows",
+            "info"
+          ],
+          "inlineSvg": true,
+          "isUploaded": false,
+          "color": ""
+        }
+      },
+      "label": "Info",
+      "config": {
+        "text": "<p>This platform allows you to select strategic locations for new street tree planting.&nbsp;</p><p><br></p><p>First, using the filter icon, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria.</p><p><br></p><p>Then, using the tree planting calculator, you are asked to define a method to generate the total number of trees that need to be planted along these streets.</p><p><br></p><p>Inspect the following layers to decide which segments need planting:</p><p><br></p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020).</p><p><br></p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method.</p><p><br></p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network.</p><p><br></p><p><strong>Transit streets:</strong> captured via betweenness centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area.</p><p><br></p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life.</p><p><br></p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods</strong></p><p><br></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025).</p><p><br></p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees).</p><p><br></p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa.</p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_172"
+    },
+    "widget_173": {
+      "uri": "widgets/common/controller/",
+      "version": "1.19.0",
+      "offPanel": true,
+      "label": "Widget Controller 4",
+      "config": {
+        "behavior": {
+          "onlyOpenOne": true,
+          "openStarts": [],
+          "displayType": "SIDEBYSIDE",
+          "vertical": true,
+          "size": {},
+          "arrangement": "floating"
+        },
+        "appearance": {
+          "space": 10,
+          "advanced": false,
+          "card": {
+            "showLabel": false,
+            "labelGrowth": 0,
+            "avatar": {
+              "type": "primary",
+              "size": "default",
+              "shape": "circle"
+            },
+            "showIndicator": false
+          }
+        }
+      },
+      "id": "widget_173",
+      "layouts": {
+        "controller": {
+          "SMALL": "layout_157"
+        }
+      }
+    },
+    "widget_174": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "icon": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 16 16\"><path fill=\"#000\" d=\"M8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6.5 7.5A.5.5 0 0 1 7 7h1.5v4.5h1a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1h1V8H7a.5.5 0 0 1-.5-.5\"></path><path fill=\"#000\" fill-rule=\"evenodd\" d=\"M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16m0-1A7 7 0 1 0 8 1a7 7 0 0 0 0 14\" clip-rule=\"evenodd\"></path></svg>",
+        "properties": {
+          "filename": "Info",
+          "originalName": "outlined/suggested/info.svg",
+          "path": [
+            "generalAndArrows",
+            "info"
+          ],
+          "inlineSvg": true,
+          "isUploaded": false,
+          "color": ""
+        }
+      },
+      "label": "Info",
+      "config": {
+        "text": "<p>This platform allows you to select strategic locations for new street tree planting.&nbsp;</p><p><br></p><p>First, using the filter icons, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria.</p><p><br></p><p>Then, using the tree planting calculator, you are asked to define a method to generate the total number of trees that need to be planted along these streets.</p><p><br></p><p>Inspect the following layers to decide which segments need planting:</p><p><br></p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020).</p><p><br></p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method.</p><p><br></p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network.</p><p><br></p><p><strong>Transit streets:</strong> captured via betweenness centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area.</p><p><br></p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life. </p><p><br></p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods</strong></p><p><br></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025).</p><p><br></p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees).</p><p><br></p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa.</p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_174"
+    }
+  },
+  "widgetsManifest": {},
+  "views": {},
+  "sections": {},
+  "dialogs": {
+    "dialog_2": {
+      "id": "dialog_2",
+      "mode": "ANCHORED",
+      "blockPage": true,
+      "sizeMode": {
+        "LARGE": {
+          "width": "401px",
+          "height": "748px"
+        }
+      },
+      "interactionType": null,
+      "interactionStyles": null,
+      "confirmBeforeClose": true,
+      "alwaysShowConfirmation": false,
+      "dialogBackground": {
+        "color": "var(--ref-palette-neutral-1100)",
+        "fillType": "fill",
+        "image": {
+          "url": ""
+        }
+      },
+      "overlayColor": null,
+      "layout": {
+        "LARGE": "layout_109"
+      },
+      "index": 0,
+      "isSplash": false,
+      "border": {
+        "color": "var(--sys-color-divider-secondary)",
+        "type": "solid",
+        "width": "2px"
+      },
+      "label": "Window",
+      "closeWhenClickOverlay": true,
+      "textColor": "var(--ref-palette-neutral-100)"
+    }
+  },
+  "messageConfigs": {
+    "messageConfig_1": {
+      "id": "messageConfig_1",
+      "widgetId": "widget_4",
+      "messageType": "DATA_SOURCE_FILTER_CHANGE",
+      "actions": []
+    }
+  },
+  "attributes": {
+    "portalUrl": "https://Technion-GIS.maps.arcgis.com"
+  },
+  "timestamp": 1773738804509,
+  "sharedThemeVariables": {
+    "header": {},
+    "body": {},
+    "button": {
+      "bg": "#bee8ff"
+    },
+    "logo": {
+      "small": "https://technion-gis.maps.arcgis.com/sharing/rest/content/items/7d0beb1689694c05b6d07dd770ba9489/data",
+      "link": null
+    }
+  },
+  "mainLocale": "en-gb",
+  "dataSources": {
+    "dataSource_1": {
+      "id": "dataSource_1",
+      "type": "WEB_MAP",
+      "sourceLabel": "TPP test 20251223",
+      "itemId": "cd7330a117704c349e672ed34959f8a4",
+      "portalUrl": "https://Technion-GIS.maps.arcgis.com",
+      "childDataSourceJsons": {
+        "19ca689381c-layer-23": {
+          "id": "dataSource_1-19ca689381c-layer-23",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Closest bus stop",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca40174d6-layer-13": {
+          "id": "dataSource_1-19ca40174d6-layer-13",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Existing trees",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "bd46d52be47d4cec90f9e1bd8412cb61",
+          "layerId": "0",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_tree_trunks_with_diameterUPD/FeatureServer/0",
+          "disableExport": true
+        },
+        "19ca545a1dd-layer-15": {
+          "id": "dataSource_1-19ca545a1dd-layer-15",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Filtered streets",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca545884e-layer-14": {
+          "id": "dataSource_1-19ca545884e-layer-14",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Summer Shade Index",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca54520e0-layer-13": {
+          "id": "dataSource_1-19ca54520e0-layer-13",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Neighbourhood transit",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca6687e09-layer-17": {
+          "id": "dataSource_1-19ca6687e09-layer-17",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "City transit",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca66c8b29-layer-18": {
+          "id": "dataSource_1-19ca66c8b29-layer-18",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Pedestrian activity",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca674603e-layer-19": {
+          "id": "dataSource_1-19ca674603e-layer-19",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Building density",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca67b1f7f-layer-20": {
+          "id": "dataSource_1-19ca67b1f7f-layer-20",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Access to shops and restaurants",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca6807ced-layer-21": {
+          "id": "dataSource_1-19ca6807ced-layer-21",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Closest tram, metro or railway station",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        },
+        "19ca684e982-layer-22": {
+          "id": "dataSource_1-19ca684e982-layer-22",
+          "type": "FEATURE_LAYER",
+          "sourceLabel": "Closest school or preschool",
+          "portalUrl": "https://www.arcgis.com",
+          "itemId": "476daa510bde4bc9bf155807fc1e694b",
+          "layerId": "1",
+          "url": "https://services1.arcgis.com/yAQXemoDSgzdfV2A/arcgis/rest/services/TLV_joined_segment_20260228_135057/FeatureServer/1",
+          "disableExport": true
+        }
+      },
+      "isHidden": false
+    }
+  },
+  "pageStructure": [
+    {
+      "page_0": []
+    }
+  ],
+  "utilities": {
+    "utility_1": {
+      "id": "utility_1",
+      "type": "PRINTING",
+      "name": "printTask",
+      "label": "Printing",
+      "url": "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
+      "source": "org",
+      "orgSetting": {}
+    }
+  },
+  "customTheme": {},
+  "customThemeOptions": {},
+  "header": {
+    "layout": {
+      "LARGE": "layout_88",
+      "MEDIUM": "layout_121",
+      "SMALL": "layout_129"
+    },
+    "height": {
+      "LARGE": 73,
+      "MEDIUM": 93,
+      "SMALL": 65
+    },
+    "backgroundColor": "var(--ref-palette-neutral-1300)",
+    "textColor": "var(--ref-palette-neutral-100)"
+  },
+  "footer": {
+    "layout": {
+      "LARGE": "layout_94",
+      "MEDIUM": "layout_119"
+    },
+    "height": {
+      "LARGE": 82,
+      "MEDIUM": 68
+    }
+  }
+}

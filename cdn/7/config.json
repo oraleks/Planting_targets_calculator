@@ -6,8 +6,8 @@
       "type": "NORMAL",
       "layout": {
         "LARGE": "layout_0",
-        "MEDIUM": "layout_144",
-        "SMALL": "layout_150"
+        "MEDIUM": "layout_0",
+        "SMALL": "layout_0"
       },
       "isDefault": true,
       "isVisible": true,
@@ -1066,12 +1066,12 @@
     "lockLayout": true,
     "viewPortSize": {
       "MEDIUM": {
-        "width": 834,
-        "height": 1112
+        "width": 1,
+        "height": 1
       },
       "SMALL": {
-        "width": 414,
-        "height": 736
+        "width": 1,
+        "height": 1
       },
       "LARGE": {
         "width": 1280,
@@ -1142,8 +1142,8 @@
       "layouts": {
         "MapFixedLayout": {
           "LARGE": "layout_1",
-          "MEDIUM": "layout_145",
-          "SMALL": "layout_151"
+          "MEDIUM": "layout_1",
+          "SMALL": "layout_1"
         }
       },
       "dataActions": {
@@ -4557,7 +4557,7 @@
   "attributes": {
     "portalUrl": "https://Technion-GIS.maps.arcgis.com",
     "isWebTier": false,
-    "clientId": "SDZCXy8385IUf1Kd",
+    "clientId": "",
     "express": false,
     "title": "Tel Aviv Tree Planting Targets Calculator",
     "description": "",
@@ -4720,13 +4720,13 @@
   "header": {
     "layout": {
       "LARGE": "layout_88",
-      "MEDIUM": "layout_121",
-      "SMALL": "layout_129"
+      "MEDIUM": "layout_88",
+      "SMALL": "layout_88"
     },
     "height": {
       "LARGE": 73,
-      "MEDIUM": 93,
-      "SMALL": 65
+      "MEDIUM": 73,
+      "SMALL": 73
     },
     "backgroundColor": "var(--ref-palette-neutral-1300)",
     "textColor": "var(--ref-palette-neutral-100)"
@@ -4734,11 +4734,11 @@
   "footer": {
     "layout": {
       "LARGE": "layout_94",
-      "MEDIUM": "layout_119"
+      "MEDIUM": "layout_94"
     },
     "height": {
       "LARGE": 82,
-      "MEDIUM": 68
+      "MEDIUM": 82
     }
   },
   "publishTimestamp": 1773738965568

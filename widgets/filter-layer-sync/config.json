@@ -1,0 +1,15 @@
+{
+  "filterWidgetId": "widget_4",
+  "selectedSegmentsLayerTitle": "Selected streets",
+  "mappings": [
+    { "filterField": "summer_SI", "layerTitle": "Spring/Summer Shade Index" },
+    { "filterField": "class_2k", "layerTitle": "Neighbourhood transit" },
+    { "filterField": "class_5k", "layerTitle": "City transit" },
+    { "filterField": "class_ai1k", "layerTitle": "Local centers" },
+    { "filterField": "FSI500_mea", "layerTitle": "Building density" },
+    { "filterField": "ARw500lm_1", "layerTitle": "Access to shops and restaurants" },
+    { "filterField": "ADws_mean", "layerTitle": "Closest school or preschool" },
+    { "filterField": "ADwm_mean", "layerTitle": "Closest tram, metro or railway station" },
+    { "filterField": "ADwbu_mean", "layerTitle": "Closest bus stop" }
+  ]
+}

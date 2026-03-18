@@ -1,0 +1,12 @@
+{
+  "name": "compact-filter",
+  "label": "Compact Filter",
+  "type": "widget",
+  "version": "1.19.0",
+  "exbVersion": "1.19.0",
+  "properties": {
+    "hasConfig": true,
+    "hasMainClass": true,
+    "hasSettingPage": false
+  }
+}

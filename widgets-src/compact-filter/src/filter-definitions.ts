@@ -63,18 +63,18 @@ export const FILTER_DEFINITIONS: FilterDef[] = [
     iconType: 'svg', iconSvg: sunSvg
   },
   {
-    type: 'multi-select', field: 'class_2k', name: 'Neighbourhood transit',
-    options: [5, 6, 7], defaultValue: [5, 6, 7],
+    type: 'slider', field: 'class_2k', name: 'Neighbourhood transit',
+    operator: '>', min: 0, max: 7, step: 1, defaultValue: 4,
     iconType: 'svg', iconSvg: pedestrianSvg
   },
   {
-    type: 'multi-select', field: 'class_5k', name: 'City transit',
-    options: [5, 6, 7], defaultValue: [5, 6, 7],
+    type: 'slider', field: 'class_5k', name: 'City transit',
+    operator: '>', min: 0, max: 7, step: 1, defaultValue: 4,
     iconType: 'svg', iconSvg: carSvg
   },
   {
-    type: 'multi-select', field: 'class_ai1k', name: 'Local centers',
-    options: [6, 7], defaultValue: [6, 7],
+    type: 'slider', field: 'class_ai1k', name: 'Local centers',
+    operator: '>', min: 0, max: 7, step: 1, defaultValue: 5,
     iconType: 'png', iconPng: 'walking.png'
   },
   {

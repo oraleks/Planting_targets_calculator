@@ -463,6 +463,103 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
     }
   }, [])
 
+  // --- Force instruction dialog to show from top ---
+  useEffect(() => {
+    let wasVisible = false
+
+    const scrollDialogToTop = () => {
+      const widget = document.querySelector('[data-widgetid="widget_141"]') as HTMLElement
+      if (!widget) {
+        wasVisible = false
+        return
+      }
+
+      // Only act when dialog first appears
+      if (wasVisible) return
+      wasVisible = true
+
+      // Find and scroll every scrollable element in the dialog ancestry and descendants
+      const scrollToTop = (el: HTMLElement) => {
+        if (el.scrollTop > 0) el.scrollTop = 0
+      }
+
+      // Scroll all ancestors up to body
+      let ancestor: HTMLElement | null = widget
+      while (ancestor && ancestor !== document.body) {
+        scrollToTop(ancestor)
+        ancestor = ancestor.parentElement
+      }
+
+      // Scroll all descendants
+      widget.querySelectorAll('*').forEach((child: Element) => {
+        const htmlChild = child as HTMLElement
+        if (htmlChild.scrollHeight > htmlChild.clientHeight) {
+          htmlChild.scrollTop = 0
+        }
+      })
+
+      // Retry a few times as content may render with delay
+      setTimeout(() => {
+        let a: HTMLElement | null = widget
+        while (a && a !== document.body) {
+          if (a.scrollTop > 0) a.scrollTop = 0
+          a = a.parentElement
+        }
+        widget.querySelectorAll('*').forEach((c: Element) => {
+          (c as HTMLElement).scrollTop = 0
+        })
+      }, 200)
+    }
+
+    const interval = setInterval(scrollDialogToTop, 300)
+    return () => clearInterval(interval)
+  }, [])
+
+  // --- Force header button styles (white text, no underline) ---
+  useEffect(() => {
+    const styleId = 'header-button-styles'
+    if (document.getElementById(styleId)) return
+    const style = document.createElement('style')
+    style.id = styleId
+    style.textContent = `
+      [data-widgetid="widget_202"] a,
+      [data-widgetid="widget_202"] button,
+      [data-widgetid="widget_202"] span,
+      [data-widgetid="widget_204"] a,
+      [data-widgetid="widget_204"] button,
+      [data-widgetid="widget_204"] span {
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+      }
+      [data-widgetid="widget_202"] a:hover,
+      [data-widgetid="widget_204"] a:hover {
+        text-decoration: underline !important;
+      }
+    `
+    document.head.appendChild(style)
+    return () => {
+      const el = document.getElementById(styleId)
+      if (el) el.remove()
+    }
+  }, [])
+
+  // --- Make BDAR logo clickable ---
+  useEffect(() => {
+    const makeLogoClickable = () => {
+      const logoWidget = document.querySelector('[data-widgetid="widget_107"]') as HTMLElement
+      if (!logoWidget || logoWidget.dataset.linkAttached) return
+      logoWidget.style.cursor = 'pointer'
+      logoWidget.addEventListener('click', () => {
+        window.open('https://oraleks.net.technion.ac.il/en/bdar-lab/', '_blank')
+      })
+      logoWidget.dataset.linkAttached = 'true'
+    }
+    const interval = setInterval(makeLogoClickable, 1000)
+    makeLogoClickable()
+    return () => clearInterval(interval)
+  }, [])
+
   // Headless widget — only the JimuMapViewComponent connector
   return (
     <div style={{ display: 'none' }}>

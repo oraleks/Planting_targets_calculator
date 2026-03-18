@@ -153,42 +153,11 @@ function RangeSliderContent ({ def, value, onChange }: {
   )
 }
 
-// --- Multi-select popover content ---
-
-function MultiSelectContent ({ def, value, onChange }: {
-  def: FilterDef & { type: 'multi-select' }
-  value: number[]
-  onChange: (value: number[]) => void
-}) {
-  const toggle = (opt: number) => {
-    if (value.includes(opt)) {
-      onChange(value.filter(v => v !== opt))
-    } else {
-      onChange([...value, opt].sort())
-    }
-  }
-  return (
-    <div className='compact-filter-checkbox-list'>
-      {def.options.map(opt => (
-        <label key={opt}>
-          <input
-            type='checkbox'
-            checked={value.includes(opt)}
-            onChange={() => toggle(opt)}
-          />
-          Class {opt}
-        </label>
-      ))}
-    </div>
-  )
-}
-
 // --- Main widget ---
 
 export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
   const [filters, setFilters] = useState<FiltersMap>(createInitialFilters)
   const [openPopover, setOpenPopover] = useState<string | null>(null)
-  const [editValue, setEditValue] = useState<any>(null)
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null)
   const [popoverPos, setPopoverPos] = useState<{ top: number; left: number } | null>(null)
   const [tooltipPos, setTooltipPos] = useState<{ top: number; left: number } | null>(null)
@@ -199,7 +168,6 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
 
   const widgetId = props.id || 'widget_201'
 
-  // Called when DataSourceComponent creates/provides the data source
   const handleDsCreated = useCallback((ds: any) => {
     console.log('[compact-filter] Data source created:', ds?.id)
     dsRef.current = ds
@@ -207,7 +175,7 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
     setDsReady(true)
   }, [])
 
-  // Apply SQL to data source
+  // Apply SQL to data source — called whenever filters change
   const applySql = useCallback((currentFilters: FiltersMap) => {
     const sql = buildCombinedSql(currentFilters)
     if (sql === prevSqlRef.current) return
@@ -216,28 +184,61 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
     const ds = dsRef.current
     if (!ds) return
 
-    console.log('[compact-filter] Applying SQL:', sql)
-
     try {
       if (ds.updateQueryParams) {
         ds.updateQueryParams({ where: sql }, widgetId)
-        const info = ds.getInfo?.()
-        const stored = (info as any)?.widgetQueries?.[widgetId]?.where
-        console.log('[compact-filter] Stored SQL verified:', stored)
       }
     } catch (e) {
       console.error('[compact-filter] Failed to apply filters:', e)
     }
   }, [widgetId])
 
-  // Open popover for a filter
-  const openFilter = (field: string) => {
-    if (openPopover === field) {
-      setOpenPopover(null)
-      setEditValue(null)
-      setPopoverPos(null)
-      return
+  // Apply SQL whenever filters change
+  useEffect(() => {
+    if (dsReady) {
+      applySql(filters)
     }
+  }, [filters, applySql, dsReady])
+
+  // Update a filter's value LIVE (immediately applies to map)
+  const updateFilterValue = (field: string, value: any) => {
+    setFilters(prev => {
+      const next = { ...prev }
+      next[field] = { ...next[field], value }
+      return next
+    })
+  }
+
+  // Toggle filter on/off via icon click
+  const handleIconClick = (field: string) => {
+    const state = filters[field]
+    const isActive = state?.active
+
+    if (isActive) {
+      // Active filter → deactivate and close popover
+      const def = FILTER_DEFINITIONS.find(d => d.field === field)
+      setFilters(prev => {
+        const next = { ...prev }
+        next[field] = {
+          active: false,
+          value: def?.defaultValue ?? 0
+        }
+        return next
+      })
+      setOpenPopover(null)
+      setPopoverPos(null)
+    } else {
+      // Inactive filter → activate with default value and open popover
+      setFilters(prev => {
+        const next = { ...prev }
+        next[field] = { ...next[field], active: true }
+        return next
+      })
+      openPopoverFor(field)
+    }
+  }
+
+  const openPopoverFor = (field: string) => {
     const iconEl = iconRefs.current[field]
     if (iconEl) {
       const rect = iconEl.getBoundingClientRect()
@@ -246,44 +247,13 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
         left: Math.max(rect.right - 220, 10)
       })
     }
-    const currentState = filters[field]
-    setEditValue(
-      Array.isArray(currentState.value) ? [...currentState.value] : currentState.value
-    )
     setOpenPopover(field)
   }
 
-  const applyFilter = (field: string) => {
-    setFilters(prev => {
-      const next = { ...prev }
-      next[field] = { active: true, value: editValue }
-      return next
-    })
+  const closePopover = () => {
     setOpenPopover(null)
-    setEditValue(null)
     setPopoverPos(null)
   }
-
-  const clearFilter = (field: string) => {
-    const def = FILTER_DEFINITIONS.find(d => d.field === field)
-    setFilters(prev => {
-      const next = { ...prev }
-      next[field] = {
-        active: false,
-        value: def?.type === 'multi-select' ? [...def.defaultValue] : def?.defaultValue ?? 0
-      }
-      return next
-    })
-    setOpenPopover(null)
-    setEditValue(null)
-    setPopoverPos(null)
-  }
-
-  useEffect(() => {
-    if (dsReady) {
-      applySql(filters)
-    }
-  }, [filters, applySql, dsReady])
 
   const handleMouseEnter = (field: string) => {
     setHoveredIcon(field)
@@ -302,17 +272,10 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
     setTooltipPos(null)
   }
 
-  const closePopover = () => {
-    setOpenPopover(null)
-    setEditValue(null)
-    setPopoverPos(null)
-  }
-
   const openDef = openPopover ? FILTER_DEFINITIONS.find(d => d.field === openPopover) : null
   const hoveredDef = hoveredIcon ? FILTER_DEFINITIONS.find(d => d.field === hoveredIcon) : null
 
-  // Render popover and tooltip via portal to document.body
-  // This escapes the sidebar's stacking context
+  // Portal content: tooltip and popover rendered on document.body
   const portalContent = (
     <>
       {hoveredIcon && !openPopover && hoveredDef && tooltipPos && (
@@ -337,35 +300,17 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
             {openDef.type === 'slider' && (
               <SliderContent
                 def={openDef as any}
-                value={editValue as number}
-                onChange={setEditValue}
+                value={filters[openPopover].value as number}
+                onChange={v => updateFilterValue(openPopover, v)}
               />
             )}
             {openDef.type === 'range-slider' && (
               <RangeSliderContent
                 def={openDef as any}
-                value={editValue as [number, number]}
-                onChange={setEditValue}
+                value={filters[openPopover].value as [number, number]}
+                onChange={v => updateFilterValue(openPopover, v)}
               />
             )}
-            {openDef.type === 'multi-select' && (
-              <MultiSelectContent
-                def={openDef as any}
-                value={editValue as number[]}
-                onChange={setEditValue}
-              />
-            )}
-
-            <div className='compact-filter-buttons'>
-              <button className='compact-filter-btn set' onClick={() => applyFilter(openPopover)}>
-                Set
-              </button>
-              {filters[openPopover]?.active && (
-                <button className='compact-filter-btn clear' onClick={() => clearFilter(openPopover)}>
-                  Clear
-                </button>
-              )}
-            </div>
           </div>
         </>
       )}
@@ -390,7 +335,7 @@ export default function CompactFilterWidget (props: AllWidgetProps<IMConfig>) {
               key={def.field}
               ref={el => { iconRefs.current[def.field] = el }}
               className={`compact-filter-icon ${isActive ? 'active' : ''}`}
-              onClick={e => { e.stopPropagation(); openFilter(def.field) }}
+              onClick={e => { e.stopPropagation(); handleIconClick(def.field) }}
               onMouseEnter={() => handleMouseEnter(def.field)}
               onMouseLeave={handleMouseLeave}
             >

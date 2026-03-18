@@ -94,7 +94,7 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
   const [diameter, setDiameter] = React.useState<number>(8)
   const [tccrGlobal, setTccrGlobal] = React.useState<number>(config?.defaultTccr ?? 0.6)
   const [wtypeTargets, setWtypeTargets] = React.useState<Record<string, number>>(
-    { '1': 0.51, '2': 0.41, '3': 0.40, '4': 0.43, '5': 0.43 }
+    { '1': 0.50, '2': 0.40, '3': 0.40, '4': 0.40, '5': 0.40 }
   )
   const [spacing, setSpacing] = React.useState<number>(25)
   const [results, setResults] = React.useState<Results | null>(null)
@@ -370,7 +370,7 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
       <div className="mb-2 p-2 border rounded">
         <Label className="font-weight-bold" style={{ fontSize: '13px' }}>Calculation Parameters</Label>
         <div className="mt-2">
-          <Label className="small">Crown Diameter (m)</Label>
+          <Label className="small">Crown diameter (m)</Label>
           <TextInput value={String(diameter)} onChange={(e) => setDiameter(Number(e.target.value))} />
         </div>
         {scenario === 's1' && subScenario === '1a' && (

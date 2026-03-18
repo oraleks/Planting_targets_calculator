@@ -98,7 +98,7 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
   )
   const [spacing, setSpacing] = React.useState<number>(25)
   const [results, setResults] = React.useState<Results | null>(null)
-  const [note, setNote] = React.useState<string>('Using the above buttons, filter out streets that do not require planting (by default, all the city\'s streets are considered). Next, choose the targer calculation methods, change the calculation parameters as you wish, and press Calculate.')
+  const [note, setNote] = React.useState<string>('Using the above buttons, filter out streets that do not require planting (by default, all the city\'s streets are considered). Next, choose the target calculation method, change the calculation parameters as you wish, and press Calculate.')
   const [loading, setLoading] = React.useState<boolean>(false)
 
   const onActiveViewChange = (jmv: JimuMapView) => { setJimuMapView(jmv) }
@@ -345,16 +345,16 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
   }
 
   return (
-    <div className="widget-tree-planting p-3 bg-white" style={{ height: '100%', overflow: 'auto' }}>
+    <div className="widget-tree-planting p-2 bg-white" style={{ height: '100%', overflow: 'auto' }}>
       {props.useMapWidgetIds?.[0] && (
         <JimuMapViewComponent useMapWidgetId={props.useMapWidgetIds[0]} onActiveViewChange={onActiveViewChange} />
       )}
-      <div className="small text-muted mb-3 font-italic">{note}</div>
-      <div className="mb-4">
-        <Label className="font-weight-bold">Calculation Method</Label>
-        <div className="d-flex flex-column gap-1 mt-2">
-          <Label className="m-0"><Radio checked={scenario === 's1'} onChange={() => setScenario('s1')} /> Method 1: Target Tree Canopy Cover Ratio (TCCR)</Label>
-          <div className="pl-4 d-flex flex-column mt-1" style={{ gap: '4px' }}>
+      <div className="small text-muted mb-1 font-italic" style={{ fontSize: '11px', lineHeight: '1.3' }}>{note}</div>
+      <div className="mb-2">
+        <Label className="font-weight-bold" style={{ fontSize: '13px' }}>Calculation Method</Label>
+        <div className="d-flex flex-column mt-1" style={{ gap: '2px' }}>
+          <Label className="m-0" style={{ fontSize: '12px' }}><Radio checked={scenario === 's1'} onChange={() => setScenario('s1')} /> Method 1: Target Tree Canopy Cover Ratio (TCCR)</Label>
+          <div className="pl-4 d-flex flex-column" style={{ gap: '2px' }}>
             <Label className="small m-0 d-flex align-items-center" style={{ cursor: 'pointer' }}>
               <input type="checkbox" checked={scenario === 's1' && subScenario === '1a'} onChange={() => { setScenario('s1'); setSubScenario('1a') }} style={{ width: 14, height: 14, marginRight: 6, accentColor: '#0079c1' }} />
               1a: Global
@@ -364,11 +364,11 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
               1b: By street width
             </Label>
           </div>
-          <Label className="m-0 mt-2"><Radio checked={scenario === 's2'} onChange={() => setScenario('s2')} /> Method 2: Fixed Spacing</Label>
+          <Label className="m-0 mt-1" style={{ fontSize: '12px' }}><Radio checked={scenario === 's2'} onChange={() => setScenario('s2')} /> Method 2: Fixed Spacing</Label>
         </div>
       </div>
-      <div className="mb-4 p-3 border rounded">
-        <Label className="font-weight-bold">Calculation Parameters</Label>
+      <div className="mb-2 p-2 border rounded">
+        <Label className="font-weight-bold" style={{ fontSize: '13px' }}>Calculation Parameters</Label>
         <div className="mt-2">
           <Label className="small">Crown Diameter (m)</Label>
           <TextInput value={String(diameter)} onChange={(e) => setDiameter(Number(e.target.value))} />
@@ -398,7 +398,7 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
           </div>
         )}
       </div>
-      <Button type="primary" onClick={onCompute} className="w-100 mb-4" disabled={!dsId || loading}>
+      <Button type="primary" onClick={onCompute} className="w-100 mb-2" disabled={!dsId || loading}>
         {loading ? 'Processing...' : 'Calculate'}
       </Button>
       {results && (

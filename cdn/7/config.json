@@ -6,8 +6,8 @@
       "type": "NORMAL",
       "layout": {
         "LARGE": "layout_0",
-        "MEDIUM": "layout_0",
-        "SMALL": "layout_0"
+        "MEDIUM": "layout_144",
+        "SMALL": "layout_150"
       },
       "isDefault": true,
       "isVisible": true,
@@ -713,6 +713,16 @@
           },
           "isPending": true
         },
+        "200": {
+          "type": "WIDGET",
+          "widgetId": "widget_200",
+          "bbox": {
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+            "height": "0px"
+          }
+        },
         "27": {
           "type": "WIDGET",
           "widgetId": "widget_171",
@@ -744,7 +754,8 @@
         "20",
         "23",
         "25",
-        "27"
+        "27",
+        "200"
       ]
     },
     "layout_146": {
@@ -896,6 +907,16 @@
           },
           "isPending": true
         },
+        "200": {
+          "type": "WIDGET",
+          "widgetId": "widget_200",
+          "bbox": {
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+            "height": "0px"
+          }
+        },
         "27": {
           "type": "WIDGET",
           "widgetId": "widget_173",
@@ -927,7 +948,8 @@
         "20",
         "23",
         "25",
-        "27"
+        "27",
+        "200"
       ]
     },
     "layout_152": {
@@ -1066,12 +1088,12 @@
     "lockLayout": true,
     "viewPortSize": {
       "MEDIUM": {
-        "width": 1,
-        "height": 1
+        "width": 834,
+        "height": 1112
       },
       "SMALL": {
-        "width": 1,
-        "height": 1
+        "width": 414,
+        "height": 736
       },
       "LARGE": {
         "width": 1280,
@@ -1142,8 +1164,8 @@
       "layouts": {
         "MapFixedLayout": {
           "LARGE": "layout_1",
-          "MEDIUM": "layout_1",
-          "SMALL": "layout_1"
+          "MEDIUM": "layout_145",
+          "SMALL": "layout_151"
         }
       },
       "dataActions": {
@@ -4720,13 +4742,13 @@
   "header": {
     "layout": {
       "LARGE": "layout_88",
-      "MEDIUM": "layout_88",
-      "SMALL": "layout_88"
+      "MEDIUM": "layout_121",
+      "SMALL": "layout_129"
     },
     "height": {
       "LARGE": 73,
-      "MEDIUM": 73,
-      "SMALL": 73
+      "MEDIUM": 93,
+      "SMALL": 65
     },
     "backgroundColor": "var(--ref-palette-neutral-1300)",
     "textColor": "var(--ref-palette-neutral-100)"
@@ -4734,11 +4756,11 @@
   "footer": {
     "layout": {
       "LARGE": "layout_94",
-      "MEDIUM": "layout_94"
+      "MEDIUM": "layout_119"
     },
     "height": {
       "LARGE": 82,
-      "MEDIUM": 82
+      "MEDIUM": 68
     }
   },
   "publishTimestamp": 1773738965568

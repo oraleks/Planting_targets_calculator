@@ -43,118 +43,93 @@
             "vCenter": false,
             "hCenter": false
           }
+        },
+        "200": {
+          "type": "WIDGET",
+          "widgetId": "widget_200",
+          "bbox": {
+            "left": "0%",
+            "top": "0%",
+            "width": "0px",
+            "height": "0px"
+          }
         }
       },
       "order": [
-        "1"
+        "1",
+        "200"
       ]
     },
     "layout_1": {
       "content": {
-        "20": {
+        "30": {
           "type": "WIDGET",
-          "widgetId": "widget_4",
+          "widgetId": "widget_94",
           "bbox": {
-            "left": "0.7%",
-            "right": "0.3%",
-            "top": "88.2%",
-            "bottom": "5.5%",
-            "width": "99.0%",
-            "height": "6.3%"
-          },
-          "setting": {
-            "autoProps": {
-              "width": "CUSTOM",
-              "height": "AUTO",
-              "right": false,
-              "left": true,
-              "top": true,
-              "bottom": false
-            },
-            "vCenter": false,
-            "hCenter": false
-          }
-        },
-        "23": {
-          "type": "WIDGET",
-          "widgetId": "widget_84",
-          "bbox": {
-            "left": "0.0%",
-            "right": "74.2%",
-            "top": "7.3%",
-            "bottom": "16.8%",
-            "width": "25.8%",
-            "height": "75.9%"
+            "left": "0px",
+            "top": "0px",
+            "width": "300px",
+            "height": "100.0%"
           },
           "setting": {
             "autoProps": {
               "left": false,
               "right": true,
-              "top": false,
-              "bottom": true
-            },
-            "vCenter": false,
-            "hCenter": false
-          }
-        },
-        "25": {
-          "type": "WIDGET",
-          "widgetId": "widget_88",
-          "bbox": {
-            "left": "74.7%",
-            "right": "-0.0%",
-            "top": "7.3%",
-            "bottom": "16.8%",
-            "width": "25.3%",
-            "height": "75.9%"
-          },
-          "setting": {
-            "autoProps": {
-              "right": false,
-              "left": true,
-              "top": false,
-              "bottom": true
+              "top": true,
+              "bottom": false
             }
           }
         },
-        "26": {
+        "31": {
           "type": "WIDGET",
-          "widgetId": "widget_166",
+          "widgetId": "widget_203",
           "bbox": {
-            "left": "38.8%",
-            "right": "20.6%",
-            "top": "5.6%",
-            "bottom": "15.1%",
-            "width": "40.6%",
-            "height": "79.3%"
+            "left": "308px",
+            "top": "8px",
+            "width": "38px",
+            "height": "104px"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": true,
+              "top": true,
+              "bottom": false
+            }
+          }
+        },
+        "32": {
+          "type": "WIDGET",
+          "widgetId": "widget_88",
+          "bbox": {
+            "left": "75.0%",
+            "top": "0.0%",
+            "width": "25.0%",
+            "height": "100.0%"
           },
           "setting": {
             "autoProps": {
               "right": false,
               "left": true,
-              "top": false,
-              "bottom": true
-            },
-            "vCenter": false,
-            "hCenter": false
-          },
-          "isPending": true
+              "top": true,
+              "bottom": false
+            }
+          }
         }
       },
       "type": "FIXED",
       "label": "Map FixedLayout",
       "order": [
-        "20",
-        "23",
-        "25",
-        "26"
+        "30",
+        "31",
+        "32"
       ]
     },
     "layout_78": {
       "content": {
         "2": {
           "type": "WIDGET",
-          "widgetId": "widget_82",
+          "widgetId": "widget_94",
           "bbox": {
             "left": "0.0%",
             "right": "0.0%",
@@ -193,16 +168,15 @@
     },
     "layout_82": {
       "content": {
-        "1": {
+        "10": {
           "type": "WIDGET",
-          "widgetId": "widget_94",
+          "widgetId": "widget_201",
           "bbox": {
             "left": "0.0%",
             "right": "0.0%",
-            "top": "8.6%",
-            "bottom": "0.0%",
+            "top": "0px",
             "width": "100.0%",
-            "height": "91.4%"
+            "height": "40px"
           },
           "setting": {
             "autoProps": {
@@ -213,78 +187,72 @@
             }
           }
         },
-        "3": {
+        "11": {
           "type": "WIDGET",
-          "widgetId": "widget_96",
+          "widgetId": "widget_82",
           "bbox": {
             "left": "0.0%",
-            "right": "0.2%",
-            "top": "1.6%",
-            "bottom": "92.8%",
-            "width": "99.8%",
-            "height": "5.6%"
+            "right": "0.0%",
+            "top": "42px",
+            "bottom": "0.0%",
+            "width": "100.0%",
+            "height": "93.0%"
           },
           "setting": {
             "autoProps": {
-              "left": false,
-              "right": true,
-              "top": false,
-              "bottom": true
-            },
-            "lockParent": true
+              "right": false,
+              "left": true,
+              "top": true,
+              "bottom": false
+            }
           }
         }
       },
       "type": "FIXED",
       "label": "Second",
       "order": [
-        "1",
-        "3"
+        "10",
+        "11"
       ]
     },
     "layout_88": {
       "type": "FIXED",
       "order": [
-        "4",
+        "6",
         "5",
-        "6"
+        "7",
+        "8"
       ],
       "content": {
-        "4": {
+        "6": {
           "type": "WIDGET",
-          "widgetId": "widget_98",
+          "widgetId": "widget_107",
           "bbox": {
-            "left": "10.00px",
-            "right": "360.00px",
-            "top": "0%",
-            "bottom": "0%",
-            "width": "100%",
-            "height": "100%"
+            "left": "1.0%",
+            "top": "10.0%",
+            "width": "12.0%",
+            "height": "80.0%"
           },
           "setting": {
             "autoProps": {
-              "left": false,
               "right": false,
+              "left": false,
               "top": false,
-              "bottom": false,
-              "width": "STRETCH",
-              "height": "STRETCH"
+              "bottom": true
             },
             "vCenter": false,
             "hCenter": false
-          },
-          "isPending": true
+          }
         },
         "5": {
           "type": "WIDGET",
           "widgetId": "widget_105",
           "bbox": {
-            "left": "0.0%",
-            "right": "48.3%",
-            "top": "0.0%",
-            "bottom": "-0.4%",
-            "width": "51.7%",
-            "height": "100.4%"
+            "left": "14.0%",
+            "top": "35.0%",
+            "bottom": "5.0%",
+            "width": "50.0%",
+            "height": "60.0%"
           },
           "setting": {
             "autoProps": {
@@ -297,26 +265,40 @@
             "hCenter": false
           }
         },
-        "6": {
+        "7": {
           "type": "WIDGET",
-          "widgetId": "widget_107",
+          "widgetId": "widget_204",
           "bbox": {
-            "left": "82.8%",
-            "right": "-0.0%",
-            "top": "14.0%",
-            "bottom": "15.9%",
-            "width": "17.2%",
-            "height": "70.1%"
+            "left": "83.0%",
+            "top": "30.0%",
+            "width": "8.0%",
+            "height": "40.0%"
           },
           "setting": {
             "autoProps": {
               "right": false,
               "left": true,
               "top": false,
-              "bottom": true
-            },
-            "vCenter": false,
-            "hCenter": false
+              "bottom": false
+            }
+          }
+        },
+        "8": {
+          "type": "WIDGET",
+          "widgetId": "widget_202",
+          "bbox": {
+            "left": "91.0%",
+            "top": "30.0%",
+            "width": "7.0%",
+            "height": "40.0%"
+          },
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "top": false,
+              "bottom": false
+            }
           }
         }
       }
@@ -389,6 +371,34 @@
       },
       "order": []
     },
+    "layout_210": {
+      "type": "FIXED",
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_205",
+          "bbox": {
+            "left": "50%",
+            "right": "5%",
+            "top": "50%",
+            "bottom": "5%",
+            "width": "90%",
+            "height": "90%"
+          },
+          "setting": {
+            "vCenter": true,
+            "hCenter": true,
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            }
+          }
+        }
+      },
+      "order": ["1"]
+    },
     "layout_109": {
       "type": "FIXED",
       "content": {
@@ -396,16 +406,14 @@
           "type": "WIDGET",
           "widgetId": "widget_141",
           "bbox": {
-            "left": "50%",
-            "right": "5.4%",
-            "top": "50%",
-            "bottom": "9.2%",
-            "width": "89.2%",
-            "height": "90.8%"
+            "left": "5.0%",
+            "top": "2.0%",
+            "width": "90.0%",
+            "height": "96.0%"
           },
           "setting": {
-            "vCenter": true,
-            "hCenter": true,
+            "vCenter": false,
+            "hCenter": false,
             "autoProps": {
               "left": true,
               "right": false,
@@ -1083,15 +1091,15 @@
           "canHome": false,
           "canSearch": false,
           "canNavigation": false,
-          "canLayers": true,
-          "canBaseMap": true,
+          "canLayers": false,
+          "canBaseMap": false,
           "canOverviewMap": false,
           "canExtentNavigate": false,
           "canSelect": false,
           "canSelectState": false,
           "canScaleBar": true,
-          "canMeasure": true,
-          "canFullScreen": true,
+          "canMeasure": false,
+          "canFullScreen": false,
           "canLocate": false,
           "canCompass": false
         },
@@ -1125,7 +1133,7 @@
         },
         "scaleRange": null,
         "customLODs": null,
-        "layoutIndex": 1,
+        "layoutIndex": 0,
         "toolOptions": {
           "ScaleBar": null
         }
@@ -1946,12 +1954,12 @@
     "widget_84": {
       "uri": "widgets/layout/sidebar/",
       "version": "1.19.0",
-      "label": "Sidebar 5",
+      "label": "Layers Sidebar",
       "config": {
         "direction": "HORIZONTAL",
         "collapseSide": "FIRST",
         "overlay": false,
-        "size": "284px",
+        "size": "260px",
         "divider": {
           "visible": false,
           "lineStyle": {
@@ -1960,9 +1968,9 @@
             "width": "1px"
           }
         },
-        "resizable": true,
+        "resizable": false,
         "toggleBtn": {
-          "visible": true,
+          "visible": false,
           "iconSource": 0,
           "icon": "LEFT",
           "offsetX": 15,
@@ -2005,7 +2013,7 @@
             }
           }
         },
-        "defaultState": 1
+        "defaultState": 0
       },
       "id": "widget_84",
       "layouts": {
@@ -2030,12 +2038,12 @@
     "widget_88": {
       "uri": "widgets/layout/sidebar/",
       "version": "1.19.0",
-      "label": "Sidebar 6",
+      "label": "Calculator Sidebar",
       "config": {
         "direction": "HORIZONTAL",
         "collapseSide": "SECOND",
         "overlay": false,
-        "size": "300px",
+        "size": "350px",
         "divider": {
           "visible": false,
           "lineStyle": {
@@ -2117,7 +2125,13 @@
       "useMapWidgetIds": [
         "widget_2"
       ],
-      "enableDataAction": false
+      "enableDataAction": false,
+      "style": {
+        "background": {
+          "color": "#1e1e1e",
+          "fillType": "fill"
+        }
+      }
     },
     "widget_96": {
       "uri": "widgets/common/button/",
@@ -2227,7 +2241,7 @@
       "version": "1.19.0",
       "label": "Text 8",
       "config": {
-        "text": "<p><span style=\"color: rgb(255, 255, 255); font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; font-size: 20px; letter-spacing: normal; background-color: rgb(11, 11, 11); display: inline;\">Tel Aviv Tree Planting Targets Calculator</span></p><p><span style=\"font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; letter-spacing: normal; background-color: rgb(11, 11, 11); font-size: 13px; color: rgb(255, 255, 255);\">Analysis and mapping by Evgeniya Bobkova (evgeniyab@technion.ac.il)  and Or Aleksandrowicz (oraleks@technion.ac.il); </span></p><p><span style=\"font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; letter-spacing: normal; background-color: rgb(11, 11, 11); font-size: 13px; color: rgb(255, 255, 255);\">Raw datasets: the Survey of Israel, Tel Aviv municipality, Open Street Maps.</span></p>",
+        "text": "<p><span style=\"color: rgb(255, 255, 255); font-family: &quot;Avenir Next&quot;, sans-serif, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;; font-size: 20px; letter-spacing: normal; background-color: rgb(11, 11, 11); display: inline;\">Tel Aviv-Yafo Tree Planting Targets Calculator</span></p>",
         "style": {
           "wrap": true
         }
@@ -2269,7 +2283,7 @@
       "version": "1.19.0",
       "label": "Text 10",
       "config": {
-        "text": "<p>This platform allows you to select strategic locations for new street tree planting.&nbsp;</p><p><br></p><p>First, using the filter icons at the bottom, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria.</p><p><br></p><p>Then, using the left-hand sidebar, you are asked to define a calculation method to generate the total number of trees that need to be planted along these streets.</p><p><br></p><p>Inspect the following layers to decide which segments need planting:</p><p><br></p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020).</p><p><br></p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method.</p><p><br></p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network.</p><p><br></p><p><strong>Transit streets:</strong> captured via betweenness</p><p>centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area.</p><p><br></p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life. </p><p><br></p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods:</strong></p><p><br></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025).</p><p><br></p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees).</p><p><br></p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa.</p>",
+        "text": "<p>This platform allows you to select strategic locations for new street tree planting and calculate the number of trees that needs to be planted there.&nbsp;</p><p><br></p><p>First, using the filter icons at the bottom, you are asked to select which street segments need to receive additional planting, based on a variety of spatial and morphological criteria.</p><p><br></p><p>Then, using the left-hand sidebar, you are asked to define a calculation method to generate the total number of trees that need to be planted along these streets.</p><p><br></p><p>Inspect the following layers to decide which segments need planting:</p><p><br></p><p><strong>Spring/Summer Shade Index: </strong>The proportion of solar radiation intercepted before reaching ground level during a typical spring/summer day, calculated per street segment (0 to 1, where 0 means full exposure and 1 means full shade). A Shade Index below 0.4 indicates insufficient shading&nbsp;(Aleksandrowicz et al., 2020).</p><p><br></p><p><strong>Existing Trees:</strong> Trunk locations and their respective crown sizes are extracted from aerial imagery&nbsp;(Sharabi, 2025). Trees with a crown diameter smaller than 5 m are defined as \"underdeveloped trees”, while larger crowns are counted as “shade trees”.<span style=\"color: rgb(238, 0, 0);\"> </span>When calculating planting targets, existing shade trees are subtracted from the total “ideal” number of required trees determined by the selected method.</p><p><br></p><p><strong>Pedestrian hotspots (street centrality metrics)</strong></p><p><br></p><p><strong>Local centers: </strong>captured via closeness centrality (1 km radius), which measures how central and accessible a street is within the street network.</p><p><br></p><p><strong>Transit streets:</strong> captured via betweenness</p><p>centrality (2 km and 5 km radii), identifying streets that serve as essential mediators for neighbourhood and city-wide movement. Both closeness and betweenness centrality have been proven to correlate with pedestrian flows in cities (e.g. Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p><strong>Building density:</strong> measured as the Accessible Floor Space Index (FSI) within a 500 m walking distance. It is calculated as the total accessible Gross Floor Area of buildings divided by the total reachable area.</p><p><br></p><p><strong>Shops and Restaurants:</strong> Total count within a 500 m walking distance from each street as an additional indicator of a vibrant street life. </p><p><br></p><p><strong>Proximity analyses:</strong> Walking distances to the nearest schools, preschools, bus stops, and mass transit stations (tram/metro/rail).<em> </em></p><p><br></p><p><strong>Planting targets calculation methods:</strong></p><p><br></p><p><strong>Method 1 (canopy-cover-based target):</strong> Determines the number of trees required to reach a specific target tree canopy cover ratio (TCCR) for a segment, based on the segment's total area, tree crown diameter, and the expected canopy area of new trees. You can follow one global target as set by<strong> </strong>Peeters et al. (2020), set your own target, or use target TCCRs based on the actual performance of the urban forest in your city<strong> </strong>(Sharabi, 2025).</p><p><br></p><p><strong>Method 2 (tree spacing):</strong> Determines tree counts based on a set physical distance between tree trunks. This scenario also calculates the resulting TCCR as a secondary output. Results are provided as both \"Number of new trees to plant\" and \"Total number of trees” (ignoring existing trees).</p><p><br></p><p><strong>References</strong></p><p>Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p>Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B: Urban Analytics and City Science 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808319852632</a></p><p>Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network’s centralities and their implications for movement flows. Environment and Planning B: Urban Analytics and City Science 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1177/2399808318760571</a></p><p>Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\" data-uniqueid=\"\" data-dsid=\"\" data-link=\"null\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p>Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (Master Thesis). Technion Israel Institute of Technology, Haifa.</p>",
         "style": {
           "wrap": true
         }
@@ -4316,6 +4330,143 @@
         }
       },
       "id": "widget_174"
+    },
+    "widget_200": {
+      "uri": "widgets/filter-layer-sync/",
+      "version": "1.19.0",
+      "label": "Filter Layer Sync",
+      "config": {
+        "filterWidgetId": "widget_201",
+        "selectedSegmentsLayerTitle": "Selected streets",
+        "mappings": [
+          { "filterField": "summer_SI", "layerTitle": "Spring/Summer Shade Index" },
+          { "filterField": "class_2k", "layerTitle": "Neighbourhood transit" },
+          { "filterField": "class_5k", "layerTitle": "City transit" },
+          { "filterField": "class_ai1k", "layerTitle": "Local centers" },
+          { "filterField": "FSI500_mea", "layerTitle": "Building density" },
+          { "filterField": "ARw500lm_1", "layerTitle": "Access to shops and restaurants" },
+          { "filterField": "ADws_mean", "layerTitle": "School or preschool proximity" },
+          { "filterField": "ADwm_mean", "layerTitle": "Tram, metro or railway station proximity" },
+          { "filterField": "ADwbu_mean", "layerTitle": "Bus stop proximity" }
+        ]
+      },
+      "id": "widget_200",
+      "useMapWidgetIds": [
+        "widget_2"
+      ]
+    },
+    "widget_201": {
+      "uri": "widgets/compact-filter/",
+      "version": "1.19.0",
+      "label": "Compact Filter",
+      "config": {
+        "dataSourceId": "dataSource_1-19ca545a1dd-layer-15"
+      },
+      "id": "widget_201",
+      "useDataSources": [
+        {
+          "dataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "mainDataSourceId": "dataSource_1-19ca545a1dd-layer-15",
+          "rootDataSourceId": "dataSource_1"
+        }
+      ]
+    },
+    "widget_203": {
+      "uri": "widgets/map-tools/",
+      "version": "1.19.0",
+      "label": "Map Tools",
+      "config": {},
+      "id": "widget_203",
+      "useMapWidgetIds": [
+        "widget_2"
+      ]
+    },
+    "widget_202": {
+      "uri": "widgets/common/button/",
+      "version": "1.19.0",
+      "label": "About",
+      "config": {
+        "functionConfig": {
+          "text": "About",
+          "textExpression": null,
+          "linkParam": {
+            "linkType": "DIALOG",
+            "value": "dialog_3"
+          }
+        },
+        "styleConfig": {
+          "themeStyle": {
+            "quickStyleType": "link"
+          },
+          "useCustom": true,
+          "customStyle": {
+            "hover": {
+              "enableDynamicStyle": false
+            },
+            "regular": {
+              "enableDynamicStyle": false,
+              "background": {
+                "color": "transparent",
+                "fillType": "fill"
+              },
+              "text": {
+                "color": "#ffffff"
+              }
+            }
+          }
+        }
+      },
+      "id": "widget_202",
+      "useDataSources": []
+    },
+    "widget_204": {
+      "uri": "widgets/common/button/",
+      "version": "1.19.0",
+      "label": "Instructions",
+      "config": {
+        "functionConfig": {
+          "text": "Instructions",
+          "textExpression": null,
+          "linkParam": {
+            "linkType": "DIALOG",
+            "value": "dialog_2"
+          }
+        },
+        "styleConfig": {
+          "themeStyle": {
+            "quickStyleType": "link"
+          },
+          "useCustom": true,
+          "customStyle": {
+            "hover": {
+              "enableDynamicStyle": false
+            },
+            "regular": {
+              "enableDynamicStyle": false,
+              "background": {
+                "color": "transparent",
+                "fillType": "fill"
+              },
+              "text": {
+                "color": "#ffffff"
+              }
+            }
+          }
+        }
+      },
+      "id": "widget_204",
+      "useDataSources": []
+    },
+    "widget_205": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "About Text",
+      "config": {
+        "text": "<p style=\"font-size:13px;line-height:1.5;color:#eee;\">The calculator was developed at the Big Data in Architectural Research Lab (Faculty of Architecture and Town Planning, Technion Israel Institute of Technology) as part of a research project funded by the Israeli Ministry of Innovation, Science and Technology.<br/><br/>Research team: Or Aleksandrowicz, Sivan Sharabi, Evgeniya Bobkova, Daniel Rosenberg.<br/><br/>Developers: Evgeniya Bobkova and Or Aleksandrowicz.<br/><br/>Data analysis and mapping: Evgeniya Bobkova and Or Aleksandrowicz.<br/><br/>Raw datasets: Survey of Israel, Tel Aviv-Yafo Municipality, OpenStreetMap.</p>",
+        "isRichText": true
+      },
+      "id": "widget_205",
+      "useDataSources": []
     }
   },
   "widgetsManifest": {},
@@ -4355,6 +4506,42 @@
         "width": "2px"
       },
       "label": "Window",
+      "closeWhenClickOverlay": true,
+      "textColor": "var(--ref-palette-neutral-100)"
+    },
+    "dialog_3": {
+      "id": "dialog_3",
+      "mode": "ANCHORED",
+      "blockPage": true,
+      "sizeMode": {
+        "LARGE": {
+          "width": "401px",
+          "height": "400px"
+        }
+      },
+      "interactionType": null,
+      "interactionStyles": null,
+      "confirmBeforeClose": true,
+      "alwaysShowConfirmation": false,
+      "dialogBackground": {
+        "color": "var(--ref-palette-neutral-1100)",
+        "fillType": "fill",
+        "image": {
+          "url": ""
+        }
+      },
+      "overlayColor": null,
+      "layout": {
+        "LARGE": "layout_210"
+      },
+      "index": 1,
+      "isSplash": false,
+      "border": {
+        "color": "var(--sys-color-divider-secondary)",
+        "type": "solid",
+        "width": "2px"
+      },
+      "label": "About",
       "closeWhenClickOverlay": true,
       "textColor": "var(--ref-palette-neutral-100)"
     }

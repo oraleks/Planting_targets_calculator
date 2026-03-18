@@ -183,57 +183,284 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
   }, [jimuMapView, syncFiltersToLayers])
 
   // --- Inject icons into the Map Layers widget ---
+  // Icons are cloned from the compact-filter widget's rendered DOM so they
+  // are always identical.  Only "Existing trees" and "Selected streets" have
+  // standalone SVGs because they have no corresponding filter.
   useEffect(() => {
-    // SVG icons keyed by layer title
-    const layerIcons: Record<string, string> = {
+    // Map layer titles → filter field names (used to find the matching
+    // compact-filter icon element).  Order matches FILTER_DEFINITIONS.
+    const layerToField: Record<string, string> = {
+      'Spring/Summer Shade Index': 'summer_SI',
+      'Neighbourhood transit': 'class_2k',
+      'City transit': 'class_5k',
+      'Local centers': 'class_ai1k',
+      'Building density': 'FSI500_mea',
+      'Access to shops and restaurants': 'ARw500lm_1',
+      'School or preschool proximity': 'ADws_mean',
+      'Tram, metro or railway station proximity': 'ADwm_mean',
+      'Bus stop proximity': 'ADwbu_mean'
+    }
+
+    // Layers with no corresponding filter get a standalone SVG
+    const standaloneIcons: Record<string, string> = {
       'Existing trees': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#8bc34a"><path d="M8 1C6.3 3 4 5.5 4 8a4 4 0 0 0 3.5 3.97V14H6v1h4v-1H8.5v-2.03A4 4 0 0 0 12 8c0-2.5-2.3-5-4-7z"/></svg>',
-      'Spring/Summer Shade Index': '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17"><g clip-path="url(#a)"><path fill="currentColor" d="m12.153 6.054-.707-.707 2.2-2.2.708.707zm-9.507 8.092.707.707 2.2-2.2-.706-.707zm8.8-1.493 2.2 2.2.707-.706-2.2-2.2zM5.554 5.347l-2.2-2.2-.707.706 2.2 2.2zM9 1.5H8v3h1zm-1 15h1v-3H8zm8-7v-1h-3v1zm-15 0h3v-1H1zM5 9a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0m1 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0"/></g></svg>',
-      'Neighbourhood transit': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="9" cy="2.5" r="1.5" fill="currentColor"/><path fill="currentColor" d="M11.5 6.5 9.7 5.2a1.5 1.5 0 0 0-1.7 0L6.5 6.3a1 1 0 0 0-.4.8v2.4h1.2V7.7l1.2-.8-.8 3.6-2.4 2.4.8.8 2.2-2.2 1 2.5h1.3l-1.3-3.5 1-2.5.9 1v2.5h1.2V8.3a1 1 0 0 0-.4-.8z"/></svg>',
-      'City transit': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M13.4 5.5l-.9-2.7A1.5 1.5 0 0 0 11.1 2H4.9a1.5 1.5 0 0 0-1.4 1l-.9 2.6A1.5 1.5 0 0 0 2 6.8V11a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-.5h6V11a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V6.8c0-.5-.2-.9-.6-1.2zM4.9 3h6.2l.8 2.5H4.1zM4.5 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2m7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>',
-      'Local centers': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a.5.5 0 0 1 .5.5V2h1a.5.5 0 0 1 .354.146l1.5 1.5A.5.5 0 0 1 11 4.5V6h1.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H11v1.5a.5.5 0 0 1-.146.354l-1.5 1.5A.5.5 0 0 1 8.5 12.5V14h-1v-1.5a.5.5 0 0 1-.354-.146l-1.5-1.5A.5.5 0 0 1 5 10.5V9H3.5a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5H5V4.5a.5.5 0 0 1 .146-.354l1.5-1.5A.5.5 0 0 1 7.5 2h.5zM8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6m0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3"/></svg>',
-      'Building density': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M2 14V3h5v3h7v8zm1-1h3V4H3zm4 0h2v-2H7zm3 0h2v-2h-2zm3 0h1V7H8V4h1v2h6zM4 6h1V5H4zm0 2h1V7H4zm0 2h1V9H4zm0 2h1v-1H4zm5-4h1V7H9zm0 2h1V9H9zm2-2h1V7h-1zm0 2h1V9h-1z"/></svg>',
-      'Access to shops and restaurants': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M5 14.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2m7 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M2.3 2H.5v1h1.2l2.1 7.4a1 1 0 0 0 1 .6h6.4a1 1 0 0 0 1-.6L14.5 4H4l.6 2h8l-1.4 4H5.2z"/></svg>',
-      'School or preschool proximity': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L1 4.5 8 8l7-3.5zM3 6.5v3.3L8 12.5l5-2.7V6.5L8 9.2z"/></svg>',
-      'Tram, metro or railway station proximity': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M4 1h8a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V2a1 1 0 0 1 1-1zm0 1v3h8V2zm0 4v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6zm1.5 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2m5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2M5.5 13l-1.5 2h1l1-1.5h4L11 15h1l-1.5-2z"/></svg>',
-      'Bus stop proximity': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1h10a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2h-.28l.78 1.5h-1.1L10.6 13H5.4l-.8 1.5H3.5L4.28 13H4a2 2 0 0 1-2-2V2a1 1 0 0 1 1-1zm0 1v4h10V2zm0 5v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7zm1.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>',
       'Selected streets': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v1H1zm0 3h14v1H1zm0 3h14v1H1zm0 3h14v1H1zM7 1h2v14H7z" opacity=".6"/></svg>'
     }
 
+    // Build a cache of filter field → icon HTML by reading the compact-filter DOM
+    const getFilterIconHtml = (field: string): string | null => {
+      // compact-filter renders icons inside .compact-filter-icon divs
+      // Each icon div has a data-field or we identify by order
+      const iconEls = document.querySelectorAll('.compact-filter-icon')
+      // FILTER_DEFINITIONS order: summer_SI, class_2k, class_5k, class_ai1k,
+      // FSI500_mea, ARw500lm_1, ADws_mean, ADwm_mean, ADwbu_mean, width
+      const fieldOrder = [
+        'summer_SI', 'class_2k', 'class_5k', 'class_ai1k',
+        'FSI500_mea', 'ARw500lm_1', 'ADws_mean', 'ADwm_mean', 'ADwbu_mean', 'width'
+      ]
+      const idx = fieldOrder.indexOf(field)
+      if (idx < 0 || idx >= iconEls.length) return null
+      const iconEl = iconEls[idx]
+      // Clone the inner content (svg span or img)
+      const inner = iconEl.querySelector('span, img') as HTMLElement
+      if (!inner) return null
+      return inner.outerHTML
+    }
+
     const injectIcons = () => {
-      // The Map Layers widget uses Calcite web components with Shadow DOM.
-      // calcite-list-item has a "label" attribute with the layer name
-      // and a "content-start" slot where we can insert icons.
       const listItems = document.querySelectorAll('calcite-list-item')
 
       listItems.forEach((item: Element) => {
-        const label = item.getAttribute('title') || item.getAttribute('label') || ''
-        if (!label) return
-        // Skip if already has icon
+        const title = item.getAttribute('title') || ''
+        if (!title) return
         if (item.querySelector('.layer-custom-icon')) return
 
-        const svgStr = layerIcons[label]
-        if (!svgStr) return
+        let iconHtml: string | null = null
+
+        // Try to clone from the compact-filter DOM
+        const field = layerToField[title]
+        if (field) {
+          iconHtml = getFilterIconHtml(field)
+        }
+
+        // Fall back to standalone icons for non-filter layers
+        if (!iconHtml && standaloneIcons[title]) {
+          iconHtml = standaloneIcons[title]
+        }
+
+        if (!iconHtml) return
 
         const iconSpan = document.createElement('span')
         iconSpan.className = 'layer-custom-icon'
-        iconSpan.innerHTML = svgStr
+        iconSpan.innerHTML = iconHtml
         iconSpan.setAttribute('slot', 'content-start')
         iconSpan.style.cssText = 'display:inline-flex;width:16px;height:16px;min-width:16px;color:#aaa;'
+        // Ensure consistent sizing on all child svg/img elements
         const svgEl = iconSpan.querySelector('svg')
-        if (svgEl) {
-          svgEl.style.width = '16px'
-          svgEl.style.height = '16px'
-        }
+        if (svgEl) { svgEl.style.width = '16px'; svgEl.style.height = '16px' }
+        const imgEl = iconSpan.querySelector('img')
+        if (imgEl) { imgEl.style.width = '16px'; imgEl.style.height = '16px' }
 
         item.appendChild(iconSpan)
       })
     }
 
-    // Run periodically since the Map Layers widget may re-render
     const interval = setInterval(injectIcons, 2000)
     setTimeout(injectIcons, 3000)
 
     return () => clearInterval(interval)
+  }, [])
+
+  // --- Legend pop-out: move legends to a floating panel right of the sidebar ---
+  useEffect(() => {
+    const styleId = 'filter-layer-sync-legend-popout'
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style')
+      style.id = styleId
+      style.textContent = `
+        .legend-popout-panel {
+          position: fixed;
+          z-index: 500;
+          background: #1e1e1e;
+          border: 1px solid #444;
+          border-radius: 6px;
+          box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+          padding: 8px 10px;
+          max-width: 300px;
+          max-height: 400px;
+          overflow-y: auto;
+        }
+        .legend-popout-panel .esri-legend {
+          background: transparent !important;
+          padding: 0 !important;
+          color: #eee !important;
+        }
+        .legend-popout-panel .esri-legend__service {
+          padding: 0 !important;
+        }
+        .legend-popout-panel .esri-legend__layer-caption {
+          color: #ccc !important;
+          font-size: 11px !important;
+        }
+        .legend-popout-panel .esri-legend__layer-cell--info {
+          color: #bbb !important;
+          font-size: 11px !important;
+        }
+        /* Hide legends inside the layers panel — only the direct wrapper */
+        [data-widgetid="widget_94"] .esri-legend {
+          display: none !important;
+        }
+        /* Calcite shadow DOM: collapse the content-bottom slot area */
+        [data-widgetid="widget_94"] calcite-list-item::part(content-bottom) {
+          max-height: 0 !important;
+          overflow: hidden !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+      `
+      document.head.appendChild(style)
+    }
+
+    const popoutId = 'legend-popout-container'
+    let movedLegend: HTMLElement | null = null
+    let legendOriginalParent: HTMLElement | null = null
+    let trackedListItem: HTMLElement | null = null
+    let collapsedAncestors: HTMLElement[] = []
+
+    const moveLegendToPopout = (legend: HTMLElement) => {
+      const layersPanel = document.querySelector('[data-widgetid="widget_94"]') as HTMLElement
+      if (!layersPanel) return
+
+      // Find parent calcite-list-item
+      let listItem: HTMLElement | null = legend
+      while (listItem && listItem.tagName !== 'CALCITE-LIST-ITEM') {
+        listItem = listItem.parentElement
+      }
+      if (!listItem) return
+
+      legendOriginalParent = legend.parentElement
+      trackedListItem = listItem
+      movedLegend = legend
+
+      // Collapse all ancestors between legend and list item
+      collapsedAncestors = []
+      let ancestor: HTMLElement | null = legend.parentElement
+      while (ancestor && ancestor !== listItem) {
+        ancestor.style.cssText = 'max-height:0!important;overflow:hidden!important;padding:0!important;margin:0!important;'
+        collapsedAncestors.push(ancestor)
+        ancestor = ancestor.parentElement
+      }
+
+      // Create floating panel and move the legend into it
+      let panel = document.getElementById(popoutId) as HTMLElement
+      if (!panel) {
+        panel = document.createElement('div')
+        panel.id = popoutId
+        panel.className = 'legend-popout-panel'
+        document.body.appendChild(panel)
+      }
+      panel.innerHTML = ''
+      panel.appendChild(legend)
+
+      // Position
+      const panelRect = layersPanel.getBoundingClientRect()
+      const itemRect = listItem.getBoundingClientRect()
+      panel.style.left = (panelRect.right + 6) + 'px'
+      panel.style.top = Math.max(itemRect.top, panelRect.top) + 'px'
+    }
+
+    const cleanupPopout = () => {
+      const panel = document.getElementById(popoutId)
+      if (panel) panel.remove()
+      collapsedAncestors.forEach(el => { el.style.cssText = '' })
+      collapsedAncestors = []
+      movedLegend = null
+      legendOriginalParent = null
+      trackedListItem = null
+    }
+
+    // Use MutationObserver to detect legend appearing/disappearing instantly
+    const layersPanelCheck = () => document.querySelector('[data-widgetid="widget_94"]') as HTMLElement
+    let observer: MutationObserver | null = null
+
+    const setupObserver = () => {
+      const layersPanel = layersPanelCheck()
+      if (!layersPanel) return
+
+      observer = new MutationObserver(() => {
+        const legends = layersPanel.querySelectorAll('.esri-legend.esri-widget')
+
+        if (movedLegend) {
+          // Check if original parent was removed from DOM (legend toggled off)
+          if (legendOriginalParent && !document.body.contains(legendOriginalParent)) {
+            cleanupPopout()
+            return
+          }
+          // Check if legend element was destroyed
+          const popout = document.getElementById(popoutId)
+          const legendStillInPopout = popout && popout.contains(movedLegend)
+          if (!document.body.contains(movedLegend) && !legendStillInPopout) {
+            cleanupPopout()
+            return
+          }
+          // A different legend appeared — move that one instead
+          if (legends.length > 0) {
+            const newLegend = legends[0] as HTMLElement
+            if (newLegend !== movedLegend && newLegend.querySelector('.esri-legend__layer-row')) {
+              cleanupPopout()
+              moveLegendToPopout(newLegend)
+            }
+          }
+          return
+        }
+
+        // No legend currently moved — check for new ones
+        for (let i = 0; i < legends.length; i++) {
+          const legend = legends[i] as HTMLElement
+          if (legend.querySelector('.esri-legend__layer-row')) {
+            moveLegendToPopout(legend)
+            break
+          }
+        }
+      })
+
+      observer.observe(layersPanel, { childList: true, subtree: true })
+    }
+
+    // Wait for layers panel to appear, then set up observer
+    const waitForPanel = setInterval(() => {
+      if (layersPanelCheck()) {
+        clearInterval(waitForPanel)
+        setupObserver()
+      }
+    }, 500)
+
+    // Poll for position updates and cleanup detection
+    const positionInterval = setInterval(() => {
+      if (!movedLegend || !trackedListItem) return
+      // Cleanup if original parent was removed (toggle off)
+      if (legendOriginalParent && !document.body.contains(legendOriginalParent)) {
+        cleanupPopout()
+        return
+      }
+      const popout = document.getElementById(popoutId)
+      if (!popout) return
+      const layersPanel = layersPanelCheck()
+      if (!layersPanel) return
+      const panelRect = layersPanel.getBoundingClientRect()
+      const itemRect = trackedListItem.getBoundingClientRect()
+      popout.style.left = (panelRect.right + 6) + 'px'
+      popout.style.top = Math.max(itemRect.top, panelRect.top) + 'px'
+    }, 300)
+
+    return () => {
+      clearInterval(waitForPanel)
+      clearInterval(positionInterval)
+      if (observer) observer.disconnect()
+      cleanupPopout()
+      const styleEl = document.getElementById(styleId)
+      if (styleEl) styleEl.remove()
+    }
   }, [])
 
   // Headless widget — only the JimuMapViewComponent connector

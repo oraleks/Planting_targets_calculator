@@ -58,7 +58,7 @@ const measureSvg = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox=
 
 export const FILTER_DEFINITIONS: FilterDef[] = [
   {
-    type: 'slider', field: 'summer_SI', name: 'Summer Shade Index',
+    type: 'slider', field: 'summer_SI', name: 'Shade Index',
     operator: '<', min: 0, max: 1, step: 0.05, defaultValue: 0.4,
     iconType: 'svg', iconSvg: sunSvg
   },
@@ -83,7 +83,7 @@ export const FILTER_DEFINITIONS: FilterDef[] = [
     iconType: 'svg', iconSvg: buildingsSvg
   },
   {
-    type: 'slider', field: 'ARw500lm_1', name: 'Shops & restaurants',
+    type: 'slider', field: 'ARw500lm_1', name: 'Commercial proximity',
     operator: '>', min: 0, max: 200, step: 5, defaultValue: 60,
     iconType: 'svg', iconSvg: shoppingSvg
   },

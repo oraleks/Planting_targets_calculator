@@ -23,7 +23,35 @@ This tool allows urban planners to:
 | Widget | Purpose |
 |---|---|
 | `tree_potential_v2` | Core calculation engine — queries filtered street segments, computes planting targets by method, generates reports |
-| `filter-layer-sync` | Synchronizes filter state with map layer display — applies cumulative definition expressions to visualization layers and manages "Selected streets" layer symbology |
+| `compact-filter` | Icon-based filter bar with slider/multi-select popovers — replaces the built-in ExB filter widget with a compact UI |
+| `filter-layer-sync` | Headless widget that syncs filter state to map layers, manages "Selected streets" symbology, and injects layer icons |
+| `map-tools` | Custom map tool buttons (basemap toggle, distance measurement, fullscreen) positioned next to the layers panel |
+
+### Screen Layout
+
+- **Left:** Fixed layers panel with layer visibility toggles and custom icons per layer
+- **Right sidebar** (collapsible): Filter icon bar at top, tree planting calculator below
+- **Left (next to layers):** Map tool buttons — basemap toggle (original/satellite), measure, fullscreen
+- **Header:** Title, credits, About button (opens info dialog), BDAR logo
+
+### Filter System
+
+The compact-filter widget provides 10 filters via icon buttons with popovers:
+
+| Filter | Field | Type | Icon |
+|---|---|---|---|
+| Summer Shade Index | summer_SI | Slider (< threshold) | Sun |
+| Neighbourhood transit | class_2k | Multi-select (classes) | Pedestrian |
+| City transit | class_5k | Multi-select (classes) | Car |
+| Local centers | class_ai1k | Multi-select (classes) | Walking |
+| Building density | FSI500_mea | Slider (> threshold) | Buildings |
+| Shops & restaurants | ARw500lm_1 | Slider (> threshold) | Shopping |
+| School proximity | ADws_mean | Slider (< distance) | Education |
+| Tram/metro proximity | ADwm_mean | Slider (< distance) | Transport |
+| Bus stop proximity | ADwbu_mean | Slider (< distance) | Bus |
+| Street width | width | Range slider (between) | Measure |
+
+Filters generate SQL via `DataSource.updateQueryParams()`. The filter-layer-sync widget polls for changes and applies cumulative definition expressions to all visualization layers.
 
 ### Data Sources
 
@@ -38,13 +66,26 @@ This tool allows urban planners to:
 │   ├── widgets/              # Compiled widget bundles
 │   └── resources/            # Icons, images
 ├── widgets-src/              # Custom widget source code
-│   └── filter-layer-sync/    # Filter-layer sync widget (TypeScript source)
-│       ├── manifest.json
-│       ├── config.json
-│       └── src/
-│           ├── config.ts
-│           ├── runtime/widget.tsx
-│           └── setting/setting.tsx
+│   ├── compact-filter/       # Icon-based filter bar widget
+│   │   ├── src/
+│   │   │   ├── config.ts
+│   │   │   ├── filter-definitions.ts   # All 10 filter definitions
+│   │   │   └── runtime/
+│   │   │       ├── widget.tsx          # Main component with SQL generation
+│   │   │       ├── style.scss
+│   │   │       └── assets/             # PNG icons (walking, education, transport, bus)
+│   │   └── manifest.json
+│   ├── filter-layer-sync/    # Filter-to-layer sync widget
+│   │   ├── src/
+│   │   │   ├── config.ts
+│   │   │   └── runtime/widget.tsx
+│   │   └── manifest.json
+│   └── map-tools/            # Custom map tool buttons
+│       ├── src/
+│       │   └── runtime/
+│       │       ├── widget.tsx
+│       │       └── style.scss
+│       └── manifest.json
 ├── index.html                # App entry point
 └── service-worker.js         # Caching (Workbox)
 ```
@@ -60,20 +101,15 @@ This tool allows urban planners to:
 ### Setup
 
 1. Install ExB Developer Edition
-2. Copy `widgets-src/filter-layer-sync/` to `<ExB>/client/your-extensions/widgets/filter-layer-sync/`
+2. Copy widget folders from `widgets-src/` to `<ExB>/client/your-extensions/widgets/`
 3. The `tree_potential_v2` widget source should already be in `<ExB>/client/your-extensions/widgets/`
 4. Run `npm start` in both `client/` and `server/` directories
-5. Import or create the app in the ExB builder
+5. Copy `cdn/7/` contents to `<ExB>/server/public/apps/2/` (or create a new app)
+6. Access the app at `https://localhost:3001/experience/2/`
 
-### Filter-Layer Sync Widget
+### Widget Development
 
-The `filter-layer-sync` widget is a headless widget that:
-
-- Polls the filter widget's data source query for SQL changes
-- Parses individual filter clauses from the combined SQL
-- Applies the **cumulative** filter expression to all visualization layers (every layer shows only segments matching ALL active filters)
-- Applies the same combined expression to the "Selected streets" layer
-- Sets custom symbology on the "Selected streets" layer (solid grey fill, no outline)
+Widgets are compiled by ExB's webpack in watch mode. After adding a new widget to `your-extensions/widgets/`, restart `npm start` in `client/`.
 
 ## Credits
 

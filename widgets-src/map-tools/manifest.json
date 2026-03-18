@@ -1,0 +1,12 @@
+{
+  "name": "map-tools",
+  "label": "Map Tools",
+  "type": "widget",
+  "version": "1.19.0",
+  "exbVersion": "1.19.0",
+  "properties": {
+    "hasConfig": false,
+    "hasMainClass": true,
+    "hasSettingPage": false
+  }
+}

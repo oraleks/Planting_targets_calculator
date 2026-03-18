@@ -1,4 +1,4 @@
-import { ImmutableObject } from 'jimu-core'
+import { ImmutableObject } from 'seamless-immutable'
 
 export interface FilterLayerMapping {
   filterField: string

@@ -470,7 +470,9 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
 
     const scrollDialogToTop = () => {
       const widget = document.querySelector('[data-widgetid="widget_141"]') as HTMLElement
-      if (!widget) {
+      const isVisible = widget && widget.getBoundingClientRect().height > 0
+
+      if (!isVisible) {
         wasVisible = false
         if (scrollTimer) { clearInterval(scrollTimer); scrollTimer = null }
         return

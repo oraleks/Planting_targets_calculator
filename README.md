@@ -111,10 +111,18 @@ Filters generate SQL via `DataSource.updateQueryParams()`. The filter-layer-sync
 
 Widgets are compiled by ExB's webpack in watch mode. After adding a new widget to `your-extensions/widgets/`, restart `npm start` in `client/`.
 
+## Live App
+
+**[https://oraleks.github.io/Planting_targets_calculator/](https://oraleks.github.io/Planting_targets_calculator/)**
+
 ## Credits
 
-Analysis and mapping by Evgeniya Bobkova (evgeniyab@technion.ac.il) and Or Aleksandrowicz (oraleks@technion.ac.il)
+The calculator was developed at the Big Data in Architectural Research Lab (Faculty of Architecture and Town Planning, Technion Israel Institute of Technology) as part of a research project funded by the Israeli Ministry of Innovation, Science and Technology.
 
-Big Data in Architectural Research Lab, Technion — Israel Institute of Technology
+**Research team:** Or Aleksandrowicz, Sivan Sharabi, Evgeniya Bobkova, Daniel Rosenberg.
 
-Raw datasets: Survey of Israel, Tel Aviv Municipality, OpenStreetMap
+**Developers:** Evgeniya Bobkova and Or Aleksandrowicz.
+
+**Data analysis and mapping:** Evgeniya Bobkova and Or Aleksandrowicz.
+
+**Raw datasets:** Survey of Israel, Tel Aviv-Yafo Municipality, OpenStreetMap.

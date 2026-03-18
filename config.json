@@ -1100,14 +1100,14 @@
         "initialMapState": {
           "viewPoint": {
             "rotation": 0,
-            "scale": 36111.909643,
+            "scale": 30000,
             "targetGeometry": {
               "spatialReference": {
                 "latestWkid": 3857,
                 "wkid": 102100
               },
-              "x": 3869253.8610024736,
-              "y": 3772083.1359220576
+              "x": 3871400,
+              "y": 3773600
             }
           },
           "extent": {
@@ -1115,10 +1115,10 @@
               "latestWkid": 3857,
               "wkid": 102100
             },
-            "xmin": 3864381.0004493003,
-            "ymin": 3769001.7682193154,
-            "xmax": 3874126.721555647,
-            "ymax": 3775164.5036247997
+            "xmin": 3866500,
+            "ymin": 3770500,
+            "xmax": 3876300,
+            "ymax": 3776700
           },
           "rotation": 0,
           "viewType": "2d"

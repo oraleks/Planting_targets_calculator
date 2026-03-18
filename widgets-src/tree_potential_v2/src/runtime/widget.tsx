@@ -354,14 +354,14 @@ export default function Widget(props: AllWidgetProps<IMConfig>) {
         <Label className="font-weight-bold">Calculation Method</Label>
         <div className="d-flex flex-column gap-1 mt-2">
           <Label className="m-0"><Radio checked={scenario === 's1'} onChange={() => setScenario('s1')} /> Method 1: Target Tree Canopy Cover Ratio (TCCR)</Label>
-          <div className="pl-4 d-flex align-items-center">
-            <Label className="small m-0 mr-5" style={{ cursor: 'pointer' }}>
-              <Radio checked={subScenario === '1a'} onChange={() => setSubScenario('1a')} />
-              <span className="ml-1">1a: Global</span>
+          <div className="pl-4 d-flex flex-column mt-1" style={{ gap: '4px' }}>
+            <Label className="small m-0 d-flex align-items-center" style={{ cursor: 'pointer' }}>
+              <input type="checkbox" checked={scenario === 's1' && subScenario === '1a'} onChange={() => { setScenario('s1'); setSubScenario('1a') }} style={{ width: 14, height: 14, marginRight: 6, accentColor: '#0079c1' }} />
+              1a: Global
             </Label>
-            <Label className="small m-0" style={{ cursor: 'pointer' }}>
-              <Radio checked={subScenario === '1b'} onChange={() => setSubScenario('1b')} />
-              <span className="ml-1">1b: By street width</span>
+            <Label className="small m-0 d-flex align-items-center" style={{ cursor: 'pointer' }}>
+              <input type="checkbox" checked={scenario === 's1' && subScenario === '1b'} onChange={() => { setScenario('s1'); setSubScenario('1b') }} style={{ width: 14, height: 14, marginRight: 6, accentColor: '#0079c1' }} />
+              1b: By street width
             </Label>
           </div>
           <Label className="m-0 mt-2"><Radio checked={scenario === 's2'} onChange={() => setScenario('s2')} /> Method 2: Fixed Spacing</Label>

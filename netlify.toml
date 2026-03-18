@@ -1,5 +1,6 @@
 [build]
-  publish = "cdn/7"
+  base = "cdn/7"
+  publish = "."
   command = ""
 
 [[redirects]]

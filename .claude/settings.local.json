@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/user/ExB/server/public/apps/**)",
+      "Read(//c/Users/user/ExB/client/your-extensions/widgets/**)",
+      "Bash(rm -rf \"c:/Users/user/ExB/server/public/apps/2/resources/\"*)",
+      "Bash(cp -r \"c:/Users/user/claude/planting_targets_calculator/cdn/7/resources/\"* \"c:/Users/user/ExB/server/public/apps/2/resources/\")",
+      "Read(//c/Users/user/ExB/client/**)",
+      "Bash(gh repo:*)",
+      "Bash(find /c/Users/user/claude/planting_targets_calculator/widgets-src -path *filter* -name *.tsx -o -path *filter* -name *.ts)",
+      "Bash(find /c/Users/user/ExB/client -path *filter* -type f -name *.tsx -o -path *filter* -type f -name *.ts)",
+      "Read(//c/Users/user/ExB/**)",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''config.json'',''utf8''\\)\\); console.log\\(''Valid JSON''\\)\")",
+      "Bash(find /c/Users/user/ExB/client/dist/widgets/arcgis -type d -name *map-layers*)",
+      "Bash(find /c/Users/user/ExB/client/dist/widgets/arcgis/map-layers/src -type f -name *.tsx -o -name *.ts -o -name *.jsx -o -name *.js)",
+      "Bash(grep -E \"\\\\.\\(tsx|ts|jsx|js\\)$\")",
+      "Bash(find /c/Users/user/ExB/client/jimu-ui/lib -type f -name *tree*)",
+      "Bash(grep -r \"layer.*title\\\\|layer.*name\\\\|esri-layer\\\\|list-item\" /c/Users/user/ExB/client/dist/widgets/arcgis/map-layers/src --include=*.tsx --include=*.ts)",
+      "Bash(find /c/Users/user/ExB/client/node_modules -path *arcgis* -name *layer-list* -o -path *calcite* -name *layer*)",
+      "Bash(find /c/Users/user/ExB/client/node_modules -path *arcgis*js-api* -type d)",
+      "Bash(find /c/Users/user/ExB/client/node_modules -name *LayerList* -o -name *layer-list*)",
+      "Bash(find /c/Users/user/ExB/client/node_modules/@esri/calcite-components -name *list-item*)",
+      "Bash(mkdir -p widgets-src/compact-filter/src/runtime/assets widgets-src/map-tools/src/runtime)",
+      "Bash(cp -r \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/src/\" widgets-src/filter-layer-sync/src/)",
+      "Bash(cp \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/manifest.json\" widgets-src/filter-layer-sync/)",
+      "Bash(cp \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/config.json\" widgets-src/filter-layer-sync/)",
+      "Bash(cp \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/icon.svg\" widgets-src/filter-layer-sync/)",
+      "Bash(cp \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/src/runtime/widget.tsx\" widgets-src/filter-layer-sync/src/runtime/widget.tsx)",
+      "Bash(cp \"c:/Users/user/ExB/client/your-extensions/widgets/filter-layer-sync/src/config.ts\" widgets-src/filter-layer-sync/src/config.ts)",
+      "Bash(npm run:*)",
+      "Bash(find c:/Users/user/ExB/client -path */compact-filter/dist -type d)",
+      "Bash(cp -r \"c:/Users/user/ExB/client/dist/widgets/compact-filter\" cdn/7/widgets/)",
+      "Bash(cp -r \"c:/Users/user/ExB/client/dist/widgets/filter-layer-sync\" cdn/7/widgets/)",
+      "Bash(cp -r \"c:/Users/user/ExB/client/dist/widgets/map-tools\" cdn/7/widgets/)",
+      "Bash(cp -r \"c:/Users/user/ExB/client/dist/widgets/tree_potential_v2\" cdn/7/widgets/)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\user\\ExB\\server\\public\\apps\\2",
+      "c:\\Users\\user\\ExB\\client\\your-extensions\\widgets\\filter-layer-sync\\src",
+      "c:\\Users\\user\\ExB\\client\\your-extensions\\widgets\\filter-layer-sync",
+      "c:\\Users\\user\\ExB\\client\\your-extensions\\widgets\\compact-filter",
+      "c:\\Users\\user\\ExB\\client\\your-extensions\\widgets\\map-tools",
+      "c:\\Users\\user\\ExB\\client\\your-extensions\\widgets\\tree_potential_v2\\src\\runtime",
+      "c:\\Users\\user\\ExB\\client\\node_modules\\copy-webpack-plugin\\dist"
+    ]
+  }
+}

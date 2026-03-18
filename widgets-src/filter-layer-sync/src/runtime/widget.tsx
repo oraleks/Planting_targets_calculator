@@ -466,53 +466,40 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
   // --- Force instruction dialog to show from top ---
   useEffect(() => {
     let wasVisible = false
+    let scrollTimer: any = null
 
     const scrollDialogToTop = () => {
       const widget = document.querySelector('[data-widgetid="widget_141"]') as HTMLElement
       if (!widget) {
         wasVisible = false
+        if (scrollTimer) { clearInterval(scrollTimer); scrollTimer = null }
         return
       }
 
-      // Only act when dialog first appears
       if (wasVisible) return
       wasVisible = true
 
-      // Find and scroll every scrollable element in the dialog ancestry and descendants
-      const scrollToTop = (el: HTMLElement) => {
-        if (el.scrollTop > 0) el.scrollTop = 0
-      }
-
-      // Scroll all ancestors up to body
-      let ancestor: HTMLElement | null = widget
-      while (ancestor && ancestor !== document.body) {
-        scrollToTop(ancestor)
-        ancestor = ancestor.parentElement
-      }
-
-      // Scroll all descendants
-      widget.querySelectorAll('*').forEach((child: Element) => {
-        const htmlChild = child as HTMLElement
-        if (htmlChild.scrollHeight > htmlChild.clientHeight) {
-          htmlChild.scrollTop = 0
-        }
-      })
-
-      // Retry a few times as content may render with delay
-      setTimeout(() => {
-        let a: HTMLElement | null = widget
-        while (a && a !== document.body) {
-          if (a.scrollTop > 0) a.scrollTop = 0
-          a = a.parentElement
-        }
-        widget.querySelectorAll('*').forEach((c: Element) => {
-          (c as HTMLElement).scrollTop = 0
+      // Aggressively reset scroll every 50ms for 2 seconds
+      let count = 0
+      scrollTimer = setInterval(() => {
+        document.querySelectorAll('.jimu-scrollable-scroll-container').forEach((el: Element) => {
+          if ((el as HTMLElement).scrollTop > 0) {
+            (el as HTMLElement).scrollTop = 0
+          }
         })
-      }, 200)
+        count++
+        if (count > 40) {
+          clearInterval(scrollTimer)
+          scrollTimer = null
+        }
+      }, 50)
     }
 
     const interval = setInterval(scrollDialogToTop, 300)
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+      if (scrollTimer) clearInterval(scrollTimer)
+    }
   }, [])
 
   // --- Force header button styles (white text, no underline) ---

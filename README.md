@@ -27,9 +27,8 @@ This tool allows urban planners to:
 
 | Widget | Purpose |
 |---|---|
-| `tree_potential_v2` | Core calculation engine — queries filtered street segments, computes planting targets by method, generates reports |
-| `compact-filter` | Icon-based filter bar with live sliders — filters update the map instantly as the user drags |
-| `filter-layer-sync` | Headless widget that syncs filter state to map layers, manages "Selected streets" symbology, injects layer icons, handles legend pop-out, and makes BDAR logo clickable |
+| `tree_potential_v2` | Unified sidebar widget — icon-based filter bar with live sliders at the top, tree planting calculator below. Queries filtered street segments, computes planting targets by method, generates reports. Includes Reset Filters button and live segment count display. |
+| `filter-layer-sync` | Headless widget that syncs filter state to map layers, manages "Selected streets" symbology, injects layer icons (custom PNGs for Existing trees, Selected streets, Building density, Commercial proximity), handles legend pop-out, guards layer definition expressions against popup-triggered resets, and makes BDAR logo clickable |
 | `map-tools` | Custom map tool buttons (basemap toggle between default/satellite, fullscreen) |
 
 ### Screen Layout (Desktop)
@@ -37,19 +36,19 @@ This tool allows urban planners to:
 - **Header:** BDAR logo (left, clickable), title (center-left), Instructions + About buttons (right)
 - **Left:** Fixed layers panel (300px) with layer visibility toggles and custom icons per layer; legends pop out to the right
 - **Left (next to layers):** Map tool buttons — basemap toggle, fullscreen
-- **Right sidebar** (collapsible): Filter icon bar at top (live sliders), tree planting calculator below
+- **Right sidebar** (collapsible): Filter icon bar at top (live sliders with descriptive text in popovers, Reset Filters button, live segment count), tree planting calculator below
 - **Tablet/Phone:** Simplified map-only view with filter-layer-sync for consistent symbology
 
 ### Filter System
 
-10 filters with live-updating sliders (map updates instantly as you drag):
+10 filters with live-updating sliders (map updates instantly as you drag). Each filter popover includes a descriptive explanation of the metric.
 
 | Filter | Field | Type | Icon |
 |---|---|---|---|
 | Shade Index | summer_SI | Slider (< threshold) | Sun |
-| Neighbourhood transit | class_2k | Slider (> class) | Pedestrian |
-| City transit | class_5k | Slider (> class) | Car |
-| Local centers | class_ai1k | Slider (> class) | Walking |
+| Neighbourhood transit | ABw2k_max | Slider (> threshold, Jenks breaks) | Pedestrian |
+| City transit | ABw5k_max | Slider (> threshold, Jenks breaks) | Car |
+| Local centers | AIw1kH_mea | Slider (> threshold, Jenks breaks) | Walking |
 | Building density | FSI500_mea | Slider (> threshold) | Buildings |
 | Commercial proximity | ARw500lm_1 | Slider (> threshold) | Shopping |
 | School proximity | ADws_mean | Slider (< distance) | Education |
@@ -72,15 +71,6 @@ This tool allows urban planners to:
 │   ├── widgets/              # Compiled widget bundles
 │   └── resources/            # Icons, images
 ├── widgets-src/              # Custom widget source code
-│   ├── compact-filter/       # Icon-based filter bar widget
-│   │   ├── src/
-│   │   │   ├── config.ts
-│   │   │   ├── filter-definitions.ts   # All 10 filter definitions with icons
-│   │   │   └── runtime/
-│   │   │       ├── widget.tsx          # Main component with live SQL generation
-│   │   │       ├── style.scss
-│   │   │       └── assets/             # PNG icons
-│   │   └── manifest.json
 │   ├── filter-layer-sync/    # Filter-to-layer sync + UI enhancements
 │   │   ├── src/
 │   │   │   ├── config.ts
@@ -92,8 +82,9 @@ This tool allows urban planners to:
 │   │   │       ├── widget.tsx
 │   │   │       └── style.scss
 │   │   └── manifest.json
-│   └── tree_potential_v2/    # Tree planting calculator
+│   └── tree_potential_v2/    # Unified filter bar + tree planting calculator
 │       └── src/
+│           ├── filter-definitions.ts  # All 10 filter definitions with icons
 │           └── runtime/widget.tsx
 ├── index.html                # Original entry point (references cdn/7/)
 └── service-worker.js         # Caching (Workbox)

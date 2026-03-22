@@ -168,35 +168,16 @@
     },
     "layout_82": {
       "content": {
-        "10": {
-          "type": "WIDGET",
-          "widgetId": "widget_201",
-          "bbox": {
-            "left": "0.0%",
-            "right": "0.0%",
-            "top": "0px",
-            "width": "100.0%",
-            "height": "40px"
-          },
-          "setting": {
-            "autoProps": {
-              "right": false,
-              "left": true,
-              "top": true,
-              "bottom": false
-            }
-          }
-        },
         "11": {
           "type": "WIDGET",
           "widgetId": "widget_82",
           "bbox": {
             "left": "0.0%",
             "right": "0.0%",
-            "top": "42px",
+            "top": "0px",
             "bottom": "0.0%",
             "width": "100.0%",
-            "height": "93.0%"
+            "height": "100.0%"
           },
           "setting": {
             "autoProps": {
@@ -211,7 +192,6 @@
       "type": "FIXED",
       "label": "Second",
       "order": [
-        "10",
         "11"
       ]
     },
@@ -4358,13 +4338,13 @@
       "version": "1.19.0",
       "label": "Filter Layer Sync",
       "config": {
-        "filterWidgetId": "widget_201",
+        "filterWidgetId": "widget_82",
         "selectedSegmentsLayerTitle": "Selected streets",
         "mappings": [
           { "filterField": "summer_SI", "layerTitle": "Spring/Summer Shade Index" },
-          { "filterField": "class_2k", "layerTitle": "Neighbourhood transit" },
-          { "filterField": "class_5k", "layerTitle": "City transit" },
-          { "filterField": "class_ai1k", "layerTitle": "Local centers" },
+          { "filterField": "ABw2k_max", "layerTitle": "Neighbourhood transit" },
+          { "filterField": "ABw5k_max", "layerTitle": "City transit" },
+          { "filterField": "AIw1kH_mea", "layerTitle": "Local centers" },
           { "filterField": "FSI500_mea", "layerTitle": "Building density" },
           { "filterField": "ARw500lm_1", "layerTitle": "Access to shops and restaurants" },
           { "filterField": "ADws_mean", "layerTitle": "School or preschool proximity" },

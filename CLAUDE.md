@@ -17,28 +17,31 @@ Tel Aviv-Yafo Tree Planting Targets Calculator — an ESRI Experience Builder 1.
 ## Custom Widgets
 
 ### tree_potential_v2
-- Core calculation widget — queries street segments, computes planting targets via TCCR or fixed spacing methods
-- Source: `widgets-src/tree_potential_v2/src/runtime/widget.tsx`
-- Uses fields: length, width, W_type, Large_sum, Small_sum
-- Default parameters configurable in state initializers (line ~93)
-
-### compact-filter
-- Icon-based filter bar with live-updating sliders (no Set/Clear buttons)
-- Source: `widgets-src/compact-filter/`
-- 10 filter definitions in `filter-definitions.ts` — change names/icons/ranges here
+- Unified sidebar widget — filter bar at top, calculator below, in one continuous panel
+- Includes icon-based filter bar with live-updating sliders (formerly the separate compact-filter widget)
+- 10 filter definitions in `filter-definitions.ts` — change names/icons/ranges/descriptions here
 - Click icon = toggle filter on/off; drag slider = live map update
+- Each filter popover includes a descriptive explanation of the metric
+- Reset Filters button clears all active filters
+- Live segment count display shows how many segments match current filters
 - Generates SQL via `DataSource.updateQueryParams({ where: sql }, widgetId)`
 - Uses `DataSourceComponent` from `jimu-core` to ensure child data source creation
 - Popovers rendered via `ReactDOM.createPortal(content, document.body)` to escape sidebar stacking context
+- Core calculation engine — queries street segments, computes planting targets via TCCR or fixed spacing methods
+- Source: `widgets-src/tree_potential_v2/src/runtime/widget.tsx`
+- Filter definitions: `widgets-src/tree_potential_v2/src/filter-definitions.ts`
+- Uses fields: length, width, W_type, Large_sum, Small_sum
+- Default parameters configurable in state initializers (line ~93)
 - Data source ID: `dataSource_1-19ca545a1dd-layer-15`
 
 ### filter-layer-sync
 - Headless widget that does multiple things:
   - Syncs filter SQL to map layer definition expressions (polls `widgetQueries['widget_201'].where`)
   - Applies cumulative (AND) filter expressions to all visualization layers
+  - Guards layer definition expressions via `layer.watch` to prevent popup-triggered filter resets
   - Sets "Selected streets" layer renderer: solid grey fill (151,151,151), 0.5pt outline (242,242,242)
   - Moves "Selected streets" to bottom of layer stack on startup
-  - Injects SVG icons into Map Layers widget DOM (cloned from compact-filter for consistency)
+  - Injects custom PNG icons into Map Layers widget DOM for Existing trees, Selected streets, Building density, and Commercial proximity layers
   - Moves legend panels to floating pop-out right of layers sidebar
   - Makes BDAR logo clickable (links to lab website)
   - Forces header button text to white
@@ -46,7 +49,7 @@ Tel Aviv-Yafo Tree Planting Targets Calculator — an ESRI Experience Builder 1.
 - Source: `widgets-src/filter-layer-sync/`
 
 ### map-tools
-- Custom map tool buttons replacing built-in ExB map tools
+- Custom map tool buttons: basemap toggle and fullscreen
 - Source: `widgets-src/map-tools/`
 - Basemap toggle: saves original basemap on load, toggles to satellite and back
 - Fullscreen toggle
@@ -64,9 +67,9 @@ Tel Aviv-Yafo Tree Planting Targets Calculator — an ESRI Experience Builder 1.
 | Filter Field | Layer Title |
 |---|---|
 | summer_SI | Spring/Summer Shade Index |
-| class_2k | Neighbourhood transit |
-| class_5k | City transit |
-| class_ai1k | Local centers |
+| ABw2k_max | Neighbourhood transit |
+| ABw5k_max | City transit |
+| AIw1kH_mea | Local centers |
 | FSI500_mea | Building density |
 | ARw500lm_1 | Access to shops and restaurants |
 | ADws_mean | School or preschool proximity |

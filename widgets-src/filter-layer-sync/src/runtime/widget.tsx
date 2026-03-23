@@ -152,7 +152,7 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
           type: 'simple-fill',
           color: [151, 151, 151, 1],
           outline: {
-            color: [242, 242, 242, 1],
+            color: [80, 80, 80, 1],
             width: 0.5
           }
         }

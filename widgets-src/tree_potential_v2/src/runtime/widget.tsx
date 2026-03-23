@@ -163,7 +163,8 @@ type Results = {
 }
 
 const canopyArea = (d: number) => Math.PI * Math.pow(d / 2, 2)
-const formatNum = (x?: number, d = 2) => (!isFinite(Number(x)) ? '0' : Number(x).toFixed(d))
+const formatNum = (x?: number, d = 2) => (!isFinite(Number(x)) ? '0' : Number(x).toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g, ','))
+const fmtInt = (x?: number) => (!isFinite(Number(x)) ? '0' : Math.round(Number(x)).toLocaleString())
 
 const translateFilters = (sql: string): string[] => {
   if (!sql || sql === '1=1' || sql === 'None') return ['All segments:']
@@ -357,18 +358,18 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
     printWindow.document.write(`<html><head><title>Tree Planting Targets Calculation</title><style>body{font-family:'Segoe UI',Arial,sans-serif;padding:25px;color:#333;font-size:10px;line-height:1.3}h1{color:#2c3e50;font-size:16px;margin:0 0 15px 0}h2{font-size:12px;border-bottom:1px solid #eee;padding-bottom:3px;margin:15px 0 8px 0}.section-title{font-weight:bold;margin-bottom:3px;font-size:11px}table{width:100%;border-collapse:collapse;margin-top:5px;font-size:9px}th,td{border:1px solid #ddd;padding:4px 6px;text-align:left}th{background-color:#f8f9fa}.map-container{margin:12px 0;border:1px solid #ccc;width:100%}.map-img{width:100%;height:auto;display:block;max-height:400px;object-fit:contain;background:#eee}.footer{margin-top:25px;padding-top:8px;border-top:1px solid #eee;text-align:center;color:#777;font-size:8px}ul{padding-left:15px;margin:3px 0}li{margin-bottom:1px}</style></head><body>
       <h1>Tree Planting Targets Calculation</h1>
       <div class="section-title">Applied assumptions:</div><ul>${results.filterSummary.map(f => `<li>${f}</li>`).join('')}</ul>
-      <p style="margin:5px 0;"><strong>Total number of selected streets segments:</strong> ${results.segmentCount} | <strong>Total street length:</strong> ${formatNum(results.totalLength, 1)} m</p>
+      <p style="margin:5px 0;"><strong>Total number of selected streets segments:</strong> ${fmtInt(results.segmentCount)} | <strong>Total street length:</strong> ${fmtInt(results.totalLength)} m</p>
       <div class="section-title">Chosen Method:</div><p style="margin:2px 0;">${methodDesc}<br/><span style="color:#666;">Parameters: ${paramSummary}</span></p>
       <div class="map-container"><img class="map-img" src="${screenshot.dataUrl}"></div>
       <h2>Results Summary</h2><table><tr><th>Metric</th><th>Value</th></tr>
-      <tr><td>Ideal number of trees</td><td>${results.totalTrees}</td></tr>
-      <tr><td>Existing shade trees</td><td>${results.totalExistingShade}</td></tr>
-      <tr><td>Existing underdeveloped trees</td><td>${results.totalExistingUnder}</td></tr>
-      <tr style="font-weight:bold;"><td>New trees to plant</td><td>${results.treesToAdd}</td></tr>
+      <tr><td>Ideal number of trees</td><td>${fmtInt(results.totalTrees)}</td></tr>
+      <tr><td>Existing shade trees</td><td>${fmtInt(results.totalExistingShade)}</td></tr>
+      <tr><td>Existing underdeveloped trees</td><td>${fmtInt(results.totalExistingUnder)}</td></tr>
+      <tr style="font-weight:bold;"><td>New trees to plant</td><td>${fmtInt(results.treesToAdd)}</td></tr>
       <tr><td>Average TCCR</td><td>${formatNum(results.avgTccr)}</td></tr>
-      <tr><td>Average spacing</td><td>${formatNum(results.avgSpacing)} m</td></tr></table>
+      <tr><td>Average spacing</td><td>${fmtInt(results.avgSpacing)} m</td></tr></table>
       <h2>Results by street width</h2><table><tr><th>Width</th><th>Trees to Add</th><th>TCCR</th><th>Spacing (m)</th><th>Length (m)</th></tr>
-      ${Object.keys(results.byWtype).sort().map(k => { const g = results.byWtype[k]; return `<tr><td>${CATEGORY_LABELS[k] || k}</td><td>${g.treesToAdd}</td><td>${formatNum(g.tccr)}</td><td>${formatNum(g.spacing, 1)}</td><td>${formatNum(g.length, 1)}</td></tr>` }).join('')}</table>
+      ${Object.keys(results.byWtype).sort().map(k => { const g = results.byWtype[k]; return `<tr><td>${CATEGORY_LABELS[k] || k}</td><td>${fmtInt(g.treesToAdd)}</td><td>${formatNum(g.tccr)}</td><td>${fmtInt(g.spacing)}</td><td>${fmtInt(g.length)}</td></tr>` }).join('')}</table>
       <div class="footer">Big Data in Architectural Research Lab, Technion | ${new Date().toLocaleDateString()}</div></body></html>`)
     printWindow.document.close()
     setTimeout(() => { printWindow.print() }, 700)
@@ -582,14 +583,14 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
         {results && (
           <div style={{ padding: 10, border: '1px solid #555', borderRadius: 4, background: '#333' }}>
             <div style={{ fontWeight: 'bold', borderBottom: '1px solid #555', marginBottom: 6, paddingBottom: 4, textTransform: 'uppercase', fontSize: 11 }}>Results</div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Selected segments:</span><strong>{results.segmentCount}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Total street length:</span><strong>{formatNum(results.totalLength, 1)} m</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginTop: 4 }}><span>Ideal trees:</span><strong>{results.totalTrees}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Existing shade trees:</span><strong>{results.totalExistingShade}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Underdeveloped trees:</span><strong>{results.totalExistingUnder}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 'bold', borderBottom: '1px solid #555', paddingBottom: 4, marginBottom: 4 }}><span>New trees to plant:</span><strong>{results.treesToAdd}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Selected segments:</span><strong>{fmtInt(results.segmentCount)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Total street length:</span><strong>{fmtInt(results.totalLength)} m</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginTop: 4 }}><span>Ideal trees:</span><strong>{fmtInt(results.totalTrees)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Existing shade trees:</span><strong>{fmtInt(results.totalExistingShade)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Underdeveloped trees:</span><strong>{fmtInt(results.totalExistingUnder)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 'bold', borderBottom: '1px solid #555', paddingBottom: 4, marginBottom: 4 }}><span>New trees to plant:</span><strong>{fmtInt(results.treesToAdd)}</strong></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Weighted TCCR:</span><strong>{formatNum(results.avgTccr)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 8 }}><span>Avg. Spacing:</span><strong>{formatNum(results.avgSpacing)} m</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 8 }}><span>Avg. Spacing:</span><strong>{fmtInt(results.avgSpacing)} m</strong></div>
             <div style={{ display: 'flex', gap: 6, marginBottom: 8 }}>
               <button onClick={handleCsvDownload} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>Export CSV</button>
               <button onClick={handlePdfReport} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>Print PDF</button>
@@ -600,10 +601,10 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
                 <div key={k} style={{ borderBottom: '1px solid #444', paddingBottom: 4, marginBottom: 4, fontSize: 11 }}>
                   <div style={{ fontWeight: 'bold', color: '#4fc3f7' }}>{CATEGORY_LABELS[k] || `Class ${k}`}</div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Add <strong>{results.byWtype[k].treesToAdd}</strong> trees</span>
+                    <span>Add <strong>{fmtInt(results.byWtype[k].treesToAdd)}</strong> trees</span>
                     <span>TCCR: {formatNum(results.byWtype[k].tccr)}</span>
                   </div>
-                  <div style={{ color: '#888', fontSize: 10 }}>Spacing: {formatNum(results.byWtype[k].spacing, 1)} m | Length: {formatNum(results.byWtype[k].length, 1)} m</div>
+                  <div style={{ color: '#888', fontSize: 10 }}>Spacing: {fmtInt(results.byWtype[k].spacing)} m | Length: {fmtInt(results.byWtype[k].length)} m</div>
                 </div>
               ))}
             </div>

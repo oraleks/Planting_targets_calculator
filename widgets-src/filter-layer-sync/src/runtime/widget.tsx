@@ -3,6 +3,8 @@
 import { React, jsx, type AllWidgetProps, DataSourceManager } from 'jimu-core'
 import { JimuMapViewComponent, type JimuMapView } from 'jimu-arcgis'
 import type { IMConfig, FilterLayerMapping } from '../config'
+import { getLocale, setLocale, applyDocumentDir, useLocale, type Locale } from './locale'
+import { LAYER_TITLES, HEADER_BUTTONS, SITE_TITLE } from './i18n'
 
 const { useState, useEffect, useRef, useCallback } = React
 
@@ -51,21 +53,40 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
   const [jimuMapView, setJimuMapView] = useState<JimuMapView | null>(null)
   const prevSqlRef = useRef<string>('')
   const rendererApplied = useRef<boolean>(false)
+  const locale = useLocale()
+
+  // Apply <html dir>/<lang> when the locale changes
+  useEffect(() => { applyDocumentDir(locale) }, [locale])
 
   const filterWidgetId = config?.filterWidgetId || 'widget_4'
   const selectedLayerTitle = config?.selectedSegmentsLayerTitle || 'Selected streets'
   const mappings: FilterLayerMapping[] = (config?.mappings as any)?.asMutable
     ? (config.mappings as any).asMutable({ deep: true })
     : (config?.mappings || []) as any
-  const knownFields = mappings.map(m => m.filterField)
+  // Filter fields that the SQL parser must recognise. This includes every
+  // field with a corresponding visualization layer (from `mappings`), plus
+  // fields that affect "Selected streets" only (e.g. street `width`).
+  const knownFields = [...mappings.map(m => m.filterField), 'width']
 
-  // Find a FeatureLayer in the map by its title
+  // Find a FeatureLayer in the map by its canonical (English) title.
+  // Layers are looked up by `__canonicalTitle` (set the first time we see a
+  // matching title), so this keeps working after we translate `layer.title`
+  // to Hebrew for display.
   const findLayerByTitle = useCallback(
     (title: string): any => {
       if (!jimuMapView?.view?.map) return null
-      return jimuMapView.view.map.allLayers.find(
-        (l: any) => l.title === title && l.type === 'feature'
-      ) || null
+      return jimuMapView.view.map.allLayers.find((l: any) => {
+        if (l.type !== 'feature') return false
+        const canonical = (l as any).__canonicalTitle as string | undefined
+        if (canonical) return canonical === title
+        if (l.title === title) {
+          // Stash canonical title on first match so future lookups work
+          // even after we rename the layer for display.
+          ;(l as any).__canonicalTitle = title
+          return true
+        }
+        return false
+      }) || null
     },
     [jimuMapView]
   )
@@ -571,6 +592,39 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
     }
   }, [])
 
+  // --- Center the site title both axes within the header bar. The title's
+  //     own flex parent doesn't span the viewport, so we measure the actual
+  //     header element and align the title's vertical midpoint to it. ---
+  useEffect(() => {
+    const apply = () => {
+      const el = document.querySelector('[data-widgetid="widget_105"]') as HTMLElement | null
+      if (!el) return
+      // Find the actual header bounds. layout_88 is the header layout id.
+      const header = (document.querySelector('[data-layoutid="layout_88"]') as HTMLElement | null)
+        || (document.querySelector('[data-widgetid="widget_202"]')?.parentElement as HTMLElement | null)
+      const headerRect = header?.getBoundingClientRect()
+      const headerCenter = headerRect ? headerRect.top + headerRect.height / 2 : 25
+      el.style.setProperty('position', 'fixed', 'important')
+      el.style.setProperty('left', '50%', 'important')
+      el.style.setProperty('right', 'auto', 'important')
+      el.style.setProperty('top', `${headerCenter}px`, 'important')
+      el.style.setProperty('width', 'max-content', 'important')
+      el.style.setProperty('max-width', '60vw', 'important')
+      el.style.setProperty('transform', 'translate(-50%, -50%)', 'important')
+      el.style.setProperty('text-align', 'center', 'important')
+      el.style.setProperty('z-index', '40', 'important')
+      el.style.setProperty('height', 'auto', 'important')
+      el.style.setProperty('display', 'block', 'important')
+    }
+    apply()
+    const interval = setInterval(apply, 1000)
+    window.addEventListener('resize', apply)
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('resize', apply)
+    }
+  }, [])
+
   // --- Make BDAR logo clickable ---
   useEffect(() => {
     const makeLogoClickable = () => {
@@ -586,6 +640,283 @@ export default function FilterLayerSyncWidget (props: AllWidgetProps<IMConfig>) 
     makeLogoClickable()
     return () => clearInterval(interval)
   }, [])
+
+  // --- Inject a stylesheet to right-align Hebrew text in shadow-DOM areas
+  //     we can't reach with React (Map Layers panel, etc.) ---
+  useEffect(() => {
+    const STYLE_ID = 'bdar-rtl-overrides'
+    let style = document.getElementById(STYLE_ID) as HTMLStyleElement | null
+    if (!style) {
+      style = document.createElement('style')
+      style.id = STYLE_ID
+      document.head.appendChild(style)
+    }
+    // Always-on: center the site title text within its widget box. JS
+    // separately repositions the box itself across the header (see effect
+    // below) because ExB sets inline left/width styles that beat CSS rules.
+    const baseCss = `
+      [data-widgetid="widget_105"] *,
+      [data-widgetid="widget_105"] p,
+      [data-widgetid="widget_105"] span,
+      [data-widgetid="widget_105"] div {
+        text-align: center !important;
+      }
+    `
+    const heCss = `
+      /* Map Layers panel — right-align Hebrew layer names + suppress
+         horizontal overflow that Hebrew text can introduce */
+      [data-widgetid="widget_94"] {
+        overflow-x: hidden !important;
+      }
+      [data-widgetid="widget_94"] calcite-list-item,
+      [data-widgetid="widget_94"] calcite-list {
+        direction: rtl;
+        text-align: right;
+        overflow-x: hidden;
+      }
+      /* Calcite list-item shadow parts */
+      [data-widgetid="widget_94"] calcite-list-item::part(content),
+      [data-widgetid="widget_94"] calcite-list-item::part(content-start),
+      [data-widgetid="widget_94"] calcite-list-item::part(label),
+      [data-widgetid="widget_94"] calcite-list-item::part(description) {
+        direction: rtl;
+        text-align: right;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+      /* Header buttons — Hebrew labels right-aligned within their box */
+      [data-widgetid="widget_202"], [data-widgetid="widget_204"],
+      [data-widgetid="widget_202"] *, [data-widgetid="widget_204"] * {
+        text-align: right !important;
+        direction: rtl !important;
+      }
+      /* Hebrew Instructions/About dialog text widgets */
+      [data-widgetid="widget_141_he"], [data-widgetid="widget_141_he"] *,
+      [data-widgetid="widget_205_he"], [data-widgetid="widget_205_he"] * {
+        direction: rtl !important;
+        text-align: right !important;
+      }
+    `
+    style.textContent = locale === 'he' ? baseCss + heCss : baseCss
+    return () => { /* keep stylesheet across re-renders */ }
+  }, [locale])
+
+  // --- Translate Map Layers panel titles by mutating layer.title directly ---
+  // ESRI's LayerList re-reads `layer.title` whenever it rerenders, so DOM-only
+  // translation gets reverted. Renaming the layer itself sticks, and the
+  // ArcGIS map's internals (popups, legend, layer-list filtering) follow along.
+  useEffect(() => {
+    if (!jimuMapView?.view?.map) return
+
+    const enDict = LAYER_TITLES.en
+    const heDict = LAYER_TITLES.he
+    const dict = LAYER_TITLES[locale] || enDict
+
+    // Reverse map: any rendered title → canonical English
+    const canonicalOf: Record<string, string> = {}
+    Object.keys(enDict).forEach(k => { canonicalOf[enDict[k]] = k; canonicalOf[k] = k })
+    Object.keys(heDict).forEach(k => { canonicalOf[heDict[k]] = k })
+
+    const applyToMapLayers = () => {
+      try {
+        const allLayers = jimuMapView.view.map.allLayers
+        allLayers.forEach((layer: any) => {
+          if (!layer || typeof layer.title !== 'string') return
+          // Resolve canonical English title (stash on first encounter)
+          let canonical = layer.__canonicalTitle as string | undefined
+          if (!canonical) {
+            const fromMap = canonicalOf[layer.title.trim()]
+            if (fromMap) {
+              canonical = fromMap
+              layer.__canonicalTitle = canonical
+            }
+          }
+          if (!canonical) return
+          const translated = dict[canonical]
+          if (translated && layer.title !== translated) {
+            layer.title = translated
+          }
+        })
+      } catch (_) { /* ignore */ }
+    }
+    applyToMapLayers()
+    // Re-apply periodically in case the map adds/replaces layers
+    const interval = setInterval(applyToMapLayers, 2000)
+    return () => clearInterval(interval)
+  }, [locale, jimuMapView])
+
+  // --- Translate the header Instructions/About button text + site title ---
+  useEffect(() => {
+    const dict = HEADER_BUTTONS[locale] || HEADER_BUTTONS.en
+
+    const replaceButtonText = (widgetId: string, expected: string, fallbackKeys: string[]) => {
+      const root = document.querySelector(`[data-widgetid="${widgetId}"]`)
+      if (!root) return
+      const candidates = root.querySelectorAll('span, a, button')
+      let changed = false
+      candidates.forEach((c) => {
+        if (changed) return
+        const txt = (c.textContent || '').trim()
+        if (!txt) return
+        // Match against either language so we can flip back and forth
+        const enVal = HEADER_BUTTONS.en[fallbackKeys[0]]
+        const heVal = HEADER_BUTTONS.he[fallbackKeys[0]]
+        if (txt === enVal || txt === heVal || txt === expected) {
+          c.textContent = expected
+          // Hebrew: align text to the right edge of the button
+          ;(c as HTMLElement).style.direction = locale === 'he' ? 'rtl' : 'ltr'
+          ;(c as HTMLElement).style.textAlign = locale === 'he' ? 'right' : 'left'
+          changed = true
+        }
+      })
+      // Also align the button's container so the label sits to the right
+      ;(root as HTMLElement).style.textAlign = locale === 'he' ? 'right' : 'left'
+    }
+
+    const replaceSiteTitle = () => {
+      const root = document.querySelector('[data-widgetid="widget_105"]')
+      if (!root) return
+      // The site-title is a Text widget rendering rich HTML. Walk text nodes
+      // and replace anything that matches either language's title.
+      const enT = SITE_TITLE.en
+      const heT = SITE_TITLE.he
+      const target = SITE_TITLE[locale]
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+      const textNodes: Text[] = []
+      let n: Node | null
+      while ((n = walker.nextNode())) textNodes.push(n as Text)
+      for (const tn of textNodes) {
+        const txt = (tn.nodeValue || '').trim()
+        if (!txt) continue
+        if (txt === enT || txt === heT) {
+          if (tn.nodeValue !== target) tn.nodeValue = target
+        }
+      }
+    }
+
+    const apply = () => {
+      replaceButtonText('widget_204', dict.instructions, ['instructions'])
+      replaceButtonText('widget_202', dict.about, ['about'])
+      replaceSiteTitle()
+    }
+    apply()
+    const interval = setInterval(apply, 1500)
+    return () => clearInterval(interval)
+  }, [locale])
+
+  // --- Show/hide bilingual dialog text widgets ---
+  // Hebrew copies of widget_141 (Instructions) and widget_205 (About) are
+  // duplicated as widget_141_he / widget_205_he in config.json. We toggle
+  // their inline display based on the active locale.
+  useEffect(() => {
+    const apply = () => {
+      const pairs = [
+        { en: 'widget_141', he: 'widget_141_he' },
+        { en: 'widget_205', he: 'widget_205_he' }
+      ]
+      for (const p of pairs) {
+        const enEl = document.querySelector(`[data-widgetid="${p.en}"]`) as HTMLElement | null
+        const heEl = document.querySelector(`[data-widgetid="${p.he}"]`) as HTMLElement | null
+        if (enEl) enEl.style.display = locale === 'he' ? 'none' : ''
+        if (heEl) heEl.style.display = locale === 'he' ? '' : 'none'
+      }
+    }
+    apply()
+    const interval = setInterval(apply, 1500)
+    return () => clearInterval(interval)
+  }, [locale])
+
+  // --- Inject MAQOM-style stacked עב/EN language toggle, pinned far right ---
+  useEffect(() => {
+    const TOGGLE_ID = 'bdar-lang-toggle'
+    const ACTIVE = '#ffffff'
+    const INACTIVE = 'rgba(255,255,255,0.45)'
+    const SANS = "'Segoe UI','Helvetica Neue',Arial,sans-serif"
+
+    const apply = () => {
+      let toggle = document.getElementById(TOGGLE_ID) as HTMLDivElement | null
+
+      // Find the header layout container; fall back to a header button's
+      // grandparent (the FIXED layout container of layout_88).
+      const findHeader = (): HTMLElement | null => {
+        const direct = document.querySelector('[data-layoutid="layout_88"]') as HTMLElement | null
+        if (direct) return direct
+        const btn = document.querySelector('[data-widgetid="widget_202"]')
+          || document.querySelector('[data-widgetid="widget_204"]')
+        if (!btn) return null
+        // Walk up to the closest positioned/relative container
+        let p: HTMLElement | null = btn.parentElement
+        while (p && getComputedStyle(p).position === 'static') p = p.parentElement
+        return p
+      }
+      const header = findHeader()
+
+      if (!toggle) {
+        if (!header) return
+        toggle = document.createElement('div')
+        toggle.id = TOGGLE_ID
+        toggle.setAttribute('role', 'button')
+        toggle.tabIndex = 0
+        toggle.dir = 'ltr'
+        // Pin to the physical right edge of the header at all times
+        toggle.style.cssText = [
+          'position: absolute',
+          'right: 12px',
+          'top: 50%',
+          'transform: translateY(-50%)',
+          'z-index: 50',
+          'cursor: pointer',
+          'display: flex',
+          'flex-direction: column',
+          'align-items: center',
+          'line-height: 1',
+          'user-select: none',
+          'opacity: 0.9',
+          `font-family: ${SANS}`
+        ].join(';')
+
+        const heSpan = document.createElement('span')
+        heSpan.dataset.role = 'he'
+        heSpan.textContent = 'עב'
+        heSpan.style.cssText = `font-family:${SANS};font-size:15px;line-height:1.1;font-weight:600;`
+
+        const enSpan = document.createElement('span')
+        enSpan.dataset.role = 'en'
+        enSpan.textContent = 'EN'
+        enSpan.style.cssText = `font-family:${SANS};font-size:13px;line-height:1.1;font-weight:600;letter-spacing:0.05em;`
+
+        toggle.appendChild(heSpan)
+        toggle.appendChild(enSpan)
+
+        const onActivate = () => {
+          const next: Locale = getLocale() === 'he' ? 'en' : 'he'
+          setLocale(next)
+        }
+        toggle.addEventListener('click', onActivate)
+        toggle.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onActivate() }
+        })
+
+        header.appendChild(toggle)
+      } else if (header && toggle.parentElement !== header) {
+        // The header layout might re-render; re-attach if it does
+        header.appendChild(toggle)
+      }
+
+      const heSpan = toggle.querySelector('[data-role="he"]') as HTMLSpanElement | null
+      const enSpan = toggle.querySelector('[data-role="en"]') as HTMLSpanElement | null
+      if (heSpan) heSpan.style.color = locale === 'he' ? ACTIVE : INACTIVE
+      if (enSpan) enSpan.style.color = locale === 'en' ? ACTIVE : INACTIVE
+      toggle.title = locale === 'he' ? 'Switch to English' : 'עבור לעברית'
+    }
+    apply()
+    const interval = setInterval(apply, 1500)
+    return () => {
+      clearInterval(interval)
+      const t = document.getElementById(TOGGLE_ID)
+      if (t) t.remove()
+    }
+  }, [locale])
 
   // Headless widget — only the JimuMapViewComponent connector
   return (

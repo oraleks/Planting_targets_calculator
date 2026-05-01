@@ -375,9 +375,31 @@
               "bottom": true
             }
           }
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_205_he",
+          "bbox": {
+            "left": "50%",
+            "right": "5%",
+            "top": "50%",
+            "bottom": "5%",
+            "width": "90%",
+            "height": "90%"
+          },
+          "setting": {
+            "vCenter": true,
+            "hCenter": true,
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            }
+          }
         }
       },
-      "order": ["1"]
+      "order": ["1", "2"]
     },
     "layout_109": {
       "type": "FIXED",
@@ -401,10 +423,31 @@
               "bottom": true
             }
           }
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_141_he",
+          "bbox": {
+            "left": "5.0%",
+            "top": "2.0%",
+            "width": "90.0%",
+            "height": "96.0%"
+          },
+          "setting": {
+            "vCenter": false,
+            "hCenter": false,
+            "autoProps": {
+              "left": true,
+              "right": false,
+              "top": false,
+              "bottom": true
+            }
+          }
         }
       },
       "order": [
-        "1"
+        "1",
+        "2"
       ],
       "setting": {
         "lockDescendants": true
@@ -4468,6 +4511,35 @@
         "isRichText": true
       },
       "id": "widget_205",
+      "useDataSources": []
+    },
+    "widget_141_he": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "Text 10 (HE)",
+      "config": {
+        "text": "<p dir=\"rtl\">פלטפורמה זו מאפשרת לבחור מיקומים אסטרטגיים לנטיעת עצי רחוב חדשים ולחשב את מספר העצים שיש לטעת בהם.</p><p><br></p><p dir=\"rtl\">תחילה, באמצעות סמלי הסינון בתחתית, יש לבחור אילו מקטעי רחוב צריכים לקבל נטיעה נוספת, על בסיס מגוון קריטריונים מרחביים ומורפולוגיים.</p><p><br></p><p dir=\"rtl\">לאחר מכן, בעזרת הסרגל הצדדי, יש להגדיר את שיטת החישוב שתחשב את המספר הכולל של העצים שיש לטעת לאורך הרחובות הללו.</p><p><br></p><p dir=\"rtl\">בחנו את השכבות הבאות כדי להחליט אילו מקטעים זקוקים לנטיעה:</p><p><br></p><p dir=\"rtl\"><strong>מדד הצללת אביב/קיץ:</strong> שיעור הקרינה שמיורטת לפני שהיא מגיעה לפני הקרקע ביום אביב/קיץ טיפוסי, מחושב לכל מקטע רחוב (0 עד 1, כאשר 0 חשיפה מלאה ו־1 הצללה מלאה). מדד הצללה מתחת ל־0.4 מצביע על הצללה לא מספקת (Aleksandrowicz et al., 2020).</p><p><br></p><p dir=\"rtl\"><strong>עצים קיימים:</strong> מיקומי גזעים וגדלי חופות חולצו מתצלומי אוויר (Sharabi, 2025). עצים בעלי קוטר חופה קטן מ־5 מ׳ מוגדרים כ\"עצים לא מפותחים\", בעוד שחופות גדולות יותר נספרות כ\"עצי צל\". בחישוב יעדי הנטיעה, עצי הצל הקיימים מנוכים מהמספר ה\"אידיאלי\" הכולל הנדרש לפי השיטה הנבחרת.</p><p><br></p><p dir=\"rtl\"><strong>נקודות חמות להולכי רגל (מדדי מרכזיות רחוב)</strong></p><p><br></p><p dir=\"rtl\"><strong>מרכזים מקומיים:</strong> נמדדים באמצעות מרכזיות קרבה (רדיוס 1 ק״מ), המודדת עד כמה רחוב הוא מרכזי ונגיש בתוך רשת הרחובות.</p><p><br></p><p dir=\"rtl\"><strong>רחובות תנועה:</strong> נמדדים באמצעות מרכזיות בין־קודקודית (רדיוסים של 2 ק״מ ו־5 ק״מ), אשר מזהה רחובות המשמשים מתווכים חיוניים לתנועה שכונתית ועירונית. מרכזיות קרבה ומרכזיות בין־קודקודית הוכחו כמתואמות עם זרימת הולכי רגל בערים (לדוגמה Berghauser Pont et al., 2019; Omer and Kaplan, 2019).</p><p><br></p><p dir=\"rtl\"><strong>צפיפות בנייה:</strong> נמדדת כמדד שטח רצפה נגיש (FSI) במרחק הליכה של 500 מ׳. מחושבת כסך שטח הרצפה הנגיש של מבנים חלקי השטח הכולל הנגיש.</p><p><br></p><p dir=\"rtl\"><strong>חנויות ומסעדות:</strong> סך ספירה במרחק הליכה של 500 מ׳ מכל רחוב, כאינדיקטור נוסף לחיי רחוב תוססים.</p><p><br></p><p dir=\"rtl\"><strong>ניתוחי קרבה:</strong> מרחקי הליכה לבתי הספר, גני הילדים, תחנות האוטובוס ותחנות התחבורה הציבורית (רכבת קלה/מטרו/רכבת) הקרובים ביותר.</p><p><br></p><p dir=\"rtl\"><strong>שיטות לחישוב יעדי נטיעה:</strong></p><p><br></p><p dir=\"rtl\"><strong>שיטה 1 (יעד מבוסס כיסוי חופות):</strong> קובעת את מספר העצים הנדרש כדי להגיע ליעד מסוים של יחס כיסוי חופת עצים (TCCR) למקטע, על בסיס שטח המקטע הכולל, קוטר חופת העץ ושטח החופה הצפוי של עצים חדשים. ניתן לעקוב אחר יעד גלובלי כפי שהוגדר על ידי Peeters et al. (2020), להגדיר יעד משלכם, או להשתמש ביעדי TCCR המבוססים על ביצועי היער העירוני בעיר (Sharabi, 2025).</p><p><br></p><p dir=\"rtl\"><strong>שיטה 2 (מרווח עצים):</strong> קובעת את מספרי העצים על בסיס מרחק פיזי קבוע בין גזעי העצים. תרחיש זה מחשב גם את ה־TCCR המתקבל כפלט משני. התוצאות מסופקות גם כ\"מספר עצים חדשים לנטיעה\" וגם כ\"סך כל העצים\" (תוך התעלמות מעצים קיימים).</p><p><br></p><p dir=\"rtl\"><strong>הפניות</strong></p><p dir=\"rtl\">Aleksandrowicz, O., Zur, S., Lebendiger, Y., Lerman, Y., 2020. Shade maps for prioritizing municipal microclimatic action in hot climates: Learning from Tel Aviv-Yafo. Sustainable Cities and Society 53, 101931. <a href=\"https://doi.org/10.1016/j.scs.2019.101931\" target=\"_self\">https://doi.org/10.1016/j.scs.2019.101931</a></p><p dir=\"rtl\">Berghauser Pont, M., Stavroulaki, G., Marcus, L., 2019. Development of urban types based on network centrality, built density and their impact on pedestrian movement. Environment and Planning B 46, 1549–1564. <a href=\"https://doi.org/10.1177/2399808319852632\" target=\"_self\">https://doi.org/10.1177/2399808319852632</a></p><p dir=\"rtl\">Omer, I., Kaplan, N., 2019. Structural properties of the angular and metric street network's centralities. Environment and Planning B 46, 1182–1200. <a href=\"https://doi.org/10.1177/2399808318760571\" target=\"_self\">https://doi.org/10.1177/2399808318760571</a></p><p dir=\"rtl\">Peeters, A., Shashua-Bar, L., Meir, S., Shmulevich, R.R., Caspi, Y., Weyl, M., Motzafi-Haller, W., Angel, N., 2020. A decision support tool for calculating effective shading in urban streets. Urban Climate 34, 100672. <a href=\"https://doi.org/10.1016/j.uclim.2020.100672\" target=\"_self\">https://doi.org/10.1016/j.uclim.2020.100672</a></p><p dir=\"rtl\">Sharabi, S., 2025. Quantifying urban tree planting targets based on data from available sources (עבודת מאסטר). הטכניון – מכון טכנולוגי לישראל, חיפה.</p>",
+        "style": { "wrap": true }
+      },
+      "id": "widget_141_he",
+      "style": {
+        "background": {
+          "color": "#313030",
+          "fillType": "fill",
+          "image": { "url": "" }
+        },
+        "textColor": "#ffffff"
+      }
+    },
+    "widget_205_he": {
+      "uri": "widgets/common/text/",
+      "version": "1.19.0",
+      "label": "About Text (HE)",
+      "config": {
+        "text": "<p dir=\"rtl\" style=\"font-size:13px;line-height:1.5;color:#eee;\">המחשבון פותח במעבדת מחקר ביג דאטה בארכיטקטורה (הפקולטה לארכיטקטורה ובינוי ערים, הטכניון – מכון טכנולוגי לישראל) כחלק מפרויקט מחקר במימון משרד החדשנות, המדע והטכנולוגיה.<br/><br/>צוות המחקר: אור אלכסנדרוביץ׳, סיון שרבי, יבגניה בובקובה, דניאל רוזנברג.<br/><br/>מפתחים: יבגניה בובקובה ואור אלכסנדרוביץ׳.<br/><br/>ניתוח נתונים ומיפוי: יבגניה בובקובה ואור אלכסנדרוביץ׳.<br/><br/>מקורות נתונים: המרכז למיפוי ישראל, עיריית תל אביב-יפו, OpenStreetMap.</p>",
+        "isRichText": true
+      },
+      "id": "widget_205_he",
       "useDataSources": []
     }
   },

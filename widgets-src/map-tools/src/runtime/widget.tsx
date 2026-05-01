@@ -2,6 +2,8 @@
 /** @jsxFrag React.Fragment */
 import { React, jsx, type AllWidgetProps } from 'jimu-core'
 import { JimuMapViewComponent, type JimuMapView } from 'jimu-arcgis'
+import { useLocale } from './locale'
+import { t } from './i18n'
 import './style.scss'
 
 const { useState, useRef, useCallback } = React
@@ -15,6 +17,7 @@ const basemapSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" 
 const fullscreenSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M1 6V1h5v1H2v4zm14 0V2h-4V1h5v5zM6 15H1v-5h1v4h4zm4 0h5v-5h-1v4h-4z"/></svg>'
 
 export default function MapToolsWidget (props: AllWidgetProps<any>) {
+  const locale = useLocale()
   const [jimuMapView, setJimuMapView] = useState<JimuMapView | null>(null)
   const [isSatellite, setIsSatellite] = useState(false)
   const originalBasemapRef = useRef<any>(null)
@@ -60,14 +63,14 @@ export default function MapToolsWidget (props: AllWidgetProps<any>) {
       <button
         className='map-tool-btn'
         onClick={toggleBasemap}
-        title='Toggle basemap'
+        title={t(locale, 'toggleBasemap')}
       >
         <span dangerouslySetInnerHTML={{ __html: basemapSvg }} />
       </button>
       <button
         className='map-tool-btn'
         onClick={toggleFullscreen}
-        title='Toggle fullscreen'
+        title={t(locale, 'toggleFullscreen')}
       >
         <span dangerouslySetInnerHTML={{ __html: fullscreenSvg }} />
       </button>

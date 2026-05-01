@@ -1,9 +1,13 @@
+import type { StringKey } from './runtime/i18n'
+
 export type FilterType = 'slider' | 'range-slider' | 'multi-select'
 
 export interface SliderFilterDef {
   type: 'slider'
   field: string
   name: string
+  nameKey: StringKey
+  descKey: StringKey
   operator: '<' | '>'
   min: number
   max: number
@@ -21,6 +25,8 @@ export interface RangeSliderFilterDef {
   type: 'range-slider'
   field: string
   name: string
+  nameKey: StringKey
+  descKey: StringKey
   min: number
   max: number
   step: number
@@ -36,6 +42,8 @@ export interface MultiSelectFilterDef {
   type: 'multi-select'
   field: string
   name: string
+  nameKey: StringKey
+  descKey: StringKey
   options: number[]
   defaultValue: number[]
   iconType: 'svg' | 'png'
@@ -63,12 +71,14 @@ const measureSvg = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox=
 export const FILTER_DEFINITIONS: FilterDef[] = [
   {
     type: 'slider', field: 'summer_SI', name: 'Shade Index',
+    nameKey: 'filter_summer_SI_name', descKey: 'filter_summer_SI_desc',
     operator: '<', min: 0, max: 1, step: 0.05, defaultValue: 0.4,
     iconType: 'svg', iconSvg: sunSvg,
     description: 'Spring/Summer Shade Index'
   },
   {
     type: 'slider', field: 'ABw2k_max', name: 'Neighbourhood transit',
+    nameKey: 'filter_ABw2k_max_name', descKey: 'filter_ABw2k_max_desc',
     operator: '>', min: 0, max: 620708, step: 1, defaultValue: 95218,
     iconType: 'svg', iconSvg: pedestrianSvg,
     description: 'Betweenness centrality at 2km scale (higher = more connected neighbourhood)',
@@ -76,6 +86,7 @@ export const FILTER_DEFINITIONS: FilterDef[] = [
   },
   {
     type: 'slider', field: 'ABw5k_max', name: 'City transit',
+    nameKey: 'filter_ABw5k_max_name', descKey: 'filter_ABw5k_max_desc',
     operator: '>', min: 0, max: 9115851, step: 1, defaultValue: 1181766,
     iconType: 'svg', iconSvg: carSvg,
     description: 'Betweenness centrality at 5km scale (higher = more connected city-wide)',
@@ -83,6 +94,7 @@ export const FILTER_DEFINITIONS: FilterDef[] = [
   },
   {
     type: 'slider', field: 'AIw1kH_mea', name: 'Local centers',
+    nameKey: 'filter_AIw1kH_mea_name', descKey: 'filter_AIw1kH_mea_desc',
     operator: '>', min: 0, max: 495, step: 1, defaultValue: 124,
     iconType: 'png', iconPng: 'walking.png',
     description: 'Closeness centrality at 1km scale (higher = closer to local centers)',
@@ -90,36 +102,42 @@ export const FILTER_DEFINITIONS: FilterDef[] = [
   },
   {
     type: 'slider', field: 'FSI500_mea', name: 'Building density',
+    nameKey: 'filter_FSI500_mea_name', descKey: 'filter_FSI500_mea_desc',
     operator: '>', min: 0, max: 5, step: 0.1, defaultValue: 1.5,
     iconType: 'svg', iconSvg: buildingsSvg,
     description: 'Floor Space Index within 500m walking distance'
   },
   {
     type: 'slider', field: 'ARw500lm_1', name: 'Commercial proximity',
+    nameKey: 'filter_ARw500lm_1_name', descKey: 'filter_ARw500lm_1_desc',
     operator: '>', min: 0, max: 200, step: 5, defaultValue: 60,
     iconType: 'svg', iconSvg: shoppingSvg,
     description: 'Number of shops and restaurants within 500m walking distance'
   },
   {
     type: 'slider', field: 'ADws_mean', name: 'School proximity',
+    nameKey: 'filter_ADws_mean_name', descKey: 'filter_ADws_mean_desc',
     operator: '<', min: 0, max: 1000, step: 25, defaultValue: 300, unit: 'm',
     iconType: 'png', iconPng: 'education.png',
     description: 'Walking distance to the closest school or preschool'
   },
   {
     type: 'slider', field: 'ADwm_mean', name: 'Tram/metro proximity',
+    nameKey: 'filter_ADwm_mean_name', descKey: 'filter_ADwm_mean_desc',
     operator: '<', min: 0, max: 1000, step: 25, defaultValue: 300, unit: 'm',
     iconType: 'png', iconPng: 'transport.png',
     description: 'Walking distance to the closest tram, metro or railway station'
   },
   {
     type: 'slider', field: 'ADwbu_mean', name: 'Bus stop proximity',
+    nameKey: 'filter_ADwbu_mean_name', descKey: 'filter_ADwbu_mean_desc',
     operator: '<', min: 0, max: 1000, step: 25, defaultValue: 300, unit: 'm',
     iconType: 'png', iconPng: 'bus.png',
     description: 'Walking distance to the closest bus stop'
   },
   {
     type: 'range-slider', field: 'width', name: 'Street width',
+    nameKey: 'filter_width_name', descKey: 'filter_width_desc',
     min: 0, max: 60, step: 1, defaultValue: [20, 30] as [number, number], unit: 'm',
     iconType: 'svg', iconSvg: measureSvg,
     description: 'Street width in meters'

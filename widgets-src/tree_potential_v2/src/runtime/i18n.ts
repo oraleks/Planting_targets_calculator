@@ -1,0 +1,294 @@
+import { type Locale } from './locale'
+
+export type StringKey =
+  // Slider/popover labels
+  | 'low' | 'high' | 'min' | 'max'
+  | 'lessThan' | 'greaterThan'
+  | 'jenksClass'
+  // Filter bar
+  | 'resetFilters'
+  // Calculator section
+  | 'instruction'
+  | 'calculationMethod' | 'calculationParameters'
+  | 'method1' | 'method1aGlobal' | 'method1bByWidth' | 'method2'
+  | 'crownDiameter' | 'globalTccr' | 'tccrTargetsByWidth' | 'desiredSpacing'
+  | 'calculate' | 'processing'
+  // Status messages
+  | 'streetSegmentsSelected' | 'fetchingRecords' | 'layerNotAvailable'
+  | 'noRecordsFound' | 'calculatedSegments' | 'errorFetching'
+  | 'manualSelection' | 'allSegments'
+  // Results section
+  | 'results' | 'selectedSegments' | 'totalStreetLength'
+  | 'idealTrees' | 'existingShadeTrees' | 'underdevelopedTrees'
+  | 'newTreesToPlant' | 'weightedTccr' | 'avgSpacing'
+  | 'exportCsv' | 'printPdf'
+  | 'analysisByWidth' | 'addTrees' | 'tccrLabel' | 'spacingLabel' | 'lengthLabel'
+  | 'classLabel'
+  // PDF report
+  | 'pdfTitle' | 'pdfAppliedAssumptions' | 'pdfChosenMethod' | 'pdfParameters'
+  | 'pdfTotalSegments' | 'pdfTotalLength'
+  | 'pdfResultsSummary' | 'pdfMetric' | 'pdfValue'
+  | 'pdfIdealTrees' | 'pdfExistingShade' | 'pdfExistingUnder'
+  | 'pdfNewTrees' | 'pdfAvgTccr' | 'pdfAvgSpacing'
+  | 'pdfResultsByWidth' | 'pdfWidth' | 'pdfTreesToAdd'
+  | 'pdfFooter'
+  | 'pdfMethod1Global' | 'pdfMethod1ByWidth' | 'pdfMethod2' | 'pdfTargetsPerWidth'
+  // Filter descriptions (popover text)
+  | 'filter_summer_SI_name' | 'filter_summer_SI_desc'
+  | 'filter_ABw2k_max_name' | 'filter_ABw2k_max_desc'
+  | 'filter_ABw5k_max_name' | 'filter_ABw5k_max_desc'
+  | 'filter_AIw1kH_mea_name' | 'filter_AIw1kH_mea_desc'
+  | 'filter_FSI500_mea_name' | 'filter_FSI500_mea_desc'
+  | 'filter_ARw500lm_1_name' | 'filter_ARw500lm_1_desc'
+  | 'filter_ADws_mean_name' | 'filter_ADws_mean_desc'
+  | 'filter_ADwm_mean_name' | 'filter_ADwm_mean_desc'
+  | 'filter_ADwbu_mean_name' | 'filter_ADwbu_mean_desc'
+  | 'filter_width_name' | 'filter_width_desc'
+  // SQL→text translations for "Applied assumptions"
+  | 'sql_summer_SI' | 'sql_ABw2k_max' | 'sql_ABw5k_max' | 'sql_AIw1kH_mea'
+  | 'sql_FSI500_mea' | 'sql_ARw500lm_1' | 'sql_ADws_mean' | 'sql_ADwm_mean'
+  | 'sql_ADwbu_mean' | 'sql_width'
+  | 'sql_isBetween' | 'sql_lessThan' | 'sql_greaterThan'
+  | 'sql_lessOrEqual' | 'sql_greaterOrEqual' | 'sql_equalTo' | 'sql_and'
+
+const en: Record<StringKey, string> = {
+  low: 'Low', high: 'High', min: 'Min', max: 'Max',
+  lessThan: 'Less than', greaterThan: 'Greater than',
+  jenksClass: 'Class {n} of {m} (Jenks natural breaks)',
+
+  resetFilters: 'Reset Filters',
+
+  instruction: "Using the above buttons, filter out streets that do not require planting (by default, all the city's streets are considered). Next, choose the target calculation method, change the calculation parameters as you wish, and press Calculate.",
+  calculationMethod: 'Calculation Method',
+  calculationParameters: 'Calculation Parameters',
+  method1: 'Method 1: Target Tree Canopy Cover Ratio (TCCR)',
+  method1aGlobal: '1a: Global',
+  method1bByWidth: '1b: By street width',
+  method2: 'Method 2: Fixed Spacing',
+  crownDiameter: 'Crown diameter (m)',
+  globalTccr: 'Global target TCCR (0.0 - 1.0)',
+  tccrTargetsByWidth: 'TCCR targets by street width:',
+  desiredSpacing: 'Desired Spacing (m)',
+  calculate: 'Calculate',
+  processing: 'Processing...',
+
+  streetSegmentsSelected: '{n} street segments selected.',
+  fetchingRecords: 'Fetching records...',
+  layerNotAvailable: 'Layer not available.',
+  noRecordsFound: 'No records found.',
+  calculatedSegments: 'Calculated {n} segments.',
+  errorFetching: 'Error fetching features.',
+  manualSelection: 'Manual selection ({n} segments):',
+  allSegments: 'All segments:',
+
+  results: 'Results',
+  selectedSegments: 'Selected segments:',
+  totalStreetLength: 'Total street length:',
+  idealTrees: 'Ideal trees:',
+  existingShadeTrees: 'Existing shade trees:',
+  underdevelopedTrees: 'Underdeveloped trees:',
+  newTreesToPlant: 'New trees to plant:',
+  weightedTccr: 'Weighted TCCR:',
+  avgSpacing: 'Avg. Spacing:',
+  exportCsv: 'Export CSV',
+  printPdf: 'Print PDF',
+  analysisByWidth: 'Analysis by width:',
+  addTrees: 'Add {n} trees',
+  tccrLabel: 'TCCR',
+  spacingLabel: 'Spacing',
+  lengthLabel: 'Length',
+  classLabel: 'Class',
+
+  pdfTitle: 'Tree Planting Targets Calculation',
+  pdfAppliedAssumptions: 'Applied assumptions:',
+  pdfChosenMethod: 'Chosen Method:',
+  pdfParameters: 'Parameters',
+  pdfTotalSegments: 'Total number of selected streets segments',
+  pdfTotalLength: 'Total street length',
+  pdfResultsSummary: 'Results Summary',
+  pdfMetric: 'Metric',
+  pdfValue: 'Value',
+  pdfIdealTrees: 'Ideal number of trees',
+  pdfExistingShade: 'Existing shade trees',
+  pdfExistingUnder: 'Existing underdeveloped trees',
+  pdfNewTrees: 'New trees to plant',
+  pdfAvgTccr: 'Average TCCR',
+  pdfAvgSpacing: 'Average spacing',
+  pdfResultsByWidth: 'Results by street width',
+  pdfWidth: 'Width',
+  pdfTreesToAdd: 'Trees to Add',
+  pdfFooter: 'Big Data in Architectural Research Lab, Technion',
+  pdfMethod1Global: 'Method 1: Target TCCR (global)',
+  pdfMethod1ByWidth: 'Method 1: Target TCCR (by street width)',
+  pdfMethod2: 'Method 2: Fixed Spacing',
+  pdfTargetsPerWidth: 'Targets: per width class',
+
+  filter_summer_SI_name: 'Shade Index',
+  filter_summer_SI_desc: 'Spring/Summer Shade Index',
+  filter_ABw2k_max_name: 'Neighbourhood transit',
+  filter_ABw2k_max_desc: 'Betweenness centrality at 2km scale (higher = more connected neighbourhood)',
+  filter_ABw5k_max_name: 'City transit',
+  filter_ABw5k_max_desc: 'Betweenness centrality at 5km scale (higher = more connected city-wide)',
+  filter_AIw1kH_mea_name: 'Local centers',
+  filter_AIw1kH_mea_desc: 'Closeness centrality at 1km scale (higher = closer to local centers)',
+  filter_FSI500_mea_name: 'Building density',
+  filter_FSI500_mea_desc: 'Floor Space Index within 500m walking distance',
+  filter_ARw500lm_1_name: 'Commercial proximity',
+  filter_ARw500lm_1_desc: 'Number of shops and restaurants within 500m walking distance',
+  filter_ADws_mean_name: 'School proximity',
+  filter_ADws_mean_desc: 'Walking distance to the closest school or preschool',
+  filter_ADwm_mean_name: 'Tram/metro proximity',
+  filter_ADwm_mean_desc: 'Walking distance to the closest tram, metro or railway station',
+  filter_ADwbu_mean_name: 'Bus stop proximity',
+  filter_ADwbu_mean_desc: 'Walking distance to the closest bus stop',
+  filter_width_name: 'Street width',
+  filter_width_desc: 'Street width in meters',
+
+  sql_summer_SI: 'Spring/Summer Shade Index',
+  sql_ABw2k_max: 'Neighbourhood transit (betweenness centrality at 2km scale)',
+  sql_ABw5k_max: 'City transit (betweenness centrality at 5km scale)',
+  sql_AIw1kH_mea: 'Local centers (closeness centrality at 1km scale)',
+  sql_FSI500_mea: 'Floor Space Index within 500m walking distance',
+  sql_ARw500lm_1: 'Number of shops and restaurants within 500m walking distance',
+  sql_ADws_mean: 'Walking distance to the closest school or preschool',
+  sql_ADwm_mean: 'Walking distance to the closest tram, metro or railway station',
+  sql_ADwbu_mean: 'Walking distance to the closest bus stop',
+  sql_width: 'Street width',
+  sql_isBetween: 'is between',
+  sql_lessThan: 'less than',
+  sql_greaterThan: 'greater than',
+  sql_lessOrEqual: 'less than or equal to',
+  sql_greaterOrEqual: 'greater than or equal to',
+  sql_equalTo: 'equal to',
+  sql_and: 'and'
+}
+
+const he: Record<StringKey, string> = {
+  low: 'נמוך', high: 'גבוה', min: 'מינ׳', max: 'מקס׳',
+  lessThan: 'פחות מ־', greaterThan: 'יותר מ־',
+  jenksClass: 'קבוצה {n} מתוך {m} (שבירות טבעיות, Jenks)',
+
+  resetFilters: 'אפס מסננים',
+
+  instruction: 'באמצעות הכפתורים שלמעלה, סננו רחובות שאינם דורשים נטיעה (כברירת מחדל, כל רחובות העיר נכללים). לאחר מכן, בחרו את שיטת חישוב היעד, שנו את פרמטרי החישוב לפי הצורך ולחצו על "חשב".',
+  calculationMethod: 'שיטת חישוב',
+  calculationParameters: 'פרמטרי חישוב',
+  method1: 'שיטה 1: יחס כיסוי חופת עצים יעד (TCCR)',
+  method1aGlobal: '1א: גלובלי',
+  method1bByWidth: '1ב: לפי רוחב הרחוב',
+  method2: 'שיטה 2: מרווח קבוע',
+  crownDiameter: 'קוטר חופה (מ׳)',
+  globalTccr: 'יעד TCCR גלובלי (0.0 - 1.0)',
+  tccrTargetsByWidth: 'יעדי TCCR לפי רוחב הרחוב:',
+  desiredSpacing: 'מרווח רצוי (מ׳)',
+  calculate: 'חשב',
+  processing: 'מעבד...',
+
+  streetSegmentsSelected: '{n} מקטעי רחוב נבחרו.',
+  fetchingRecords: 'טוען נתונים...',
+  layerNotAvailable: 'השכבה אינה זמינה.',
+  noRecordsFound: 'לא נמצאו רשומות.',
+  calculatedSegments: 'חושבו {n} מקטעים.',
+  errorFetching: 'שגיאה בטעינת המקטעים.',
+  manualSelection: 'בחירה ידנית ({n} מקטעים):',
+  allSegments: 'כל המקטעים:',
+
+  results: 'תוצאות',
+  selectedSegments: 'מקטעים נבחרים:',
+  totalStreetLength: 'אורך רחוב כולל:',
+  idealTrees: 'עצים אידיאליים:',
+  existingShadeTrees: 'עצי צל קיימים:',
+  underdevelopedTrees: 'עצים לא מפותחים:',
+  newTreesToPlant: 'עצים חדשים לנטיעה:',
+  weightedTccr: 'TCCR משוקלל:',
+  avgSpacing: 'מרווח ממוצע:',
+  exportCsv: 'ייצוא CSV',
+  printPdf: 'הדפסת PDF',
+  analysisByWidth: 'ניתוח לפי רוחב:',
+  addTrees: 'הוסיפו {n} עצים',
+  tccrLabel: 'TCCR',
+  spacingLabel: 'מרווח',
+  lengthLabel: 'אורך',
+  classLabel: 'קבוצה',
+
+  pdfTitle: 'חישוב יעדי נטיעת עצים',
+  pdfAppliedAssumptions: 'הנחות שיושמו:',
+  pdfChosenMethod: 'שיטה שנבחרה:',
+  pdfParameters: 'פרמטרים',
+  pdfTotalSegments: 'מספר מקטעי רחוב נבחרים',
+  pdfTotalLength: 'אורך רחוב כולל',
+  pdfResultsSummary: 'סיכום תוצאות',
+  pdfMetric: 'מדד',
+  pdfValue: 'ערך',
+  pdfIdealTrees: 'מספר עצים אידיאלי',
+  pdfExistingShade: 'עצי צל קיימים',
+  pdfExistingUnder: 'עצים לא מפותחים קיימים',
+  pdfNewTrees: 'עצים חדשים לנטיעה',
+  pdfAvgTccr: 'TCCR ממוצע',
+  pdfAvgSpacing: 'מרווח ממוצע',
+  pdfResultsByWidth: 'תוצאות לפי רוחב רחוב',
+  pdfWidth: 'רוחב',
+  pdfTreesToAdd: 'עצים להוספה',
+  pdfFooter: 'מעבדת מחקר ביג דאטה בארכיטקטורה, הטכניון',
+  pdfMethod1Global: 'שיטה 1: יעד TCCR (גלובלי)',
+  pdfMethod1ByWidth: 'שיטה 1: יעד TCCR (לפי רוחב רחוב)',
+  pdfMethod2: 'שיטה 2: מרווח קבוע',
+  pdfTargetsPerWidth: 'יעדים: לפי קבוצת רוחב',
+
+  filter_summer_SI_name: 'מדד הצללה',
+  filter_summer_SI_desc: 'מדד הצללת אביב/קיץ',
+  filter_ABw2k_max_name: 'תנועה שכונתית',
+  filter_ABw2k_max_desc: 'מרכזיות בין־קודקודית בקנה מידה של 2 ק״מ (גבוה יותר = שכונה מקושרת יותר)',
+  filter_ABw5k_max_name: 'תנועה עירונית',
+  filter_ABw5k_max_desc: 'מרכזיות בין־קודקודית בקנה מידה של 5 ק״מ (גבוה יותר = מקושר יותר ברמה עירונית)',
+  filter_AIw1kH_mea_name: 'מרכזים מקומיים',
+  filter_AIw1kH_mea_desc: 'מרכזיות קרבה בקנה מידה של 1 ק״מ (גבוה יותר = קרוב יותר למרכזים מקומיים)',
+  filter_FSI500_mea_name: 'צפיפות בנייה',
+  filter_FSI500_mea_desc: 'מדד שטח רצפה (FSI) במרחק הליכה של 500 מ׳',
+  filter_ARw500lm_1_name: 'קרבה למסחר',
+  filter_ARw500lm_1_desc: 'מספר חנויות ומסעדות במרחק הליכה של 500 מ׳',
+  filter_ADws_mean_name: 'קרבה לבית ספר',
+  filter_ADws_mean_desc: 'מרחק הליכה לבית הספר או הגן הקרוב ביותר',
+  filter_ADwm_mean_name: 'קרבה לרכבת/מטרו',
+  filter_ADwm_mean_desc: 'מרחק הליכה לתחנת הרכבת הקלה, המטרו או הרכבת הקרובה ביותר',
+  filter_ADwbu_mean_name: 'קרבה לתחנת אוטובוס',
+  filter_ADwbu_mean_desc: 'מרחק הליכה לתחנת האוטובוס הקרובה ביותר',
+  filter_width_name: 'רוחב רחוב',
+  filter_width_desc: 'רוחב הרחוב במטרים',
+
+  sql_summer_SI: 'מדד הצללת אביב/קיץ',
+  sql_ABw2k_max: 'תנועה שכונתית (מרכזיות בין־קודקודית 2 ק״מ)',
+  sql_ABw5k_max: 'תנועה עירונית (מרכזיות בין־קודקודית 5 ק״מ)',
+  sql_AIw1kH_mea: 'מרכזים מקומיים (מרכזיות קרבה 1 ק״מ)',
+  sql_FSI500_mea: 'מדד שטח רצפה במרחק הליכה של 500 מ׳',
+  sql_ARw500lm_1: 'מספר חנויות ומסעדות במרחק הליכה של 500 מ׳',
+  sql_ADws_mean: 'מרחק הליכה לבית ספר או גן',
+  sql_ADwm_mean: 'מרחק הליכה לתחנת רכבת קלה, מטרו או רכבת',
+  sql_ADwbu_mean: 'מרחק הליכה לתחנת אוטובוס',
+  sql_width: 'רוחב רחוב',
+  sql_isBetween: 'בטווח',
+  sql_lessThan: 'פחות מ־',
+  sql_greaterThan: 'יותר מ־',
+  sql_lessOrEqual: 'קטן או שווה ל־',
+  sql_greaterOrEqual: 'גדול או שווה ל־',
+  sql_equalTo: 'שווה ל־',
+  sql_and: 'ועד'
+}
+
+const STRINGS: Record<Locale, Record<StringKey, string>> = { en, he }
+
+export function t (locale: Locale, key: StringKey, vars?: Record<string, string | number>): string {
+  let s = STRINGS[locale]?.[key] ?? STRINGS.en[key] ?? key
+  if (vars) {
+    for (const k of Object.keys(vars)) {
+      s = s.replace(new RegExp(`\\{${k}\\}`, 'g'), String(vars[k]))
+    }
+  }
+  return s
+}
+
+// Width-class labels (used by CATEGORY_LABELS)
+export const CATEGORY_LABELS: Record<Locale, Record<string, string>> = {
+  en: { '1': '<10m', '2': '10-20m', '3': '20-30m', '4': '40m', '5': '>40m' },
+  he: { '1': 'עד 10 מ׳', '2': '10-20 מ׳', '3': '20-30 מ׳', '4': '40 מ׳', '5': 'מעל 40 מ׳' }
+}

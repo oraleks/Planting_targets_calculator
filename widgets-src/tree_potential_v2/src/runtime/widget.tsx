@@ -6,15 +6,11 @@ import { JimuMapViewComponent, type JimuMapView } from 'jimu-arcgis'
 import * as ReactDOM from 'react-dom'
 import type { IMConfig } from '../config'
 import { FILTER_DEFINITIONS, type FilterDef } from '../filter-definitions'
+import { useLocale, applyDocumentDir, getLocale, type Locale } from './locale'
+import { t, CATEGORY_LABELS as I18N_CATEGORY_LABELS } from './i18n'
 import './style.scss'
 
 const { useState, useEffect, useCallback, useRef } = React
-
-// ===================== CONSTANTS =====================
-
-const CATEGORY_LABELS: Record<string, string> = {
-  '1': '<10m', '2': '10-20m', '3': '20-30m', '4': '40m', '5': '>40m'
-}
 
 // ===================== FILTER TYPES =====================
 
@@ -66,20 +62,20 @@ function createInitialFilters (): FiltersMap {
 
 // ===================== FILTER UI COMPONENTS =====================
 
-function FilterIconImg ({ def }: { def: FilterDef }) {
+function FilterIconImg ({ def, label }: { def: FilterDef, label?: string }) {
   if (def.iconType === 'svg' && def.iconSvg) {
     return <span dangerouslySetInnerHTML={{ __html: def.iconSvg }} style={{ display: 'flex', width: 18, height: 18 }} />
   }
   if (def.iconType === 'png' && def.iconPng) {
     const base = (window as any).jimuConfig?.baseUrl || ''
     const url = `${base}widgets/compact-filter/dist/runtime/assets/${def.iconPng}`
-    return <img src={url} alt={def.name} />
+    return <img src={url} alt={label || def.name} />
   }
   return <span>?</span>
 }
 
-function SliderContent ({ def, value, onChange }: {
-  def: FilterDef & { type: 'slider' }, value: number, onChange: (v: number) => void
+function SliderContent ({ def, value, onChange, locale }: {
+  def: FilterDef & { type: 'slider' }, value: number, onChange: (v: number) => void, locale: Locale
 }) {
   const breaks = (def as any).breaks as number[] | undefined
 
@@ -91,17 +87,17 @@ function SliderContent ({ def, value, onChange }: {
     return (
       <div>
         <div className='compact-filter-slider-row'>
-          <span className='compact-filter-value' style={{ minWidth: 30 }}>Low</span>
+          <span className='compact-filter-value' style={{ minWidth: 30 }}>{t(locale, 'low')}</span>
           <input type='range' className='compact-filter-slider'
             min={0} max={breaks.length - 1} step={1} value={closestIdx}
             onChange={e => onChange(breaks[Number(e.target.value)])} />
-          <span className='compact-filter-value' style={{ minWidth: 30 }}>High</span>
+          <span className='compact-filter-value' style={{ minWidth: 30 }}>{t(locale, 'high')}</span>
         </div>
         <div style={{ fontSize: 10, color: '#888', marginTop: 4 }}>
-          {def.operator === '<' ? 'Less than' : 'Greater than'} {displayVal}{def.unit || ''}
+          {def.operator === '<' ? t(locale, 'lessThan') : t(locale, 'greaterThan')} {displayVal}{def.unit || ''}
         </div>
         <div style={{ fontSize: 9, color: '#666', marginTop: 2 }}>
-          Class {closestIdx + 1} of {breaks.length} (Jenks natural breaks)
+          {t(locale, 'jenksClass', { n: closestIdx + 1, m: breaks.length })}
         </div>
       </div>
     )
@@ -119,14 +115,14 @@ function SliderContent ({ def, value, onChange }: {
         <span className='compact-filter-value'>{displayVal}{def.unit || ''}</span>
       </div>
       <div style={{ fontSize: 10, color: '#888', marginTop: 4 }}>
-        {def.operator === '<' ? 'Less than' : 'Greater than'} {displayVal}{def.unit || ''}
+        {def.operator === '<' ? t(locale, 'lessThan') : t(locale, 'greaterThan')} {displayVal}{def.unit || ''}
       </div>
     </div>
   )
 }
 
-function RangeSliderContent ({ def, value, onChange }: {
-  def: FilterDef & { type: 'range-slider' }, value: [number, number], onChange: (v: [number, number]) => void
+function RangeSliderContent ({ def, value, onChange, locale }: {
+  def: FilterDef & { type: 'range-slider' }, value: [number, number], onChange: (v: [number, number]) => void, locale: Locale
 }) {
   const [lo, hi] = value
   return (
@@ -137,13 +133,13 @@ function RangeSliderContent ({ def, value, onChange }: {
         <span className='compact-filter-value'>{hi}{def.unit || ''}</span>
       </div>
       <div style={{ marginBottom: 4 }}>
-        <div style={{ fontSize: 10, color: '#888', marginBottom: 2 }}>Min</div>
+        <div style={{ fontSize: 10, color: '#888', marginBottom: 2 }}>{t(locale, 'min')}</div>
         <input type='range' className='compact-filter-slider'
           min={def.min} max={def.max} step={def.step} value={lo}
           onChange={e => { const v = Number(e.target.value); onChange([Math.min(v, hi), hi]) }} />
       </div>
       <div>
-        <div style={{ fontSize: 10, color: '#888', marginBottom: 2 }}>Max</div>
+        <div style={{ fontSize: 10, color: '#888', marginBottom: 2 }}>{t(locale, 'max')}</div>
         <input type='range' className='compact-filter-slider'
           min={def.min} max={def.max} step={def.step} value={hi}
           onChange={e => { const v = Number(e.target.value); onChange([lo, Math.max(v, lo)]) }} />
@@ -166,37 +162,46 @@ const canopyArea = (d: number) => Math.PI * Math.pow(d / 2, 2)
 const formatNum = (x?: number, d = 2) => (!isFinite(Number(x)) ? '0' : Number(x).toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g, ','))
 const fmtInt = (x?: number) => (!isFinite(Number(x)) ? '0' : Math.round(Number(x)).toLocaleString())
 
-const translateFilters = (sql: string): string[] => {
-  if (!sql || sql === '1=1' || sql === 'None') return ['All segments:']
-  const translations: Record<string, string> = {
-    'summer_SI': 'Spring/Summer Shade Index',
-    'ABw2k_max': 'Neighbourhood transit (betweenness centrality at 2km scale)',
-    'ABw5k_max': 'City transit (betweenness centrality at 5km scale)',
-    'AIw1kH_mea': 'Local centers (closeness centrality at 1km scale)',
-    'FSI500_mea': 'Floor Space Index within 500m walking distance',
-    'ARw500lm_1': 'Number of shops and restaurants within 500m walking distance',
-    'ADws_mean': 'Walking distance to the closest school or preschool',
-    'ADwm_mean': 'Walking distance to the closest tram, metro or railway station',
-    'ADwbu_mean': 'Walking distance to the closest bus stop',
-    'width': 'Street width'
-  }
+const translateFilters = (sql: string, locale: Locale): string[] => {
+  if (!sql || sql === '1=1' || sql === 'None') return [t(locale, 'allSegments')]
+  const fieldKeys: Array<{ field: string, key: any }> = [
+    { field: 'summer_SI', key: 'sql_summer_SI' },
+    { field: 'ABw2k_max', key: 'sql_ABw2k_max' },
+    { field: 'ABw5k_max', key: 'sql_ABw5k_max' },
+    { field: 'AIw1kH_mea', key: 'sql_AIw1kH_mea' },
+    { field: 'FSI500_mea', key: 'sql_FSI500_mea' },
+    { field: 'ARw500lm_1', key: 'sql_ARw500lm_1' },
+    { field: 'ADws_mean', key: 'sql_ADws_mean' },
+    { field: 'ADwm_mean', key: 'sql_ADwm_mean' },
+    { field: 'ADwbu_mean', key: 'sql_ADwbu_mean' },
+    { field: 'width', key: 'sql_width' }
+  ]
+  const between = t(locale, 'sql_isBetween')
+  const lt = t(locale, 'sql_lessThan')
+  const gt = t(locale, 'sql_greaterThan')
+  const le = t(locale, 'sql_lessOrEqual')
+  const ge = t(locale, 'sql_greaterOrEqual')
+  const eq = t(locale, 'sql_equalTo')
+  const andWord = t(locale, 'sql_and')
+  // Walking-distance descriptions in either language for unit detection.
+  const distanceDescs = ['ADws_mean', 'ADwm_mean', 'ADwbu_mean', 'width'].map(f => t(locale, fieldKeys.find(x => x.field === f)!.key))
+
   let safeSql = sql.replace(/(BETWEEN\s+.*?)\s+AND\s+(.*?)/gi, '$1##RANGE_AND##$2')
-  let conditions = safeSql.split(/\s+AND\s+/gi)
+  const conditions = safeSql.split(/\s+AND\s+/gi)
   return conditions.map((cond) => {
     let text = cond.trim()
     if (text.startsWith('(') && text.endsWith(')')) text = text.slice(1, -1).trim()
-    Object.keys(translations).forEach(key => { text = text.split(key).join(translations[key]) })
+    fieldKeys.forEach(({ field, key }) => { text = text.split(field).join(t(locale, key)) })
     text = text
-      .replace(/\s+BETWEEN\s+/gi, ' is between ')
-      .replace(/##RANGE_AND##/g, ' and ')
-      .replace(/<\s*/g, ': less than ').replace(/>\s*/g, ': greater than ')
-      .replace(/<=\s*/g, ': less than or equal to ').replace(/>=\s*/g, ': greater than or equal to ')
-      .replace(/=\s*/g, ': equal to ')
-    const lower = text.toLowerCase()
-    const isDistanceField = lower.includes('walking distance to') || lower.startsWith('street width')
+      .replace(/\s+BETWEEN\s+/gi, ` ${between} `)
+      .replace(/##RANGE_AND##/g, ` ${andWord} `)
+      .replace(/<=\s*/g, `: ${le} `).replace(/>=\s*/g, `: ${ge} `)
+      .replace(/<\s*/g, `: ${lt} `).replace(/>\s*/g, `: ${gt} `)
+      .replace(/=\s*/g, `: ${eq} `)
+    const isDistanceField = distanceDescs.some(d => d && text.includes(d))
     if (isDistanceField) {
-      if (lower.includes(' is between ')) {
-        text = text.replace(/(\d+(?:\.\d+)?)\s+and\s+(\d+(?:\.\d+)?)/i, '$1m and $2m')
+      if (text.includes(` ${between} `)) {
+        text = text.replace(/(\d+(?:\.\d+)?)\s+\S+\s+(\d+(?:\.\d+)?)/, (_m, a, b) => `${a}m ${andWord} ${b}m`)
       } else {
         text = text.replace(/(\d+(\.\d+)?)$/, '$1m')
       }
@@ -213,6 +218,11 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
   const config = props.config || ({} as any)
   const { useDataSources } = props
   const dsId = useDataSources?.[0]?.dataSourceId
+  const locale = useLocale()
+  const cat = I18N_CATEGORY_LABELS[locale]
+
+  // Apply <html dir>/<lang> on first render so RTL takes effect
+  useEffect(() => { applyDocumentDir(locale) }, [locale])
 
   // --- Map state ---
   const [jimuMapView, setJimuMapView] = useState<JimuMapView>(null)
@@ -282,13 +292,13 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
         const query = layer.createQuery()
         query.where = layer.definitionExpression || '1=1'
         const result = await layer.queryFeatureCount(query)
-        if (!loading) setSegmentCount(`${result.toLocaleString()} street segments selected.`)
+        if (!loading) setSegmentCount(t(locale, 'streetSegmentsSelected', { n: result.toLocaleString() }))
       } catch (e) { /* ignore */ }
     }
     updateCount()
     const interval = setInterval(updateCount, 2000)
     return () => clearInterval(interval)
-  }, [jimuMapView, loading])
+  }, [jimuMapView, loading, locale])
 
   // --- Filter interactions ---
   const updateFilterValue = (field: string, value: any) => {
@@ -338,7 +348,7 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
     const header = "Category,Ideal number of trees (ignoring existing shade trees),Number of existing shade trees,Number of existing underdeveloped trees,Number of new trees to plant,Length(m),TCCR,Spacing(m)\n"
     const rows = Object.keys(results.byWtype).map(k => {
       const g = results.byWtype[k]
-      return `${CATEGORY_LABELS[k] || k},${g.trees},${results.totalExistingShade},${results.totalExistingUnder},${g.treesToAdd},${g.length.toFixed(1)},${g.tccr.toFixed(2)},${g.spacing.toFixed(1)}`
+      return `${cat[k] || k},${g.trees},${results.totalExistingShade},${results.totalExistingUnder},${g.treesToAdd},${g.length.toFixed(1)},${g.tccr.toFixed(2)},${g.spacing.toFixed(1)}`
     }).join("\n")
     const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
@@ -353,24 +363,28 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
     const printWindow = window.open('', '_blank')
     if (!printWindow) return
     const methodDesc = scenario === 's1'
-      ? `Method 1: Target TCCR (${subScenario === '1a' ? 'global' : 'by street width'})` : `Method 2: Fixed Spacing`
-    const paramSummary = `Crown Diameter: ${diameter}m | ${scenario === 's1' ? (subScenario === '1a' ? `Global Target TCCR: ${tccrGlobal}` : 'Targets: per width class') : `Desired Spacing: ${spacing}m`}`
-    printWindow.document.write(`<html><head><title>Tree Planting Targets Calculation</title><style>body{font-family:'Segoe UI',Arial,sans-serif;padding:25px;color:#333;font-size:10px;line-height:1.3}h1{color:#2c3e50;font-size:16px;margin:0 0 15px 0}h2{font-size:12px;border-bottom:1px solid #eee;padding-bottom:3px;margin:15px 0 8px 0}.section-title{font-weight:bold;margin-bottom:3px;font-size:11px}table{width:100%;border-collapse:collapse;margin-top:5px;font-size:9px}th,td{border:1px solid #ddd;padding:4px 6px;text-align:left}th{background-color:#f8f9fa}.map-container{margin:12px 0;border:1px solid #ccc;width:100%}.map-img{width:100%;height:auto;display:block;max-height:400px;object-fit:contain;background:#eee}.footer{margin-top:25px;padding-top:8px;border-top:1px solid #eee;text-align:center;color:#777;font-size:8px}ul{padding-left:15px;margin:3px 0}li{margin-bottom:1px}</style></head><body>
-      <h1>Tree Planting Targets Calculation</h1>
-      <div class="section-title">Applied assumptions:</div><ul>${results.filterSummary.map(f => `<li>${f}</li>`).join('')}</ul>
-      <p style="margin:5px 0;"><strong>Total number of selected streets segments:</strong> ${fmtInt(results.segmentCount)} | <strong>Total street length:</strong> ${fmtInt(results.totalLength)} m</p>
-      <div class="section-title">Chosen Method:</div><p style="margin:2px 0;">${methodDesc}<br/><span style="color:#666;">Parameters: ${paramSummary}</span></p>
+      ? (subScenario === '1a' ? t(locale, 'pdfMethod1Global') : t(locale, 'pdfMethod1ByWidth'))
+      : t(locale, 'pdfMethod2')
+    const paramSummary = `${t(locale, 'crownDiameter')}: ${diameter}m | ${scenario === 's1' ? (subScenario === '1a' ? `${t(locale, 'globalTccr')}: ${tccrGlobal}` : t(locale, 'pdfTargetsPerWidth')) : `${t(locale, 'desiredSpacing')}: ${spacing}m`}`
+    const dirAttr = locale === 'he' ? 'rtl' : 'ltr'
+    const langAttr = locale === 'he' ? 'he' : 'en'
+    const textAlignStart = locale === 'he' ? 'right' : 'left'
+    printWindow.document.write(`<html lang="${langAttr}" dir="${dirAttr}"><head><title>${t(locale, 'pdfTitle')}</title><style>body{font-family:'Segoe UI',Arial,sans-serif;padding:25px;color:#333;font-size:10px;line-height:1.3}h1{color:#2c3e50;font-size:16px;margin:0 0 15px 0}h2{font-size:12px;border-bottom:1px solid #eee;padding-bottom:3px;margin:15px 0 8px 0}.section-title{font-weight:bold;margin-bottom:3px;font-size:11px}table{width:100%;border-collapse:collapse;margin-top:5px;font-size:9px}th,td{border:1px solid #ddd;padding:4px 6px;text-align:${textAlignStart}}th{background-color:#f8f9fa}.map-container{margin:12px 0;border:1px solid #ccc;width:100%}.map-img{width:100%;height:auto;display:block;max-height:400px;object-fit:contain;background:#eee}.footer{margin-top:25px;padding-top:8px;border-top:1px solid #eee;text-align:center;color:#777;font-size:8px}ul{padding-${textAlignStart}:15px;margin:3px 0}li{margin-bottom:1px}</style></head><body>
+      <h1>${t(locale, 'pdfTitle')}</h1>
+      <div class="section-title">${t(locale, 'pdfAppliedAssumptions')}</div><ul>${results.filterSummary.map(f => `<li>${f}</li>`).join('')}</ul>
+      <p style="margin:5px 0;"><strong>${t(locale, 'pdfTotalSegments')}:</strong> ${fmtInt(results.segmentCount)} | <strong>${t(locale, 'pdfTotalLength')}:</strong> ${fmtInt(results.totalLength)} m</p>
+      <div class="section-title">${t(locale, 'pdfChosenMethod')}</div><p style="margin:2px 0;">${methodDesc}<br/><span style="color:#666;">${t(locale, 'pdfParameters')}: ${paramSummary}</span></p>
       <div class="map-container"><img class="map-img" src="${screenshot.dataUrl}"></div>
-      <h2>Results Summary</h2><table><tr><th>Metric</th><th>Value</th></tr>
-      <tr><td>Ideal number of trees</td><td>${fmtInt(results.totalTrees)}</td></tr>
-      <tr><td>Existing shade trees</td><td>${fmtInt(results.totalExistingShade)}</td></tr>
-      <tr><td>Existing underdeveloped trees</td><td>${fmtInt(results.totalExistingUnder)}</td></tr>
-      <tr style="font-weight:bold;"><td>New trees to plant</td><td>${fmtInt(results.treesToAdd)}</td></tr>
-      <tr><td>Average TCCR</td><td>${formatNum(results.avgTccr)}</td></tr>
-      <tr><td>Average spacing</td><td>${fmtInt(results.avgSpacing)} m</td></tr></table>
-      <h2>Results by street width</h2><table><tr><th>Width</th><th>Trees to Add</th><th>TCCR</th><th>Spacing (m)</th><th>Length (m)</th></tr>
-      ${Object.keys(results.byWtype).sort().map(k => { const g = results.byWtype[k]; return `<tr><td>${CATEGORY_LABELS[k] || k}</td><td>${fmtInt(g.treesToAdd)}</td><td>${formatNum(g.tccr)}</td><td>${fmtInt(g.spacing)}</td><td>${fmtInt(g.length)}</td></tr>` }).join('')}</table>
-      <div class="footer">Big Data in Architectural Research Lab, Technion | ${new Date().toLocaleDateString()}</div></body></html>`)
+      <h2>${t(locale, 'pdfResultsSummary')}</h2><table><tr><th>${t(locale, 'pdfMetric')}</th><th>${t(locale, 'pdfValue')}</th></tr>
+      <tr><td>${t(locale, 'pdfIdealTrees')}</td><td>${fmtInt(results.totalTrees)}</td></tr>
+      <tr><td>${t(locale, 'pdfExistingShade')}</td><td>${fmtInt(results.totalExistingShade)}</td></tr>
+      <tr><td>${t(locale, 'pdfExistingUnder')}</td><td>${fmtInt(results.totalExistingUnder)}</td></tr>
+      <tr style="font-weight:bold;"><td>${t(locale, 'pdfNewTrees')}</td><td>${fmtInt(results.treesToAdd)}</td></tr>
+      <tr><td>${t(locale, 'pdfAvgTccr')}</td><td>${formatNum(results.avgTccr)}</td></tr>
+      <tr><td>${t(locale, 'pdfAvgSpacing')}</td><td>${fmtInt(results.avgSpacing)} m</td></tr></table>
+      <h2>${t(locale, 'pdfResultsByWidth')}</h2><table><tr><th>${t(locale, 'pdfWidth')}</th><th>${t(locale, 'pdfTreesToAdd')}</th><th>${t(locale, 'tccrLabel')}</th><th>${t(locale, 'spacingLabel')} (m)</th><th>${t(locale, 'lengthLabel')} (m)</th></tr>
+      ${Object.keys(results.byWtype).sort().map(k => { const g = results.byWtype[k]; return `<tr><td>${cat[k] || k}</td><td>${fmtInt(g.treesToAdd)}</td><td>${formatNum(g.tccr)}</td><td>${fmtInt(g.spacing)}</td><td>${fmtInt(g.length)}</td></tr>` }).join('')}</table>
+      <div class="footer">${t(locale, 'pdfFooter')} | ${new Date().toLocaleDateString(locale === 'he' ? 'he-IL' : 'en-GB')}</div></body></html>`)
     printWindow.document.close()
     setTimeout(() => { printWindow.print() }, 700)
   }
@@ -380,10 +394,10 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
     if (!dsId || !jimuMapView) return
     const ds = DataSourceManager.getInstance().getDataSource(dsId) as QueriableDataSource
     if (!ds) return
-    setLoading(true); setSegmentCount('Fetching records...')
+    setLoading(true); setSegmentCount(t(locale, 'fetchingRecords'))
     try {
       const layer = (ds as any).layer
-      if (!layer) { setSegmentCount('Layer not available.'); setLoading(false); return }
+      if (!layer) { setSegmentCount(t(locale, 'layerNotAvailable')); setLoading(false); return }
       const selectedIds = ds.getSelectedRecordIds?.() || []
       let features: any[] = []
       if (selectedIds.length > 0) {
@@ -407,10 +421,10 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
         }
       }
       const recs = features.map((f: any) => ({ getFieldValue: (field: string) => f.attributes[field] }))
-      if (recs.length === 0) { setSegmentCount('No records found.'); setLoading(false); return }
+      if (recs.length === 0) { setSegmentCount(t(locale, 'noRecordsFound')); setLoading(false); return }
       const whereClause = (ds as any).getCurrentQueryParams?.()?.where || 'None'
       const translated = (selectedIds && selectedIds.length > 0)
-        ? [`Manual selection (${recs.length} segments):`] : translateFilters(whereClause)
+        ? [t(locale, 'manualSelection', { n: recs.length })] : translateFilters(whereClause, locale)
       const C = canopyArea(diameter); const rows = config.rows || 2
       const summary: Results = {
         totalTrees: 0, totalExistingShade: 0, totalExistingUnder: 0, treesToAdd: 0,
@@ -442,9 +456,9 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
         g.tccr = g.area > 0 ? (g.trees * C) / g.area : 0
         g.spacing = g.trees > 0 ? g.length / (g.trees / rows) : 0
       })
-      setResults(summary); setSegmentCount(`Calculated ${recs.length} segments.`)
+      setResults(summary); setSegmentCount(t(locale, 'calculatedSegments', { n: recs.length }))
     } catch (err) {
-      console.error(err); setSegmentCount('Error fetching features.')
+      console.error(err); setSegmentCount(t(locale, 'errorFetching'))
     } finally { setLoading(false) }
   }
 
@@ -453,27 +467,25 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
   const portalContent = (
     <>
       {hoveredIcon && !openPopover && hoveredDef && tooltipPos && (
-        <div className='compact-filter-tooltip'
-          style={{ top: tooltipPos.top, left: tooltipPos.left, transform: 'translateX(-50%)' }}>
-          {hoveredDef.name}
+        <div className='compact-filter-tooltip' dir={locale === 'he' ? 'rtl' : 'ltr'}
+          style={{ top: tooltipPos.top, left: tooltipPos.left, transform: 'translateX(-50%)', textAlign: locale === 'he' ? 'right' : 'left' }}>
+          {t(locale, hoveredDef.nameKey)}
         </div>
       )}
       {openPopover && openDef && popoverPos && (
         <>
           <div className='compact-filter-backdrop' onClick={closePopover} />
-          <div className='compact-filter-popover'
-            style={{ top: popoverPos.top, left: popoverPos.left }} onClick={e => e.stopPropagation()}>
-            <div className='compact-filter-popover-title'>{openDef.name}</div>
-            {openDef.description && (
-              <div style={{ fontSize: 10, color: '#999', marginBottom: 6, lineHeight: 1.3, fontStyle: 'italic', wordWrap: 'break-word', whiteSpace: 'normal', maxWidth: 200 }}>{openDef.description}</div>
-            )}
+          <div className='compact-filter-popover' dir={locale === 'he' ? 'rtl' : 'ltr'}
+            style={{ top: popoverPos.top, left: popoverPos.left, textAlign: locale === 'he' ? 'right' : 'left' }} onClick={e => e.stopPropagation()}>
+            <div className='compact-filter-popover-title'>{t(locale, openDef.nameKey)}</div>
+            <div style={{ fontSize: 10, color: '#999', marginBottom: 6, lineHeight: 1.3, fontStyle: 'italic', wordWrap: 'break-word', whiteSpace: 'normal', maxWidth: 200 }}>{t(locale, openDef.descKey)}</div>
             {openDef.type === 'slider' && (
               <SliderContent def={openDef as any} value={filters[openPopover].value as number}
-                onChange={v => updateFilterValue(openPopover, v)} />
+                onChange={v => updateFilterValue(openPopover, v)} locale={locale} />
             )}
             {openDef.type === 'range-slider' && (
               <RangeSliderContent def={openDef as any} value={filters[openPopover].value as [number, number]}
-                onChange={v => updateFilterValue(openPopover, v)} />
+                onChange={v => updateFilterValue(openPopover, v)} locale={locale} />
             )}
           </div>
         </>
@@ -482,7 +494,7 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
   )
 
   return (
-    <div className="widget-tree-planting" style={{ height: '100%', overflow: 'auto', background: '#2b2b2b', color: '#eee' }}>
+    <div className="widget-tree-planting" dir={locale === 'he' ? 'rtl' : 'ltr'} style={{ height: '100%', overflow: 'auto', background: '#2b2b2b', color: '#eee', textAlign: locale === 'he' ? 'right' : 'left' }}>
       {props.useMapWidgetIds?.[0] && (
         <JimuMapViewComponent useMapWidgetId={props.useMapWidgetIds[0]} onActiveViewChange={(jmv) => setJimuMapView(jmv)} />
       )}
@@ -501,7 +513,7 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
               onClick={e => { e.stopPropagation(); handleIconClick(def.field) }}
               onMouseEnter={() => handleMouseEnter(def.field)}
               onMouseLeave={handleMouseLeave}>
-              <FilterIconImg def={def} />
+              <FilterIconImg def={def} label={t(locale, def.nameKey)} />
             </div>
           )
         })}
@@ -511,64 +523,64 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
       <div style={{ textAlign: 'center', padding: '4px 10px 0' }}>
         <button onClick={() => { setFilters(createInitialFilters()); setOpenPopover(null); setPopoverPos(null) }}
           style={{ fontSize: 10, color: '#aaa', background: 'none', border: '1px solid #555', borderRadius: 3, padding: '2px 10px', cursor: 'pointer' }}>
-          Reset Filters
+          {t(locale, 'resetFilters')}
         </button>
       </div>
 
       {/* Instruction + segment count + calculator */}
       <div style={{ padding: '8px 10px' }}>
         <div style={{ fontSize: 12, fontStyle: 'italic', color: '#bbb', lineHeight: 1.4, marginBottom: 4 }}>
-          Using the above buttons, filter out streets that do not require planting (by default, all the city's streets are considered). Next, choose the target calculation method, change the calculation parameters as you wish, and press Calculate.
+          {t(locale, 'instruction')}
         </div>
         <div style={{ fontSize: 12, color: '#4fc3f7', marginBottom: 6 }}>{segmentCount}</div>
 
         <div style={{ marginBottom: 6 }}>
-          <div style={{ fontWeight: 'bold', fontSize: 15, marginBottom: 4 }}>Calculation Method</div>
+          <div style={{ fontWeight: 'bold', fontSize: 15, marginBottom: 4 }}>{t(locale, 'calculationMethod')}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <label style={{ fontSize: 12, cursor: 'pointer' }}><Radio checked={scenario === 's1'} onChange={() => setScenario('s1')} /> Method 1: Target Tree Canopy Cover Ratio (TCCR)</label>
-            <div style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <label style={{ fontSize: 12, cursor: 'pointer' }}><Radio checked={scenario === 's1'} onChange={() => setScenario('s1')} /> {t(locale, 'method1')}</label>
+            <div style={{ paddingInlineStart: 20, display: 'flex', flexDirection: 'column', gap: 2 }}>
               <label style={{ fontSize: 11, cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                <input type="checkbox" checked={scenario === 's1' && subScenario === '1a'} onChange={() => { setScenario('s1'); setSubScenario('1a') }} style={{ width: 14, height: 14, marginRight: 6, accentColor: '#0079c1' }} />
-                1a: Global
+                <input type="checkbox" checked={scenario === 's1' && subScenario === '1a'} onChange={() => { setScenario('s1'); setSubScenario('1a') }} style={{ width: 14, height: 14, marginInlineEnd: 6, accentColor: '#0079c1' }} />
+                {t(locale, 'method1aGlobal')}
               </label>
               <label style={{ fontSize: 11, cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                <input type="checkbox" checked={scenario === 's1' && subScenario === '1b'} onChange={() => { setScenario('s1'); setSubScenario('1b') }} style={{ width: 14, height: 14, marginRight: 6, accentColor: '#0079c1' }} />
-                1b: By street width
+                <input type="checkbox" checked={scenario === 's1' && subScenario === '1b'} onChange={() => { setScenario('s1'); setSubScenario('1b') }} style={{ width: 14, height: 14, marginInlineEnd: 6, accentColor: '#0079c1' }} />
+                {t(locale, 'method1bByWidth')}
               </label>
             </div>
-            <label style={{ fontSize: 12, cursor: 'pointer', marginTop: 2 }}><Radio checked={scenario === 's2'} onChange={() => setScenario('s2')} /> Method 2: Fixed Spacing</label>
+            <label style={{ fontSize: 12, cursor: 'pointer', marginTop: 2 }}><Radio checked={scenario === 's2'} onChange={() => setScenario('s2')} /> {t(locale, 'method2')}</label>
           </div>
         </div>
 
         <div style={{ marginBottom: 6, padding: 8, border: '1px solid #555', borderRadius: 4 }}>
-          <div style={{ fontWeight: 'bold', fontSize: 15, marginBottom: 4 }}>Calculation Parameters</div>
+          <div style={{ fontWeight: 'bold', fontSize: 15, marginBottom: 4 }}>{t(locale, 'calculationParameters')}</div>
           <div style={{ marginBottom: 4 }}>
-            <div style={{ fontSize: 11, marginBottom: 2 }}>Crown diameter (m)</div>
+            <div style={{ fontSize: 11, marginBottom: 2 }}>{t(locale, 'crownDiameter')}</div>
             <input type="text" value={String(diameter)} onChange={(e) => setDiameter(Number(e.target.value))}
               style={{ width: '100%', padding: '4px 6px', background: '#3a3a3a', border: '1px solid #555', borderRadius: 3, color: '#eee', fontSize: 12 }} />
           </div>
           {scenario === 's1' && subScenario === '1a' && (
             <div style={{ marginBottom: 4 }}>
-              <div style={{ fontSize: 11, marginBottom: 2 }}>Global target TCCR (0.0 - 1.0)</div>
+              <div style={{ fontSize: 11, marginBottom: 2 }}>{t(locale, 'globalTccr')}</div>
               <input type="text" value={String(tccrGlobal)} onChange={(e) => setTccrGlobal(Number(e.target.value))}
                 style={{ width: '100%', padding: '4px 6px', background: '#3a3a3a', border: '1px solid #555', borderRadius: 3, color: '#eee', fontSize: 12 }} />
             </div>
           )}
           {scenario === 's1' && subScenario === '1b' && (
             <div style={{ padding: 6, border: '1px solid #555', borderRadius: 3, fontSize: 11 }}>
-              <div style={{ fontWeight: 'bold', marginBottom: 4 }}>TCCR targets by street width:</div>
+              <div style={{ fontWeight: 'bold', marginBottom: 4 }}>{t(locale, 'tccrTargetsByWidth')}</div>
               {Object.keys(wtypeTargets).sort().map(id => (
                 <div key={id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-                  <span>{CATEGORY_LABELS[id] || `Class ${id}`}:</span>
+                  <span>{cat[id] || `${t(locale, 'classLabel')} ${id}`}:</span>
                   <input type="text" value={String(wtypeTargets[id])} onChange={(e) => setWtypeTargets({...wtypeTargets, [id]: Number(e.target.value)})}
-                    style={{ width: 60, padding: '2px 4px', background: '#3a3a3a', border: '1px solid #555', borderRadius: 3, color: '#eee', fontSize: 11, textAlign: 'right' }} />
+                    style={{ width: 60, padding: '2px 4px', background: '#3a3a3a', border: '1px solid #555', borderRadius: 3, color: '#eee', fontSize: 11, textAlign: 'end' as any }} />
                 </div>
               ))}
             </div>
           )}
           {scenario === 's2' && (
             <div style={{ marginBottom: 4 }}>
-              <div style={{ fontSize: 11, marginBottom: 2 }}>Desired Spacing (m)</div>
+              <div style={{ fontSize: 11, marginBottom: 2 }}>{t(locale, 'desiredSpacing')}</div>
               <input type="text" value={String(spacing)} onChange={(e) => setSpacing(Number(e.target.value))}
                 style={{ width: '100%', padding: '4px 6px', background: '#3a3a3a', border: '1px solid #555', borderRadius: 3, color: '#eee', fontSize: 12 }} />
             </div>
@@ -577,34 +589,34 @@ export default function Widget (props: AllWidgetProps<IMConfig>) {
 
         <button onClick={onCompute} disabled={!dsId || loading}
           style={{ width: '100%', padding: '8px', background: loading ? '#555' : '#4a90d9', color: '#fff', border: 'none', borderRadius: 4, fontSize: 13, cursor: loading ? 'default' : 'pointer', marginBottom: 8 }}>
-          {loading ? 'Processing...' : 'Calculate'}
+          {loading ? t(locale, 'processing') : t(locale, 'calculate')}
         </button>
 
         {results && (
           <div style={{ padding: 10, border: '1px solid #555', borderRadius: 4, background: '#333' }}>
-            <div style={{ fontWeight: 'bold', borderBottom: '1px solid #555', marginBottom: 6, paddingBottom: 4, textTransform: 'uppercase', fontSize: 11 }}>Results</div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Selected segments:</span><strong>{fmtInt(results.segmentCount)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Total street length:</span><strong>{fmtInt(results.totalLength)} m</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginTop: 4 }}><span>Ideal trees:</span><strong>{fmtInt(results.totalTrees)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Existing shade trees:</span><strong>{fmtInt(results.totalExistingShade)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Underdeveloped trees:</span><strong>{fmtInt(results.totalExistingUnder)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 'bold', borderBottom: '1px solid #555', paddingBottom: 4, marginBottom: 4 }}><span>New trees to plant:</span><strong>{fmtInt(results.treesToAdd)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>Weighted TCCR:</span><strong>{formatNum(results.avgTccr)}</strong></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 8 }}><span>Avg. Spacing:</span><strong>{fmtInt(results.avgSpacing)} m</strong></div>
+            <div style={{ fontWeight: 'bold', borderBottom: '1px solid #555', marginBottom: 6, paddingBottom: 4, textTransform: 'uppercase', fontSize: 11 }}>{t(locale, 'results')}</div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>{t(locale, 'selectedSegments')}</span><strong>{fmtInt(results.segmentCount)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>{t(locale, 'totalStreetLength')}</span><strong>{fmtInt(results.totalLength)} m</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginTop: 4 }}><span>{t(locale, 'idealTrees')}</span><strong>{fmtInt(results.totalTrees)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>{t(locale, 'existingShadeTrees')}</span><strong>{fmtInt(results.totalExistingShade)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>{t(locale, 'underdevelopedTrees')}</span><strong>{fmtInt(results.totalExistingUnder)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 'bold', borderBottom: '1px solid #555', paddingBottom: 4, marginBottom: 4 }}><span>{t(locale, 'newTreesToPlant')}</span><strong>{fmtInt(results.treesToAdd)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>{t(locale, 'weightedTccr')}</span><strong>{formatNum(results.avgTccr)}</strong></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 8 }}><span>{t(locale, 'avgSpacing')}</span><strong>{fmtInt(results.avgSpacing)} m</strong></div>
             <div style={{ display: 'flex', gap: 6, marginBottom: 8 }}>
-              <button onClick={handleCsvDownload} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>Export CSV</button>
-              <button onClick={handlePdfReport} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>Print PDF</button>
+              <button onClick={handleCsvDownload} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>{t(locale, 'exportCsv')}</button>
+              <button onClick={handlePdfReport} style={{ flex: 1, padding: '4px 8px', background: '#4a4a4a', color: '#eee', border: '1px solid #666', borderRadius: 3, fontSize: 11, cursor: 'pointer' }}>{t(locale, 'printPdf')}</button>
             </div>
             <div style={{ marginTop: 8 }}>
-              <div style={{ fontWeight: 'bold', borderBottom: '1px solid #555', marginBottom: 4, fontSize: 11, textTransform: 'uppercase' }}>Analysis by width:</div>
+              <div style={{ fontWeight: 'bold', borderBottom: '1px solid #555', marginBottom: 4, fontSize: 11, textTransform: 'uppercase' }}>{t(locale, 'analysisByWidth')}</div>
               {Object.keys(results.byWtype).sort().map(k => (
                 <div key={k} style={{ borderBottom: '1px solid #444', paddingBottom: 4, marginBottom: 4, fontSize: 11 }}>
-                  <div style={{ fontWeight: 'bold', color: '#4fc3f7' }}>{CATEGORY_LABELS[k] || `Class ${k}`}</div>
+                  <div style={{ fontWeight: 'bold', color: '#4fc3f7' }}>{cat[k] || `${t(locale, 'classLabel')} ${k}`}</div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Add <strong>{fmtInt(results.byWtype[k].treesToAdd)}</strong> trees</span>
-                    <span>TCCR: {formatNum(results.byWtype[k].tccr)}</span>
+                    <span>{t(locale, 'addTrees', { n: fmtInt(results.byWtype[k].treesToAdd) })}</span>
+                    <span>{t(locale, 'tccrLabel')}: {formatNum(results.byWtype[k].tccr)}</span>
                   </div>
-                  <div style={{ color: '#888', fontSize: 10 }}>Spacing: {fmtInt(results.byWtype[k].spacing)} m | Length: {fmtInt(results.byWtype[k].length)} m</div>
+                  <div style={{ color: '#888', fontSize: 10 }}>{t(locale, 'spacingLabel')}: {fmtInt(results.byWtype[k].spacing)} m | {t(locale, 'lengthLabel')}: {fmtInt(results.byWtype[k].length)} m</div>
                 </div>
               ))}
             </div>

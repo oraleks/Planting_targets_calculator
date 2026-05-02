@@ -85,11 +85,36 @@ Tel Aviv-Yafo Tree Planting Targets Calculator — an ESRI Experience Builder 1.
 - Map Layers widget uses Calcite `<calcite-list-item>` with Shadow DOM; layer names are in the `title` attribute; inject icons via `slot="content-start"`
 - New widgets require webpack restart (`npm start` in `client/`)
 - For deployment builds on Node 16: patch `copy-webpack-plugin` — replace `.toSorted()` with `.sort()`
-- GitHub Pages deployment: set `isDevEdition: false`, `buildNumber: ""`, `base href` to repo path, `mountPath` to repo path, remove `clientId` for public data
+
+## GitHub Pages Deployment
+
+`cdn/7/index.html` ships with **dev-edition** values (it mirrors what ExB
+generates). The gh-pages branch needs different values for the live site.
+The deploy script patches them every push; **never copy `cdn/7/index.html`
+to gh-pages verbatim**.
+
+| Setting                | `cdn/7/index.html` (dev) | gh-pages (prod)                   |
+|------------------------|--------------------------|-----------------------------------|
+| `<base href>`          | `./`                     | `/Planting_targets_calculator/`   |
+| `mountPath`            | `/`                      | `/Planting_targets_calculator/`   |
+| `isDevEdition`         | `true`                   | `false`                           |
+| `buildNumber`          | `"7"`                    | `""`                              |
+
+Run [`./deploy.sh`](deploy.sh) from the repo root to:
+1. Build prod bundles in `<ExB>/client`
+2. Copy compiled widgets into `cdn/7/widgets/`
+3. Sync `cdn/7/*` into a gh-pages worktree
+4. Patch the four production settings into `index.html`
+5. Commit and push to `origin/gh-pages`
+
+Flags: `--no-build` skips the build step (use existing `cdn/7/` artifacts);
+`--dry-run` does everything except `git push` and leaves the worktree for
+inspection.
 
 ## Commands
 
-- Build widgets: `cd <ExB>/client && npm start` (watch mode) or `npm run build:dev`
+- Build widgets (watch): `cd <ExB>/client && npm start`
+- One-shot prod build: `cd <ExB>/client && npm run build:prod`
 - Run server: `cd <ExB>/server && npm start`
 - App URL (local): `https://localhost:3001/experience/2/`
-- Deploy: push to `gh-pages` branch → GitHub Pages auto-deploys
+- Deploy to GitHub Pages: `./deploy.sh` (from repo root)

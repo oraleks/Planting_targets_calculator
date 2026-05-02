@@ -18,14 +18,14 @@ export const LAYER_TITLES: Record<Locale, Record<string, string>> = {
     'Selected streets': 'Selected streets'
   },
   he: {
-    'Spring/Summer Shade Index': 'מדד הצללת אביב/קיץ',
+    'Spring/Summer Shade Index': 'מדד ההצללה באביב/בקיץ',
     'Neighbourhood transit': 'תנועה שכונתית',
     'City transit': 'תנועה עירונית',
     'Local centers': 'מרכזים מקומיים',
     'Building density': 'צפיפות בנייה',
-    'Access to shops and restaurants': 'נגישות לחנויות ומסעדות',
-    'School or preschool proximity': 'קרבה לבית ספר או גן',
-    'Tram, metro or railway station proximity': 'קרבה לרכבת קלה, מטרו או תחנת רכבת',
+    'Access to shops and restaurants': 'נגישות לחנויות ולמסעדות',
+    'School or preschool proximity': 'קרבה לבית ספר או לגן ילדים',
+    'Tram, metro or railway station proximity': 'קרבה לרכבת קלה, למטרו או לתחנת רכבת',
     'Bus stop proximity': 'קרבה לתחנת אוטובוס',
     'Existing trees': 'עצים קיימים',
     'Selected streets': 'רחובות נבחרים'

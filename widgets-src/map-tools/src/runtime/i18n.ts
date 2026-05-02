@@ -8,8 +8,8 @@ const STRINGS: Record<Locale, Record<StringKey, string>> = {
     toggleFullscreen: 'Toggle fullscreen'
   },
   he: {
-    toggleBasemap: 'החלפת מפת רקע',
-    toggleFullscreen: 'החלפת מסך מלא'
+    toggleBasemap: 'שינוי מפת רקע',
+    toggleFullscreen: 'שינוי מצב מסך מלא'
   }
 }
 
